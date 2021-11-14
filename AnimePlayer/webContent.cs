@@ -44,12 +44,15 @@ namespace AnimePlayer
                 Console.WriteLine("--------- Local ----------");
                 Interpreter interpreter = new Interpreter(oknoG);
                 interpreter.Local();
+                oknoG.onOnline = false;
             }
             else
             {
                 openMainFile(oknoG);
+                oknoG.onOnline = true;
+                oknoG.labelSatusWorkingApp.Text = "Status działania: Prawidłowy";
             }
-            oknoG.labelSatusWorkingApp.Text = "Status działania: Prawidłowy";
+            
             oknoG.panelLoading.Hide();
         }
         public static void openMainFile(OknoG oknoG)
@@ -266,15 +269,22 @@ namespace AnimePlayer
                 }
                 else
                 {
-                    values.pathPage = WebContent.downloadPage(values.contentId, values.name + "_page");
-                    if(values.pathPage != null)
+                    if(oknoG.onOnline == true)
                     {
-                        SetPage(values.pathPage);
+                        values.pathPage = WebContent.downloadPage(values.contentId, values.name + "_page");
+                        if (values.pathPage != null)
+                        {
+                            SetPage(values.pathPage);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Nie udało się załadować strony!", "Błąd",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Nie udało się załadować strony!", "Błąd",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        SetPage("C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Page\\" + values.name + "_page.txt");
                     }
                 }
                 oknoG.panelLoading.Hide();
@@ -420,8 +430,15 @@ namespace AnimePlayer
                         else if (content[position] == "EpisodeList")
                         {
                             position++;
-                            string zm = WebContent.downloadVideoContent(WebContent.dUri(content[position]), values.name);
-                            GetListTypeEp(pageItem1, zm);
+                            if(oknoG.onOnline)
+                            {
+                                string zm = WebContent.downloadVideoContent(WebContent.dUri(content[position]), values.name);
+                                GetListTypeEp(pageItem1, zm);
+                            }
+                            else
+                            {
+                                GetListTypeEp(pageItem1, "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Video\\" + values.name + "_list_ep.txt");
+                            }
 
                         }
                         position++;

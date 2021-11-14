@@ -88,6 +88,7 @@
     <Compile Include="AboutBox1.Designer.cs">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </Compile>
+    <Compile Include="CdaDownloader.cs" />
     <Compile Include="ClassControls.cs" />
     <Compile Include="ClassEpisodePanel.cs" />
     <Compile Include="FormMainPlayer.cs">
@@ -125,6 +126,12 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="VideoPlayer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VideoPlayer.Designer.cs">
+      <DependentUpon>VideoPlayer.cs</DependentUpon>
     </Compile>
     <Compile Include="webContent.cs" />
   </ItemGroup>
@@ -179,9 +186,18 @@
     <EmbeddedResource Include="FormMainPlayer.resx">
       <DependentUpon>FormMainPlayer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PageEpisode.resx">
+      <DependentUpon>PageEpisode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PageItem.resx">
+      <DependentUpon>PageItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VideoPlayer.resx">
+      <DependentUpon>VideoPlayer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

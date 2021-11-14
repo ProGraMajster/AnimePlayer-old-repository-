@@ -56,6 +56,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panelTop = new System.Windows.Forms.Panel();
+            this.roundedPanel1 = new AnimePlayer.RoundedPanel();
+            this.labelSatusWorkingApp = new System.Windows.Forms.Label();
+            this.buttonMenuOpen = new System.Windows.Forms.Button();
+            this.label = new System.Windows.Forms.Label();
             this.panelSettings = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panelLoading = new System.Windows.Forms.Panel();
@@ -70,10 +74,6 @@
             this.labelError = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.timerAnimationError = new System.Windows.Forms.Timer(this.components);
-            this.roundedPanel1 = new AnimePlayer.RoundedPanel();
-            this.labelSatusWorkingApp = new System.Windows.Forms.Label();
-            this.buttonMenuOpen = new System.Windows.Forms.Button();
-            this.label = new System.Windows.Forms.Label();
             this.panelYTlink.SuspendLayout();
             this.panelWeb.SuspendLayout();
             this.panelPlayer.SuspendLayout();
@@ -89,13 +89,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panelTop.SuspendLayout();
+            this.roundedPanel1.SuspendLayout();
             this.panelSettings.SuspendLayout();
             this.panelLoading.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelNotifiError.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.roundedPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMainPlayer
@@ -377,6 +377,64 @@
             this.panelTop.Size = new System.Drawing.Size(931, 91);
             this.panelTop.TabIndex = 0;
             // 
+            // roundedPanel1
+            // 
+            this.roundedPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.roundedPanel1.ColorEdges = System.Drawing.SystemColors.ActiveCaptionText;
+            this.roundedPanel1.Controls.Add(this.labelSatusWorkingApp);
+            this.roundedPanel1.Controls.Add(this.buttonMenuOpen);
+            this.roundedPanel1.Controls.Add(this.label);
+            this.roundedPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.roundedPanel1.ExBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.roundedPanel1.Location = new System.Drawing.Point(10, 10);
+            this.roundedPanel1.Margin = new System.Windows.Forms.Padding(10);
+            this.roundedPanel1.Name = "roundedPanel1";
+            this.roundedPanel1.Padding = new System.Windows.Forms.Padding(20, 6, 20, 6);
+            this.roundedPanel1.RadiusArcPanel = 15F;
+            this.roundedPanel1.Size = new System.Drawing.Size(911, 71);
+            this.roundedPanel1.TabIndex = 0;
+            this.roundedPanel1.Resize += new System.EventHandler(this.Panel_Resize);
+            // 
+            // labelSatusWorkingApp
+            // 
+            this.labelSatusWorkingApp.Dock = System.Windows.Forms.DockStyle.Right;
+            this.labelSatusWorkingApp.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSatusWorkingApp.ForeColor = System.Drawing.SystemColors.Window;
+            this.labelSatusWorkingApp.Location = new System.Drawing.Point(598, 6);
+            this.labelSatusWorkingApp.Name = "labelSatusWorkingApp";
+            this.labelSatusWorkingApp.Size = new System.Drawing.Size(222, 59);
+            this.labelSatusWorkingApp.TabIndex = 2;
+            this.labelSatusWorkingApp.Text = "Satus działania:";
+            this.labelSatusWorkingApp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // buttonMenuOpen
+            // 
+            this.buttonMenuOpen.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonMenuOpen.FlatAppearance.BorderSize = 0;
+            this.buttonMenuOpen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.buttonMenuOpen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.buttonMenuOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMenuOpen.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonMenuOpen.ForeColor = System.Drawing.Color.White;
+            this.buttonMenuOpen.Location = new System.Drawing.Point(820, 6);
+            this.buttonMenuOpen.Name = "buttonMenuOpen";
+            this.buttonMenuOpen.Size = new System.Drawing.Size(71, 59);
+            this.buttonMenuOpen.TabIndex = 1;
+            this.buttonMenuOpen.Text = "=";
+            this.buttonMenuOpen.UseVisualStyleBackColor = true;
+            this.buttonMenuOpen.Click += new System.EventHandler(this.buttonMenuOpen_Click);
+            // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label.ForeColor = System.Drawing.SystemColors.Window;
+            this.label.Location = new System.Drawing.Point(32, 22);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(150, 28);
+            this.label.TabIndex = 0;
+            this.label.Text = "Twoje anime pl";
+            // 
             // panelSettings
             // 
             this.panelSettings.Controls.Add(this.label4);
@@ -542,64 +600,6 @@
             this.timerAnimationError.Interval = 1;
             this.timerAnimationError.Tick += new System.EventHandler(this.timerAnimationError_Tick);
             // 
-            // roundedPanel1
-            // 
-            this.roundedPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.roundedPanel1.ColorEdges = System.Drawing.SystemColors.ActiveCaptionText;
-            this.roundedPanel1.Controls.Add(this.labelSatusWorkingApp);
-            this.roundedPanel1.Controls.Add(this.buttonMenuOpen);
-            this.roundedPanel1.Controls.Add(this.label);
-            this.roundedPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundedPanel1.ExBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.roundedPanel1.Location = new System.Drawing.Point(10, 10);
-            this.roundedPanel1.Margin = new System.Windows.Forms.Padding(10);
-            this.roundedPanel1.Name = "roundedPanel1";
-            this.roundedPanel1.Padding = new System.Windows.Forms.Padding(20, 6, 20, 6);
-            this.roundedPanel1.RadiusArcPanel = 15F;
-            this.roundedPanel1.Size = new System.Drawing.Size(911, 71);
-            this.roundedPanel1.TabIndex = 0;
-            this.roundedPanel1.Resize += new System.EventHandler(this.Panel_Resize);
-            // 
-            // labelSatusWorkingApp
-            // 
-            this.labelSatusWorkingApp.Dock = System.Windows.Forms.DockStyle.Right;
-            this.labelSatusWorkingApp.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSatusWorkingApp.ForeColor = System.Drawing.SystemColors.Window;
-            this.labelSatusWorkingApp.Location = new System.Drawing.Point(598, 6);
-            this.labelSatusWorkingApp.Name = "labelSatusWorkingApp";
-            this.labelSatusWorkingApp.Size = new System.Drawing.Size(222, 59);
-            this.labelSatusWorkingApp.TabIndex = 2;
-            this.labelSatusWorkingApp.Text = "Satus działania:";
-            this.labelSatusWorkingApp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // buttonMenuOpen
-            // 
-            this.buttonMenuOpen.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonMenuOpen.FlatAppearance.BorderSize = 0;
-            this.buttonMenuOpen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.buttonMenuOpen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.buttonMenuOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMenuOpen.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonMenuOpen.ForeColor = System.Drawing.Color.White;
-            this.buttonMenuOpen.Location = new System.Drawing.Point(820, 6);
-            this.buttonMenuOpen.Name = "buttonMenuOpen";
-            this.buttonMenuOpen.Size = new System.Drawing.Size(71, 59);
-            this.buttonMenuOpen.TabIndex = 1;
-            this.buttonMenuOpen.Text = "=";
-            this.buttonMenuOpen.UseVisualStyleBackColor = true;
-            this.buttonMenuOpen.Click += new System.EventHandler(this.buttonMenuOpen_Click);
-            // 
-            // label
-            // 
-            this.label.AutoSize = true;
-            this.label.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label.ForeColor = System.Drawing.SystemColors.Window;
-            this.label.Location = new System.Drawing.Point(32, 22);
-            this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(150, 28);
-            this.label.TabIndex = 0;
-            this.label.Text = "Twoje anime pl";
-            // 
             // OknoG
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -635,6 +635,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelTop.ResumeLayout(false);
+            this.roundedPanel1.ResumeLayout(false);
+            this.roundedPanel1.PerformLayout();
             this.panelSettings.ResumeLayout(false);
             this.panelSettings.PerformLayout();
             this.panelLoading.ResumeLayout(false);
@@ -643,8 +645,6 @@
             this.panel2.ResumeLayout(false);
             this.panelNotifiError.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.roundedPanel1.ResumeLayout(false);
-            this.roundedPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }

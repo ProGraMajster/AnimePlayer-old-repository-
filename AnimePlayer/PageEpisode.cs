@@ -13,12 +13,14 @@ namespace AnimePlayer
 {
     public partial class PageEpisode : UserControl
     {
+        private Panel panelvv;
         public string nameTypeEpisode;
         public string pathToFile;
         WebContent.Values values;
-        public PageEpisode(string name, string path, WebContent.Values val)
+        public PageEpisode(string name, string path, WebContent.Values val, Panel panel)
         {
             InitializeComponent();
+            panelvv = panel;
             values = val;
             nameTypeEpisode = name;
             pathToFile = path;
@@ -80,10 +82,10 @@ namespace AnimePlayer
                                 for (int i = 0; i < num_btn; i++)
                                 {
                                     position++;
-                                    ep_link += content[position];
+                                    ep_link += content[position]+";";
                                 }
 
-                                ClassEpisodePanel episodePanel = new ClassEpisodePanel(zm, ep, num_btn, path, ep_link);
+                                ClassEpisodePanel episodePanel = new ClassEpisodePanel(zm, ep, num_btn, path, ep_link, panelvv);
                                 flowLayoutPanel1.Controls.Add(episodePanel.panelMain);
                             }
                         }

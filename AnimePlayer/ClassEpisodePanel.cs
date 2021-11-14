@@ -24,9 +24,12 @@ namespace AnimePlayer
         public int NumberBtn;
         public int numEp;
 
+        private Panel panelTopv;
 
-        public ClassEpisodePanel(string text, int ep, int numberQuality, string path, string link)
+        public ClassEpisodePanel(string text, int ep, int numberQuality, string path, string link, Panel panel)
         {
+            panelTopv = panel;
+            string[] zm = link.Split(';');
             panelMain = new Panel();
             panelMain.BackColor = Color.FromArgb(30, 30, 30);
             panelMain.Size = new Size(700, 30);
@@ -89,14 +92,113 @@ namespace AnimePlayer
             button_360p.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             button_360p.AutoSize = true;
 
+
+
+            try
+            {
+                bool end = false;
+                int position = 0;
+                while (end != true)
+                {
+                    if (position == zm.Length - 1)
+                    {
+                        end = true;
+                    }
+
+                    if (zm[position] == "1080p")
+                    {
+                        position++;
+                        if (zm[position] != null)
+                        {
+                            button_1080p.Tag = zm[position];
+                        }
+                    }
+                    else if (zm[position] == "720p")
+                    {
+                        position++;
+                        if (zm[position] != null)
+                        {
+                            button_720p.Tag = zm[position];
+                        }
+                    }
+                    else if (zm[position] == "460p")
+                    {
+                        position++;
+                        if (zm[position] != null)
+                        {
+                            button_460p.Tag = zm[position];
+                        }
+                    }
+                    else if (zm[position] == "360p")
+                    {
+                        position++;
+                        if (zm[position] != null)
+                        {
+                            button_360p.Tag = zm[position];
+                        }
+                    }
+
+                    position++;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            button_1080p.Name = "1080";
+            button_720p.Name = "720";
+            button_460p.Name = "460";
+            button_360p.Name = "360";
             panelMain.Controls.Add(button_1080p);
             panelMain.Controls.Add(button_720p);
             panelMain.Controls.Add(button_460p);
             panelMain.Controls.Add(button_360p);
             panelMain.Controls.Add(labelEp);
             panelMain.Controls.Add(labelTitle);
+            button_1080p.Click += Button_Click;
+            button_720p.Click += Button_Click;
+            button_460p.Click += Button_Click;
+            button_360p.Click += Button_Click;
         }
 
+        private void Button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Button btn = (Button)sender;
+                if (btn.Tag != null)
+                {
+                    if (btn.Tag.ToString().Contains("www.cda.pl"))
+                    {
+                        if (btn.Name == "1080")
+                        {
+                            VideoPlayer videoPlayer = new VideoPlayer(CdaDownloader.GetVideoLink(btn.Tag.ToString(), CdaQuality.p1080), panelTopv);
+                        }
+                        else if (btn.Name == "720")
+                        {
+                            VideoPlayer videoPlayer = new VideoPlayer(CdaDownloader.GetVideoLink(btn.Tag.ToString(), CdaQuality.p720), panelTopv);
+                        }
+                        else if (btn.Name == "460")
+                        {
+                            VideoPlayer videoPlayer = new VideoPlayer(CdaDownloader.GetVideoLink(btn.Tag.ToString(), CdaQuality.p480), panelTopv);
+                        }
+                        else if (btn.Name == "360")
+                        {
+                            VideoPlayer videoPlayer = new VideoPlayer(CdaDownloader.GetVideoLink(btn.Tag.ToString(), CdaQuality.p360), panelTopv);
+                        }
 
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Wystąpił błąd");
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
     }
 }

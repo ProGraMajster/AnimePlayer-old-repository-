@@ -25,7 +25,7 @@ namespace AnimePlayer
         FormMiniPlayer form2;
         string[] args = Environment.GetCommandLineArgs();
 
-        public bool onOnline = false;
+        public bool onOnline = true;
         public OknoG()
         {
             InitializeComponent();
