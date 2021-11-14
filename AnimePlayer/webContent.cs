@@ -256,6 +256,7 @@ namespace AnimePlayer
                 SetName();
                 SetImage();
                 buttonItem.Click += ButtonItem_Click;
+                pictureBoxItem.Click += ButtonItem_Click;
             }
 
             private void ButtonItem_Click(object sender, EventArgs e)
@@ -311,6 +312,12 @@ namespace AnimePlayer
 
             public void SetPage(string path)
             {
+                if(!File.Exists(path))
+                {
+                    MessageBox.Show("Wystąpił błąd podczas ładowania zawartości!", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 PageItem pageItem1 = new PageItem(values, oknoG);
                 oknoG.panel2.Controls.Add(pageItem1);
                 pageItem1.Dock = DockStyle.Fill;

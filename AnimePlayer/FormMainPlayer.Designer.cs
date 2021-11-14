@@ -60,11 +60,13 @@
             this.labelSatusWorkingApp = new System.Windows.Forms.Label();
             this.buttonMenuOpen = new System.Windows.Forms.Button();
             this.label = new System.Windows.Forms.Label();
-            this.panelSettings = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
             this.panelLoading = new System.Windows.Forms.Panel();
             this.labelLoading = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.pictureBoxGithub = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSite = new System.Windows.Forms.PictureBox();
+            this.buttonSite = new System.Windows.Forms.Button();
             this.buttonExitApp = new System.Windows.Forms.Button();
             this.buttonPlayer = new System.Windows.Forms.Button();
             this.buttonSetting = new System.Windows.Forms.Button();
@@ -90,9 +92,11 @@
             this.panel1.SuspendLayout();
             this.panelTop.SuspendLayout();
             this.roundedPanel1.SuspendLayout();
-            this.panelSettings.SuspendLayout();
             this.panelLoading.SuspendLayout();
             this.panelMenu.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGithub)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSite)).BeginInit();
             this.panel2.SuspendLayout();
             this.panelNotifiError.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -205,6 +209,7 @@
             // panelStartPage
             // 
             this.panelStartPage.AutoScroll = true;
+            this.panelStartPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.panelStartPage.Controls.Add(this.panelGroup);
             this.panelStartPage.Controls.Add(this.panePolecane);
             this.panelStartPage.Controls.Add(this.panelTop);
@@ -228,6 +233,7 @@
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.AutoScroll = true;
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.flowLayoutPanel2.Controls.Add(this.panel3);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 30);
@@ -304,11 +310,12 @@
             // flowLayoutPanelPolecane
             // 
             this.flowLayoutPanelPolecane.AutoScroll = true;
+            this.flowLayoutPanelPolecane.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.flowLayoutPanelPolecane.Controls.Add(this.panelItem);
             this.flowLayoutPanelPolecane.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanelPolecane.Location = new System.Drawing.Point(0, 30);
             this.flowLayoutPanelPolecane.Name = "flowLayoutPanelPolecane";
-            this.flowLayoutPanelPolecane.Padding = new System.Windows.Forms.Padding(10, 2, 10, 2);
+            this.flowLayoutPanelPolecane.Padding = new System.Windows.Forms.Padding(12, 2, 12, 2);
             this.flowLayoutPanelPolecane.Size = new System.Drawing.Size(931, 266);
             this.flowLayoutPanelPolecane.TabIndex = 1;
             this.flowLayoutPanelPolecane.WrapContents = false;
@@ -317,7 +324,7 @@
             // 
             this.panelItem.Controls.Add(this.pictureBox1);
             this.panelItem.Controls.Add(this.button2);
-            this.panelItem.Location = new System.Drawing.Point(13, 5);
+            this.panelItem.Location = new System.Drawing.Point(15, 5);
             this.panelItem.Name = "panelItem";
             this.panelItem.Size = new System.Drawing.Size(177, 241);
             this.panelItem.TabIndex = 0;
@@ -435,29 +442,6 @@
             this.label.TabIndex = 0;
             this.label.Text = "Twoje anime pl";
             // 
-            // panelSettings
-            // 
-            this.panelSettings.Controls.Add(this.label4);
-            this.panelSettings.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelSettings.Location = new System.Drawing.Point(0, 0);
-            this.panelSettings.Name = "panelSettings";
-            this.panelSettings.Padding = new System.Windows.Forms.Padding(10);
-            this.panelSettings.Size = new System.Drawing.Size(948, 541);
-            this.panelSettings.TabIndex = 3;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(10, 10);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(112, 28);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Ustawienia";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // panelLoading
             // 
             this.panelLoading.Controls.Add(this.labelLoading);
@@ -483,16 +467,69 @@
             // 
             // panelMenu
             // 
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.panelMenu.Controls.Add(this.panel5);
             this.panelMenu.Controls.Add(this.buttonExitApp);
             this.panelMenu.Controls.Add(this.buttonPlayer);
             this.panelMenu.Controls.Add(this.buttonSetting);
             this.panelMenu.Controls.Add(this.buttonMenuClose);
-            this.panelMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelMenu.Location = new System.Drawing.Point(750, 0);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Padding = new System.Windows.Forms.Padding(10);
             this.panelMenu.Size = new System.Drawing.Size(200, 541);
             this.panelMenu.TabIndex = 1;
             this.panelMenu.Visible = false;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.pictureBoxGithub);
+            this.panel5.Controls.Add(this.pictureBoxSite);
+            this.panel5.Controls.Add(this.buttonSite);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(10, 491);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(180, 40);
+            this.panel5.TabIndex = 4;
+            // 
+            // pictureBoxGithub
+            // 
+            this.pictureBoxGithub.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBoxGithub.Image = global::AnimePlayer.Properties.Resource.GitHub_Mark_Light_120px_plus;
+            this.pictureBoxGithub.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxGithub.Name = "pictureBoxGithub";
+            this.pictureBoxGithub.Size = new System.Drawing.Size(40, 40);
+            this.pictureBoxGithub.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxGithub.TabIndex = 0;
+            this.pictureBoxGithub.TabStop = false;
+            this.pictureBoxGithub.Click += new System.EventHandler(this.pictureBoxGithub_Click);
+            // 
+            // pictureBoxSite
+            // 
+            this.pictureBoxSite.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pictureBoxSite.Image = global::AnimePlayer.Properties.Resource.siteIcon;
+            this.pictureBoxSite.Location = new System.Drawing.Point(65, 0);
+            this.pictureBoxSite.Name = "pictureBoxSite";
+            this.pictureBoxSite.Size = new System.Drawing.Size(40, 40);
+            this.pictureBoxSite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxSite.TabIndex = 2;
+            this.pictureBoxSite.TabStop = false;
+            this.pictureBoxSite.Click += new System.EventHandler(this.pictureBoxSite_Click);
+            // 
+            // buttonSite
+            // 
+            this.buttonSite.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonSite.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonSite.FlatAppearance.BorderSize = 0;
+            this.buttonSite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSite.ForeColor = System.Drawing.Color.White;
+            this.buttonSite.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSite.Location = new System.Drawing.Point(105, 0);
+            this.buttonSite.Name = "buttonSite";
+            this.buttonSite.Size = new System.Drawing.Size(75, 40);
+            this.buttonSite.TabIndex = 4;
+            this.buttonSite.Text = "Twojanimepl";
+            this.buttonSite.UseVisualStyleBackColor = true;
+            this.buttonSite.Click += new System.EventHandler(this.buttonSite_Click);
             // 
             // buttonExitApp
             // 
@@ -553,7 +590,6 @@
             // 
             this.panel2.Controls.Add(this.panelStartPage);
             this.panel2.Controls.Add(this.panelPlayer);
-            this.panel2.Controls.Add(this.panelSettings);
             this.panel2.Controls.Add(this.panelLoading);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -611,12 +647,14 @@
             this.Controls.Add(this.panelNotifiError);
             this.DoubleBuffered = true;
             this.KeyPreview = true;
+            this.MinimumSize = new System.Drawing.Size(600, 450);
             this.Name = "OknoG";
             this.Text = "WMP_OverlayApp - Twojeanimepl";
             this.Load += new System.EventHandler(this.OknoG_Load);
             this.ResizeEnd += new System.EventHandler(this.OknoG_ResizeEnd);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
+            this.Resize += new System.EventHandler(this.OknoG_Resize);
             this.panelYTlink.ResumeLayout(false);
             this.panelYTlink.PerformLayout();
             this.panelWeb.ResumeLayout(false);
@@ -637,11 +675,12 @@
             this.panelTop.ResumeLayout(false);
             this.roundedPanel1.ResumeLayout(false);
             this.roundedPanel1.PerformLayout();
-            this.panelSettings.ResumeLayout(false);
-            this.panelSettings.PerformLayout();
             this.panelLoading.ResumeLayout(false);
             this.panelLoading.PerformLayout();
             this.panelMenu.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGithub)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSite)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panelNotifiError.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -678,8 +717,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panelSettings;
-        private System.Windows.Forms.Label label4;
         public System.Windows.Forms.Panel panePolecane;
         private System.Windows.Forms.Label labelLoading;
         public System.Windows.Forms.Panel panelLoading;
@@ -695,6 +732,10 @@
         public System.Windows.Forms.Label labelError;
         public System.Windows.Forms.Timer timerAnimationError;
         public System.Windows.Forms.Label labelSatusWorkingApp;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.PictureBox pictureBoxGithub;
+        private System.Windows.Forms.PictureBox pictureBoxSite;
+        private System.Windows.Forms.Button buttonSite;
     }
 }
 

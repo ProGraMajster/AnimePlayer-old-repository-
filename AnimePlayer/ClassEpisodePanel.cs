@@ -32,13 +32,13 @@ namespace AnimePlayer
             string[] zm = link.Split(';');
             panelMain = new Panel();
             panelMain.BackColor = Color.FromArgb(30, 30, 30);
-            panelMain.Size = new Size(700, 30);
+            panelMain.Size = new Size(800, 40);
 
             labelTitle = new Label();
             labelTitle.Dock = DockStyle.Left;
             labelTitle.Text = text;
-            labelTitle.Size = new Size(100, 30);
-            labelTitle.AutoSize = true;
+            labelTitle.Size = new Size(400, 30);
+            //labelTitle.AutoSize = true;
             labelTitle.AutoEllipsis = true;
             labelTitle.ForeColor = Color.White;
             labelTitle.Font = new System.Drawing.Font("Comic Sans MS", 10F);
@@ -50,7 +50,7 @@ namespace AnimePlayer
             labelEp.BackColor = Color.FromArgb(35, 35, 35);
             labelEp.Text = "Odcinek: "+ep;
             labelEp.Size = new Size(100, 30);
-            labelEp.AutoSize = true;
+            //labelEp.AutoSize = true;
             labelEp.AutoEllipsis = true;
             labelEp.ForeColor = Color.White;
             labelEp.Font = new System.Drawing.Font("Comic Sans MS", 10F);

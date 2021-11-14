@@ -108,5 +108,32 @@ namespace AnimePlayer
         {
             this.Hide();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            panelViewIcon.Size = new Size(this.Size.Width - 200, this.Size.Height - 100);
+            panelViewIcon.Left = (this.ClientSize.Width - panelViewIcon.Width) / 2;
+            panelViewIcon.Top = (this.ClientSize.Height - panelViewIcon.Height) / 2;
+            
+            panelViewIcon.BringToFront();
+            panelViewIcon.Show();
+            pictureBox2.Image = pictureBox1.Image;
+        }
+
+        private void buttonViewIconClose_Click(object sender, EventArgs e)
+        {
+            pictureBox2.Image = null;
+            panelViewIcon.Hide();
+        }
+
+        private void PageEpisode_Resize(object sender, EventArgs e)
+        {
+            if(panelViewIcon.Visible)
+            {
+                panelViewIcon.Size = new Size(this.Size.Width - 200, this.Size.Height - 100);
+                panelViewIcon.Left = (this.ClientSize.Width - panelViewIcon.Width) / 2;
+                panelViewIcon.Top = (this.ClientSize.Height - panelViewIcon.Height) / 2;
+            }
+        }
     }
 }

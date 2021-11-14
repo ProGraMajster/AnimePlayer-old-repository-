@@ -127,30 +127,12 @@ namespace AnimePlayer
         bool fullwindow = false;
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.F11 && fullwindow == false && stan_kl == false)
-            {
-                this.TopMost = true;
-                this.FormBorderStyle = FormBorderStyle.None;
-                this.WindowState = FormWindowState.Maximized;
-                fullwindow = true;
-                stan_kl = true;
-            }
 
-            if (e.KeyCode == Keys.F11 && fullwindow == true && stan_kl == false)
-            {
-                this.TopMost = false;
-                this.FormBorderStyle = FormBorderStyle.Sizable;
-                this.WindowState = FormWindowState.Normal;
-                fullwindow = false;
-            }
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.F11 && stan_kl == true)
-            {
-                stan_kl = false;
-            }
+
         }
 
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -267,15 +249,12 @@ namespace AnimePlayer
         private void buttonSetting_Click(object sender, EventArgs e)
         {
             panelMenu.Hide();
-            panelSettings.BringToFront();
-            panelSettings.Show();
         }
 
         private void buttonPlayer_Click(object sender, EventArgs e)
         {
             panelMenu.Hide();
-            panelPlayer.BringToFront();
-            panelPlayer.Show();
+            VideoPlayer videoPlayer = new VideoPlayer(panel2, true);
         }
 
         private void buttonExitApp_Click(object sender, EventArgs e)
@@ -308,6 +287,60 @@ namespace AnimePlayer
                 panelNotifiError.Hide();
             }
         }
+
+        private async void pictureBoxGithub_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                await Task.Run(() =>
+                {
+                    Process.Start("https://github.com/ProGraMajster/AnimePlayer");
+                });
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+        private async void pictureBoxSite_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                await Task.Run(() =>
+                {
+                    Process.Start("https://sites.google.com/view/twojeanimepl");
+                });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+        private async void buttonSite_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                await Task.Run(() =>
+                {
+                    Process.Start("https://sites.google.com/view/twojeanimepl");
+                });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+        private void OknoG_Resize(object sender, EventArgs e)
+        {
+            if (labelLoading.Visible)
+            {
+                CenterControlInForm(labelLoading);
+            }
+        }
+
         /*
 
 private void buttonStart_Click(object sender, EventArgs e)
