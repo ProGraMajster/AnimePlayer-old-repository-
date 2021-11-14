@@ -83,6 +83,8 @@ namespace AnimePlayer
                                 {
                                     position++;
                                     ep_link += content[position]+";";
+                                    position++;
+                                    ep_link += content[position] + ";";
                                 }
 
                                 ClassEpisodePanel episodePanel = new ClassEpisodePanel(zm, ep, num_btn, path, ep_link, panelvv);
@@ -97,7 +99,6 @@ namespace AnimePlayer
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
-                MessageBox.Show("Nie udało się załadować zawartości");
                 return null;
             }
 
