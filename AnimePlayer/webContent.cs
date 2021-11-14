@@ -207,7 +207,7 @@ namespace AnimePlayer
                 oknoG = okno;
 
                 // 
-                // pictureBox1
+                // pictureBoxItem
                 // 
                 pictureBoxItem = new PictureBox();
                 this.pictureBoxItem.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -219,7 +219,7 @@ namespace AnimePlayer
                 this.pictureBoxItem.TabIndex = 0;
                 this.pictureBoxItem.TabStop = false;
                 // 
-                // button2
+                // buttonItem
                 // 
                 buttonItem = new Button();
                 this.buttonItem.Dock = System.Windows.Forms.DockStyle.Bottom;
