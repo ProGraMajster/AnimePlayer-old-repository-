@@ -35,6 +35,7 @@ namespace AnimePlayer
             }
         }
 
+
         private void button_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -84,6 +85,7 @@ namespace AnimePlayer
                         {
                             PageEpisode pageEpisode = new PageEpisode(listBoxEpType.SelectedItem.ToString(),
                                 "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Video\\" + values.name + "_list_ep.txt", values, oknoG.panel2);
+
                             oknoG.panel2.Controls.Add(pageEpisode);
                             pageEpisode.Dock = DockStyle.Fill;
                             pageEpisode.Show();
@@ -96,6 +98,23 @@ namespace AnimePlayer
             {
                 Console.WriteLine(ex.ToString());
             }
+        }
+
+        private void pictureBoxIcon_Click(object sender, EventArgs e)
+        {
+            panelViewIcon.Size = new Size(this.Size.Width - 200, this.Size.Height - 100);
+            panelViewIcon.Left = (this.ClientSize.Width - panelViewIcon.Width) / 2;
+            panelViewIcon.Top = (this.ClientSize.Height - panelViewIcon.Height) / 2;
+
+            panelViewIcon.BringToFront();
+            panelViewIcon.Show();
+            pictureBox2.Image = pictureBoxIcon.Image;
+        }
+
+        private void buttonViewIconClose_Click(object sender, EventArgs e)
+        {
+            pictureBox2.Image = null;
+            panelViewIcon.Hide();
         }
     }
 }

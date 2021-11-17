@@ -124,19 +124,24 @@ namespace AnimePlayer
         }
 
         bool stan_kl = false;
-        bool fullwindow = false;
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if(panelMenu.Visible)
+            if(e.KeyCode == Keys.Escape)
             {
-                panelMenu.Hide();
-                return;
-            }
-            
-            if(panelMenu.Visible == false)
-            {
-                panelMenu.Show();
-                return;
+                if (panelMenu.Visible == false)
+                {
+                    panelMenu.Location = new Point(this.ClientSize.Width - panelMenu.Width, 0);
+                    panelMenu.Size = new Size(panelMenu.Width, this.ClientSize.Height);
+                    Application.DoEvents();
+                    panelMenu.Show();
+                    panelMenu.BringToFront();
+                    return;
+                }
+                else if (panelMenu.Visible == true)
+                {
+                    panelMenu.Hide();
+                    return;
+                }
             }
         }
 
@@ -229,23 +234,18 @@ namespace AnimePlayer
 
         private void buttonMenuClose_Click(object sender, EventArgs e)
         {
-            panelMenu.Dock = DockStyle.None;
             panelMenu.Hide();
         }
 
         private void buttonMenuOpen_Click(object sender, EventArgs e)
         {
-            panelMenu.Dock = DockStyle.Right;
+            panelMenu.Location = new Point(this.ClientSize.Width - panelMenu.Width, 0);
+            panelMenu.Size = new Size(panelMenu.Width, this.ClientSize.Height);
+            Application.DoEvents();
             panelMenu.Show();
+            panelMenu.BringToFront();
         }
-
-        private void OknoG_ResizeEnd(object sender, EventArgs e)
-        {
-            if (labelLoading.Visible)
-            {
-                CenterControlInForm(labelLoading);
-            }
-        }
+        
 
         private void labelLoading_VisibleChanged(object sender, EventArgs e)
         {
@@ -343,12 +343,61 @@ namespace AnimePlayer
                 Console.WriteLine(ex.ToString());
             }
         }
-
+        FormWindowState LastWindowState = FormWindowState.Normal;
         private void OknoG_Resize(object sender, EventArgs e)
         {
             if (labelLoading.Visible)
             {
                 CenterControlInForm(labelLoading);
+            }
+
+            if (WindowState != LastWindowState)
+            {
+                LastWindowState = WindowState;
+
+
+                if (WindowState == FormWindowState.Maximized)
+                {
+                    if (panelMenu.Visible)
+                    {
+                        panelMenu.Location = new Point(-100000, -100000);
+                        Application.DoEvents();
+                        panelMenu.Hide();
+                        panelMenu.Location = new Point(this.ClientSize.Width - panelMenu.Width, 0);
+                        panelMenu.Size = new Size(panelMenu.Width, this.ClientSize.Height);
+                        Application.DoEvents();
+                        panelMenu.Show();
+                    }
+                    // Maximized!
+                }
+                if (WindowState == FormWindowState.Normal)
+                {
+
+                    // Restored!
+                }
+            }
+        }
+
+        private void OknoG_ResizeBegin(object sender, EventArgs e)
+        {
+            panelMenu.Location = new Point(-100000, -100000);
+        }
+
+        private void OknoG_ResizeEnd(object sender, EventArgs e)
+        {
+            if (labelLoading.Visible)
+            {
+                CenterControlInForm(labelLoading);
+            }
+
+            if (panelMenu.Visible)
+            {
+                panelMenu.Hide();
+                Application.DoEvents();
+                panelMenu.Location = new Point(this.ClientSize.Width - panelMenu.Width, 0);
+                panelMenu.Size = new Size(panelMenu.Width, this.ClientSize.Height);
+                Application.DoEvents();
+                panelMenu.Show();
             }
         }
 
@@ -526,9 +575,16 @@ namespace AnimePlayer
 
         private void buttonViewFindintems_Click(object sender, EventArgs e)
         {
+            flowLayoutPanelFinditem.Controls.Clear();
+            flowLayoutPanelFinditem.Hide();
+            labelFindSatus.Text = "Szukanie";
+            labelFindSatus.Hide();
+            flowLayoutPanelAll.Show();
             panelAllitem.BringToFront();
             panelAllitem.Show();
         }
+
+        
 
         /*
 

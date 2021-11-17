@@ -79,6 +79,9 @@ namespace AnimePlayer
             this.labeliGD = new System.Windows.Forms.Label();
             this.labelSpecies = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.panelViewIcon = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.buttonViewIconClose = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIcon)).BeginInit();
             this.panel3.SuspendLayout();
@@ -91,6 +94,8 @@ namespace AnimePlayer
             this.panel6.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
+            this.panelViewIcon.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -113,7 +118,7 @@ namespace AnimePlayer
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.linkLabel1.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.linkLabel1.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.linkLabel1.LinkColor = System.Drawing.Color.DeepSkyBlue;
             this.linkLabel1.Location = new System.Drawing.Point(180, 203);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -164,6 +169,7 @@ namespace AnimePlayer
             this.pictureBoxIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxIcon.TabIndex = 0;
             this.pictureBoxIcon.TabStop = false;
+            this.pictureBoxIcon.Click += new System.EventHandler(this.pictureBoxIcon_Click);
             // 
             // button
             // 
@@ -785,12 +791,47 @@ namespace AnimePlayer
             this.label4.Text = "Gatunki:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // panelViewIcon
+            // 
+            this.panelViewIcon.Controls.Add(this.pictureBox2);
+            this.panelViewIcon.Controls.Add(this.buttonViewIconClose);
+            this.panelViewIcon.Location = new System.Drawing.Point(117, 13);
+            this.panelViewIcon.Name = "panelViewIcon";
+            this.panelViewIcon.Size = new System.Drawing.Size(571, 485);
+            this.panelViewIcon.TabIndex = 6;
+            this.panelViewIcon.Visible = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(536, 485);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // buttonViewIconClose
+            // 
+            this.buttonViewIconClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonViewIconClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonViewIconClose.ForeColor = System.Drawing.Color.White;
+            this.buttonViewIconClose.Location = new System.Drawing.Point(536, 0);
+            this.buttonViewIconClose.MaximumSize = new System.Drawing.Size(35, 25);
+            this.buttonViewIconClose.Name = "buttonViewIconClose";
+            this.buttonViewIconClose.Size = new System.Drawing.Size(35, 25);
+            this.buttonViewIconClose.TabIndex = 6;
+            this.buttonViewIconClose.Text = "X";
+            this.buttonViewIconClose.UseVisualStyleBackColor = true;
+            this.buttonViewIconClose.Click += new System.EventHandler(this.buttonViewIconClose_Click);
+            // 
             // PageItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.Controls.Add(this.panel6);
+            this.Controls.Add(this.panelViewIcon);
             this.DoubleBuffered = true;
             this.Name = "PageItem";
             this.Size = new System.Drawing.Size(805, 511);
@@ -809,6 +850,8 @@ namespace AnimePlayer
             this.panel6.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
+            this.panelViewIcon.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -865,5 +908,8 @@ namespace AnimePlayer
         private System.Windows.Forms.Label label5;
         public System.Windows.Forms.ListBox listBoxEpType;
         public System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Panel panelViewIcon;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button buttonViewIconClose;
     }
 }

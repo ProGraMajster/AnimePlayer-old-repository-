@@ -148,13 +148,16 @@ namespace AnimePlayer
         {
             try
             {
+                
                 WebClient webClient = new WebClient();
-                webClient.DownloadFile(link, "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Icon\\"+filename+".png");
+                webClient.DownloadFile(link, "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Icon\\"+filename.Replace(":", " ") + ".png");
                 webClient.Dispose();
-                return "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Icon\\" + filename + ".png";
+                return "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Icon\\" + filename.Replace(":"," ") + ".png";
             }
             catch (Exception ex)
             {
+                Console.WriteLine("--------- downloadIcon ------");
+                Console.WriteLine("filename: " + filename);
                 Console.WriteLine("{ERROR}downloadPage > \n" + link + "\n" + filename);
                 Console.WriteLine(ex.ToString() + Environment.NewLine);
                 return null;
@@ -216,7 +219,7 @@ namespace AnimePlayer
                 this.pictureBoxItem.Location = new System.Drawing.Point(0, 0);
                 this.pictureBoxItem.Name = "pictureBoxItem";
                 this.pictureBoxItem.Size = new System.Drawing.Size(160, 199);
-                this.pictureBoxItem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+                this.pictureBoxItem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
                 this.pictureBoxItem.TabIndex = 0;
                 this.pictureBoxItem.TabStop = false;
                 // 
@@ -327,7 +330,7 @@ namespace AnimePlayer
                 picture.Location = new System.Drawing.Point(0, 0);
                 picture.Name = "pictureBoxItem";
                 picture.Size = new System.Drawing.Size(160, 199);
-                picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+                picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
                 picture.TabIndex = 0;
                 // 
                 // button

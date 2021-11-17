@@ -66,6 +66,7 @@
             this.pictureBoxSite = new System.Windows.Forms.PictureBox();
             this.buttonSite = new System.Windows.Forms.Button();
             this.buttonExitApp = new System.Windows.Forms.Button();
+            this.buttonViewFindintems = new System.Windows.Forms.Button();
             this.buttonPlayer = new System.Windows.Forms.Button();
             this.buttonSetting = new System.Windows.Forms.Button();
             this.buttonMenuClose = new System.Windows.Forms.Button();
@@ -91,7 +92,6 @@
             this.textBoxFinditem = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.buttonFinditemPageClose = new System.Windows.Forms.Button();
-            this.buttonViewFindintems = new System.Windows.Forms.Button();
             this.panelYTlink.SuspendLayout();
             this.panelWeb.SuspendLayout();
             this.panelPlayer.SuspendLayout();
@@ -530,6 +530,20 @@
             this.buttonExitApp.UseVisualStyleBackColor = true;
             this.buttonExitApp.Click += new System.EventHandler(this.buttonExitApp_Click);
             // 
+            // buttonViewFindintems
+            // 
+            this.buttonViewFindintems.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonViewFindintems.FlatAppearance.BorderSize = 0;
+            this.buttonViewFindintems.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonViewFindintems.ForeColor = System.Drawing.Color.White;
+            this.buttonViewFindintems.Location = new System.Drawing.Point(10, 118);
+            this.buttonViewFindintems.Name = "buttonViewFindintems";
+            this.buttonViewFindintems.Size = new System.Drawing.Size(180, 40);
+            this.buttonViewFindintems.TabIndex = 5;
+            this.buttonViewFindintems.Text = "Wyszukiwarka";
+            this.buttonViewFindintems.UseVisualStyleBackColor = true;
+            this.buttonViewFindintems.Click += new System.EventHandler(this.buttonViewFindintems_Click);
+            // 
             // buttonPlayer
             // 
             this.buttonPlayer.Dock = System.Windows.Forms.DockStyle.Top;
@@ -854,20 +868,6 @@
             this.buttonFinditemPageClose.UseVisualStyleBackColor = false;
             this.buttonFinditemPageClose.Click += new System.EventHandler(this.buttonFinditemPageClose_Click);
             // 
-            // buttonViewFindintems
-            // 
-            this.buttonViewFindintems.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonViewFindintems.FlatAppearance.BorderSize = 0;
-            this.buttonViewFindintems.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonViewFindintems.ForeColor = System.Drawing.Color.White;
-            this.buttonViewFindintems.Location = new System.Drawing.Point(10, 118);
-            this.buttonViewFindintems.Name = "buttonViewFindintems";
-            this.buttonViewFindintems.Size = new System.Drawing.Size(180, 40);
-            this.buttonViewFindintems.TabIndex = 5;
-            this.buttonViewFindintems.Text = "Wyszukiwarka";
-            this.buttonViewFindintems.UseVisualStyleBackColor = true;
-            this.buttonViewFindintems.Click += new System.EventHandler(this.buttonViewFindintems_Click);
-            // 
             // OknoG
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -883,6 +883,7 @@
             this.Name = "OknoG";
             this.Text = "AnimePlayer - Twojeanimepl";
             this.Load += new System.EventHandler(this.OknoG_Load);
+            this.ResizeBegin += new System.EventHandler(this.OknoG_ResizeBegin);
             this.ResizeEnd += new System.EventHandler(this.OknoG_ResizeEnd);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
