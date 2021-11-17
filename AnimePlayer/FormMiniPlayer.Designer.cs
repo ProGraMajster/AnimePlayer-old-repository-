@@ -30,7 +30,6 @@ namespace AnimePlayer
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMiniPlayer));
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonDoprzodu = new System.Windows.Forms.Button();
             this.buttonControlP = new System.Windows.Forms.Button();
@@ -220,7 +219,6 @@ namespace AnimePlayer
             this.Controls.Add(this.buttonD);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            //this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(1210, 710);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -228,6 +226,7 @@ namespace AnimePlayer
             this.Opacity = 0.9D;
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.Text = "AnimePlayer";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFile)).EndInit();

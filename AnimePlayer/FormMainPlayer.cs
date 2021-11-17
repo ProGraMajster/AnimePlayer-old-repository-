@@ -127,7 +127,17 @@ namespace AnimePlayer
         bool fullwindow = false;
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if(panelMenu.Visible)
+            {
+                panelMenu.Hide();
+                return;
+            }
+            
+            if(panelMenu.Visible == false)
+            {
+                panelMenu.Show();
+                return;
+            }
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
@@ -163,6 +173,7 @@ namespace AnimePlayer
             panelWeb.Visible = false;
             panelMainPlayer.Visible = true;
         }
+
 
         private void OknoG_Load(object sender, EventArgs e)
         {
@@ -339,6 +350,184 @@ namespace AnimePlayer
             {
                 CenterControlInForm(labelLoading);
             }
+        }
+
+        private void flowLayoutPanelPolecane_ControlAdded(object sender, ControlEventArgs e)
+        {
+            taskAddToAllList(e);
+        }
+
+
+        public void flowLayoutPanel_ControlAdded(object sender, ControlEventArgs e)
+        {
+            taskAddToAllList(e);
+        }
+
+        public Task taskAddToAllList(ControlEventArgs e)
+        {
+            try
+            {
+                WebContentControls.CtnPanel panel = (WebContentControls.CtnPanel)e.Control.Tag;
+                flowLayoutPanelAll.Controls.Add(panel.Duplication());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return null;
+        }
+
+        private void flowLayoutPanelAll_ControlAdded(object sender, ControlEventArgs e)
+        {
+            
+        }
+
+        private void buttonFindItem_Click(object sender, EventArgs e)
+        {
+            findItems();
+        }
+
+        public void findItems()
+        {
+            if (textBoxFinditem.Text == null)
+            {
+                flowLayoutPanelFinditem.Hide();
+                labelFindSatus.Hide();
+                labelFindSatus.Text = "";
+                return;
+            }
+            int i = 0;
+            flowLayoutPanelFinditem.Controls.Clear();
+            labelFindSatus.Show();
+            flowLayoutPanelAll.Hide();
+            try
+            {
+                labelFindSatus.Text = "Szukanie";
+                Application.DoEvents();
+                foreach (Control c in flowLayoutPanelAll.Controls)
+                {
+                    try
+                    {
+                        labelFindSatus.Text += ".";
+                        Application.DoEvents();
+                        if (c.Tag != null)
+                        {
+                            WebContentControls.CtnPanel ctn = (WebContentControls.CtnPanel)c.Tag;
+                            if (ctn.values.name.ToLower().Contains(textBoxFinditem.Text.ToLower()))
+                            {
+                                flowLayoutPanelFinditem.Controls.Add(ctn.Duplication());
+                                i++;
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.ToString());
+                    }
+                }
+                labelFindSatus.Text = "Znaleziono: " + i;
+                flowLayoutPanelFinditem.Show();
+            }
+            catch (Exception eex)
+            {
+                Console.WriteLine(eex.ToString());
+            }
+        }
+        
+        public void findItems(string findText)
+        {
+            if (findText == null)
+            {
+                flowLayoutPanelFinditem.Hide();
+                labelFindSatus.Hide();
+                labelFindSatus.Text = "";
+                return;
+            }
+            int i = 0;
+            flowLayoutPanelFinditem.Controls.Clear();
+            labelFindSatus.Show();
+            flowLayoutPanelAll.Hide();
+            try
+            {
+                labelFindSatus.Text = "Szukanie";
+                Application.DoEvents();
+                foreach (Control c in flowLayoutPanelAll.Controls)
+                {
+                    try
+                    {
+                        labelFindSatus.Text += ".";
+                        Application.DoEvents();
+                        if (c.Tag != null)
+                        {
+                            WebContentControls.CtnPanel ctn = (WebContentControls.CtnPanel)c.Tag;
+                            if (ctn.values.name.ToLower().Contains(findText.ToLower()))
+                            {
+                                flowLayoutPanelFinditem.Controls.Add(ctn.Duplication());
+                                i++;
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.ToString());
+                    }
+                }
+                labelFindSatus.Text = "Znaleziono: " + i;
+                flowLayoutPanelFinditem.Show();
+            }
+            catch (Exception eex)
+            {
+                Console.WriteLine(eex.ToString());
+            }
+        }
+
+        private void buttonfinditemReset_Click(object sender, EventArgs e)
+        {
+            flowLayoutPanelFinditem.Controls.Clear();
+            flowLayoutPanelFinditem.Hide();
+            labelFindSatus.Text = "Szukanie";
+            labelFindSatus.Hide();
+            flowLayoutPanelAll.Show();
+        }
+
+        private void buttonFinditemPageClose_Click(object sender, EventArgs e)
+        {
+            panelAllitem.Hide();
+        }
+
+        private void textBoxFinditem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                findItems();
+            }
+        }
+
+        private void textBoxSPfinditem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                panelAllitem.BringToFront();
+                panelAllitem.Show();
+                textBoxFinditem.Text = textBoxStartPagefinditem.Text;
+                findItems(textBoxStartPagefinditem.Text);
+                textBoxStartPagefinditem.Text = "";
+            }
+        }
+
+        private void buttonStartPageFinditem_Click(object sender, EventArgs e)
+        {
+            panelAllitem.BringToFront();
+            panelAllitem.Show();
+            textBoxFinditem.Text = textBoxStartPagefinditem.Text;
+            findItems(textBoxStartPagefinditem.Text);
+            textBoxStartPagefinditem.Text = "";
+        }
+
+        private void buttonViewFindintems_Click(object sender, EventArgs e)
+        {
+            panelAllitem.BringToFront();
+            panelAllitem.Show();
         }
 
         /*

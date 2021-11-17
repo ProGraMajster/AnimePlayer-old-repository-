@@ -192,9 +192,10 @@ namespace AnimePlayer
 
     public static class WebContentControls
     {
+       
         public class CtnPanel
         {
-            WebContent.Values values;
+            public WebContent.Values values;
             OknoG oknoG;
 
             public Panel panelItem;
@@ -241,6 +242,7 @@ namespace AnimePlayer
                 // panelItem
                 // 
                 panelItem = new Panel();
+                panelItem.Tag = this;
                 this.panelItem.Controls.Add(pictureBoxItem);
                 this.panelItem.Controls.Add(buttonItem);
                 this.panelItem.Location = new System.Drawing.Point(13, 5);
@@ -257,6 +259,10 @@ namespace AnimePlayer
                 SetImage();
                 buttonItem.Click += ButtonItem_Click;
                 pictureBoxItem.Click += ButtonItem_Click;
+            }
+
+            public CtnPanel()
+            {
             }
 
             private void ButtonItem_Click(object sender, EventArgs e)
@@ -301,6 +307,7 @@ namespace AnimePlayer
             {
                 try
                 {
+                    pictureBoxItem.Tag = values.iconPath;
                     pictureBoxItem.LoadAsync(values.iconPath);
                 }
                 catch(Exception ex)
@@ -309,6 +316,63 @@ namespace AnimePlayer
                 }
             }
             
+            public Panel Duplication()
+            {
+                // 
+                // picture
+                // 
+                PictureBox picture = new PictureBox();
+                picture.Dock = System.Windows.Forms.DockStyle.Fill;
+                picture.Image = global::AnimePlayer.Properties.Resource.NoImage;
+                picture.Location = new System.Drawing.Point(0, 0);
+                picture.Name = "pictureBoxItem";
+                picture.Size = new System.Drawing.Size(160, 199);
+                picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+                picture.TabIndex = 0;
+                // 
+                // button
+                // 
+                Button button = new Button();
+                button.Dock = System.Windows.Forms.DockStyle.Bottom;
+                button.Location = new System.Drawing.Point(0, 199);
+                button.Name = "buttonItem";
+                button.ForeColor = Color.White;
+                button.AutoSize = true;
+                button.Font = new Font(button.Font.FontFamily, 9f);
+                button.FlatStyle = FlatStyle.Flat;
+                button.FlatAppearance.BorderSize = 0;
+                button.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 35, 35);
+                button.Size = new System.Drawing.Size(177, 42);
+                button.TabIndex = 1;
+                button.Text = "Name";
+                button.AutoEllipsis = true;
+                button.UseVisualStyleBackColor = true;
+
+                // 
+                // panel
+                // 
+                Panel panel = new Panel();
+                panel.Tag = this;
+                panel.Controls.Add(picture);
+                panel.Controls.Add(button);
+                panel.Location = new System.Drawing.Point(13, 5);
+                panel.Name = "panelItem";
+                panel.Size = new System.Drawing.Size(160, 240);
+                SetName();
+                SetImage();
+                button.Click += ButtonItem_Click;
+                picture.Click += ButtonItem_Click;
+                try
+                {
+                    button.Text = values.name;
+                    picture.LoadAsync(values.iconPath);
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+                return panel;
+            }
 
             public void SetPage(string path)
             {

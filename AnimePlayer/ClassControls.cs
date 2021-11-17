@@ -265,13 +265,19 @@ namespace AnimePlayer
             g.FillRoundedRectangle(new SolidBrush(InColor), 12, 12 + ((this.Height - 64) / 2), this.Width - 44, (this.Height - 64) / 2, 10);
             */
             g.SmoothingMode = SmoothingMode.AntiAlias;
-            g.FillRoundedRectangle(new SolidBrush(Color.White), 2, 2, this.Width - 4, this.Height - 4, radius);
+            g.FillRoundedRectangle(new SolidBrush(colEdges), 2, 2, this.Width - 4, this.Height - 4, radius);
             SolidBrush brush = new SolidBrush(
                 InColor
                 );
             g.FillRoundedRectangle(brush, 4, 4, this.Width - 8, this.Height - 8, radius);
             g.DrawRoundedRectangle(new Pen(colEdges), 4, 4, this.Width - 8, this.Height - 8, radius);
             g.FillRoundedRectangle(new SolidBrush(InColor), 4, 4 + ((this.Height - 8) / 2), this.Width - 8, (this.Height - 8) / 2, radius);
+        }
+
+        protected override void OnResize(EventArgs eventargs)
+        {
+            this.Refresh();
+            base.OnResize(eventargs);
         }
     }
 }

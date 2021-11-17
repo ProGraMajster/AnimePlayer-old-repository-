@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publikuj\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -27,7 +28,6 @@
     <SuiteName>AnimePlayer</SuiteName>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -91,6 +91,7 @@
     <Compile Include="CdaDownloader.cs" />
     <Compile Include="ClassControls.cs" />
     <Compile Include="ClassEpisodePanel.cs" />
+    <Compile Include="ControlsNewMethods.cs" />
     <Compile Include="FormMainPlayer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,6 +196,9 @@
   <ItemGroup>
     <EmbeddedResource Include="FormMainPlayer.resx">
       <DependentUpon>FormMainPlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMiniPlayer.resx">
+      <DependentUpon>FormMiniPlayer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PageEpisode.resx">
       <DependentUpon>PageEpisode.cs</DependentUpon>
