@@ -116,7 +116,7 @@ namespace AnimePlayer
         public Bitmap shellThumb;
         private void otwórzToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog
+            System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog()
             {
                 InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal),
                 Filter = "Wszystkie pliki (*.*)|*.*|Pliki mp4 (*.mp4)|*.mp4"

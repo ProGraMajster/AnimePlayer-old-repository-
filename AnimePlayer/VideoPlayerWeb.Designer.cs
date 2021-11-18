@@ -32,6 +32,7 @@ namespace AnimePlayer
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonClose = new System.Windows.Forms.Button();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,11 +68,23 @@ namespace AnimePlayer
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(718, 511);
             this.webBrowser1.TabIndex = 2;
+            this.webBrowser1.Visible = false;
+            // 
+            // elementHost1
+            // 
+            this.elementHost1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.elementHost1.Location = new System.Drawing.Point(0, 26);
+            this.elementHost1.Name = "elementHost1";
+            this.elementHost1.Size = new System.Drawing.Size(718, 511);
+            this.elementHost1.TabIndex = 3;
+            this.elementHost1.Text = "elementHost1";
+            this.elementHost1.Child = null;
             // 
             // VideoPlayerWeb
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.elementHost1);
             this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.panel1);
             this.Name = "VideoPlayerWeb";
@@ -86,5 +99,6 @@ namespace AnimePlayer
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.Integration.ElementHost elementHost1;
     }
 }

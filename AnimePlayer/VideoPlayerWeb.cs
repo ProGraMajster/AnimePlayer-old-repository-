@@ -28,6 +28,7 @@ namespace AnimePlayer
             this.Dock = DockStyle.Fill;
             this.BringToFront();
             this.Show();
+            /*
             if (video == TypeVideo.YouTube)
             {
                 var embed = "<html><head>" +
@@ -49,6 +50,7 @@ namespace AnimePlayer
                 " allow=\"autoplay\"></iframe>";
                 webBrowser1.DocumentText = string.Format(embed);
             }
+            */
         }
 
         private void VideoPlayer_Load(object sender, EventArgs e)
