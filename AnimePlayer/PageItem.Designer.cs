@@ -104,8 +104,8 @@ namespace AnimePlayer
             this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.labelotherTitle);
             this.panel1.Controls.Add(this.labelTitle);
-            this.panel1.Controls.Add(this.pictureBoxIcon);
             this.panel1.Controls.Add(this.button);
+            this.panel1.Controls.Add(this.pictureBoxIcon);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -131,7 +131,7 @@ namespace AnimePlayer
             // labelotherTitle
             // 
             this.labelotherTitle.AutoEllipsis = true;
-            this.labelotherTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.labelotherTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.labelotherTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelotherTitle.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelotherTitle.ForeColor = System.Drawing.Color.White;
@@ -139,14 +139,14 @@ namespace AnimePlayer
             this.labelotherTitle.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.labelotherTitle.Name = "labelotherTitle";
             this.labelotherTitle.Padding = new System.Windows.Forms.Padding(10, 10, 10, 3);
-            this.labelotherTitle.Size = new System.Drawing.Size(558, 111);
+            this.labelotherTitle.Size = new System.Drawing.Size(550, 111);
             this.labelotherTitle.TabIndex = 3;
             this.labelotherTitle.Text = "OtherTitle";
             // 
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
-            this.labelTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.labelTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.labelTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelTitle.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.ForeColor = System.Drawing.Color.White;
@@ -174,13 +174,14 @@ namespace AnimePlayer
             // button
             // 
             this.button.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button.FlatAppearance.BorderSize = 0;
             this.button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button.ForeColor = System.Drawing.Color.Red;
-            this.button.Location = new System.Drawing.Point(738, 20);
-            this.button.MaximumSize = new System.Drawing.Size(30, 25);
+            this.button.Location = new System.Drawing.Point(730, 20);
+            this.button.MaximumSize = new System.Drawing.Size(38, 30);
             this.button.Name = "button";
-            this.button.Size = new System.Drawing.Size(30, 25);
+            this.button.Size = new System.Drawing.Size(38, 30);
             this.button.TabIndex = 2;
             this.button.Text = "X";
             this.button.UseVisualStyleBackColor = true;
@@ -814,6 +815,7 @@ namespace AnimePlayer
             // buttonViewIconClose
             // 
             this.buttonViewIconClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonViewIconClose.FlatAppearance.BorderSize = 0;
             this.buttonViewIconClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonViewIconClose.ForeColor = System.Drawing.Color.White;
             this.buttonViewIconClose.Location = new System.Drawing.Point(536, 0);
@@ -908,8 +910,8 @@ namespace AnimePlayer
         private System.Windows.Forms.Label label5;
         public System.Windows.Forms.ListBox listBoxEpType;
         public System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.Panel panelViewIcon;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button buttonViewIconClose;
+        public System.Windows.Forms.Panel panelViewIcon;
     }
 }

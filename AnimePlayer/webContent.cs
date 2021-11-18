@@ -262,6 +262,7 @@ namespace AnimePlayer
                 this.panelItem.Location = new System.Drawing.Point(13, 5);
                 this.panelItem.Name = "panelItem";
                 this.panelItem.Size = new System.Drawing.Size(160, 240);
+                panelItem.BackColor = Color.FromArgb(30,30,30);
                 this.panelItem.TabIndex = 0;
                 if(va.groupName.EndsWith("Polecane"))
                 {
@@ -275,6 +276,9 @@ namespace AnimePlayer
                 pictureBoxItem.Click += ButtonItem_Click;
                 ControlsNewMethods.RoundingControl rc = new ControlsNewMethods.RoundingControl();
                 rc.TargetControl = buttonItem;
+                rc.CornerRadius = 15;
+                rc = new ControlsNewMethods.RoundingControl();
+                rc.TargetControl = panelItem;
                 rc.CornerRadius = 15;
             }
 
@@ -375,6 +379,7 @@ namespace AnimePlayer
                 panel.Location = new System.Drawing.Point(13, 5);
                 panel.Name = "panelItem";
                 panel.Size = new System.Drawing.Size(160, 240);
+                panel.BackColor = Color.FromArgb(30, 30, 30);
                 SetName();
                 SetImage();
                 button.Click += ButtonItem_Click;
@@ -384,6 +389,9 @@ namespace AnimePlayer
                     button.Text = values.name;
                     picture.LoadAsync(values.iconPath);
                     ControlsNewMethods.RoundingControl rc = new ControlsNewMethods.RoundingControl();
+                    rc.TargetControl = button;
+                    rc.CornerRadius = 15;
+                    rc = new ControlsNewMethods.RoundingControl();
                     rc.TargetControl = panel;
                     rc.CornerRadius = 15;
                 }
@@ -601,6 +609,7 @@ namespace AnimePlayer
                 return null;
             }
         }
+
     }
 
     public class Interpreter

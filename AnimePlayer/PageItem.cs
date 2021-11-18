@@ -33,6 +33,22 @@ namespace AnimePlayer
             {
                 linkLabel1.Hide();
             }
+
+            ControlsNewMethods.RoundingControl rc = new ControlsNewMethods.RoundingControl();
+            rc.TargetControl = pictureBoxIcon;
+            rc.CornerRadius = 20;
+            rc = new ControlsNewMethods.RoundingControl();
+            rc.TargetControl = panelViewIcon;
+            rc.CornerRadius = 15;
+            rc = new ControlsNewMethods.RoundingControl();
+            rc.TargetControl = labelotherTitle;
+            rc.CornerRadius = 15;
+            rc = new ControlsNewMethods.RoundingControl();
+            rc.TargetControl = labelTitle;
+            rc.CornerRadius = 15;
+            rc = new ControlsNewMethods.RoundingControl();
+            rc.TargetControl = button;
+            rc.CornerRadius = 15;
         }
 
 

@@ -92,8 +92,8 @@ namespace AnimePlayer
             rc = new ControlsNewMethods.RoundingControl();
             rc.TargetControl = buttonFinditemPageClose;
             rc.CornerRadius = 15;
+            
         }
-
         Task CreateBackupicon()
         {
             try
@@ -141,8 +141,6 @@ namespace AnimePlayer
 
         private void informacjeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AboutBox1 aboutBox1 = new AboutBox1();
-            aboutBox1.Show();
         }
 
         bool stan_kl = false;
@@ -232,6 +230,7 @@ namespace AnimePlayer
                 Interpreter interpreter = new Interpreter(this);
                 interpreter.Local();
             }
+
         }
 
         public void CenterControlInForm(Control control)

@@ -192,6 +192,15 @@ namespace AnimePlayer
         }
     }
 
+    public class NewFlowLayoutPanel : FlowLayoutPanel
+    {
+        protected override void OnScroll(ScrollEventArgs se)
+        {
+            Application.DoEvents();
+            base.OnScroll(se);
+        }
+    }
+
     public class RoundedPanel : Panel
     {
         [
