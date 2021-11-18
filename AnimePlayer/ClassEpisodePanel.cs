@@ -92,6 +92,34 @@ namespace AnimePlayer
             button_360p.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             button_360p.AutoSize = true;
 
+            if(numberQuality == 1)
+            {
+                button_360p.Show();
+                button_460p.Hide();
+                button_720p.Hide();
+                button_1080p.Hide();
+            }
+            else if(numberQuality == 2)
+            {
+                button_360p.Show();
+                button_460p.Show();
+                button_720p.Hide();
+                button_1080p.Hide();
+            }
+            else if(numberQuality == 3)
+            {
+                button_360p.Show();
+                button_460p.Show();
+                button_720p.Show();
+                button_1080p.Hide();
+            }
+            else if(numberQuality == 4)
+            {
+                button_360p.Show();
+                button_460p.Show();
+                button_720p.Show();
+                button_1080p.Show();
+            }
 
 
             try

@@ -584,7 +584,12 @@ namespace AnimePlayer
             panelAllitem.Show();
         }
 
-        
+        private void buttonRestartApp_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+
 
         /*
 

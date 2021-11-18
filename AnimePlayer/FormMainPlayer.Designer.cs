@@ -57,6 +57,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panelTop = new System.Windows.Forms.Panel();
+            this.roundedPanel1 = new AnimePlayer.RoundedPanel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.textBoxStartPagefinditem = new System.Windows.Forms.TextBox();
+            this.buttonStartPageFinditem = new System.Windows.Forms.Button();
+            this.labelSatusWorkingApp = new System.Windows.Forms.Label();
+            this.buttonMenuOpen = new System.Windows.Forms.Button();
+            this.label = new System.Windows.Forms.Label();
             this.flowLayoutPanelAll = new System.Windows.Forms.FlowLayoutPanel();
             this.panelLoading = new System.Windows.Forms.Panel();
             this.labelLoading = new System.Windows.Forms.Label();
@@ -74,17 +81,6 @@
             this.panelAllitem = new System.Windows.Forms.Panel();
             this.flowLayoutPanelFinditem = new System.Windows.Forms.FlowLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.panelNotifiError = new System.Windows.Forms.Panel();
-            this.labelError = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.timerAnimationError = new System.Windows.Forms.Timer(this.components);
-            this.roundedPanel1 = new AnimePlayer.RoundedPanel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.textBoxStartPagefinditem = new System.Windows.Forms.TextBox();
-            this.buttonStartPageFinditem = new System.Windows.Forms.Button();
-            this.labelSatusWorkingApp = new System.Windows.Forms.Label();
-            this.buttonMenuOpen = new System.Windows.Forms.Button();
-            this.label = new System.Windows.Forms.Label();
             this.roundedPanel2 = new AnimePlayer.RoundedPanel();
             this.labelFindSatus = new System.Windows.Forms.Label();
             this.buttonfinditemReset = new System.Windows.Forms.Button();
@@ -92,6 +88,11 @@
             this.textBoxFinditem = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.buttonFinditemPageClose = new System.Windows.Forms.Button();
+            this.panelNotifiError = new System.Windows.Forms.Panel();
+            this.labelError = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.timerAnimationError = new System.Windows.Forms.Timer(this.components);
+            this.buttonRestartApp = new System.Windows.Forms.Button();
             this.panelYTlink.SuspendLayout();
             this.panelWeb.SuspendLayout();
             this.panelPlayer.SuspendLayout();
@@ -107,6 +108,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panelTop.SuspendLayout();
+            this.roundedPanel1.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.panelLoading.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -115,11 +118,9 @@
             this.panel2.SuspendLayout();
             this.panelAllitem.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.roundedPanel2.SuspendLayout();
             this.panelNotifiError.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.roundedPanel1.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.roundedPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMainPlayer
@@ -414,6 +415,106 @@
             this.panelTop.Size = new System.Drawing.Size(931, 91);
             this.panelTop.TabIndex = 0;
             // 
+            // roundedPanel1
+            // 
+            this.roundedPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.roundedPanel1.ColorEdges = System.Drawing.SystemColors.ActiveCaptionText;
+            this.roundedPanel1.Controls.Add(this.panel7);
+            this.roundedPanel1.Controls.Add(this.labelSatusWorkingApp);
+            this.roundedPanel1.Controls.Add(this.buttonMenuOpen);
+            this.roundedPanel1.Controls.Add(this.label);
+            this.roundedPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.roundedPanel1.ExBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.roundedPanel1.Location = new System.Drawing.Point(10, 10);
+            this.roundedPanel1.Margin = new System.Windows.Forms.Padding(10);
+            this.roundedPanel1.Name = "roundedPanel1";
+            this.roundedPanel1.Padding = new System.Windows.Forms.Padding(20, 6, 20, 6);
+            this.roundedPanel1.RadiusArcPanel = 15F;
+            this.roundedPanel1.Size = new System.Drawing.Size(911, 71);
+            this.roundedPanel1.TabIndex = 0;
+            this.roundedPanel1.Resize += new System.EventHandler(this.Panel_Resize);
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.textBoxStartPagefinditem);
+            this.panel7.Controls.Add(this.buttonStartPageFinditem);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.panel7.Location = new System.Drawing.Point(190, 6);
+            this.panel7.Name = "panel7";
+            this.panel7.Padding = new System.Windows.Forms.Padding(5, 20, 5, 15);
+            this.panel7.Size = new System.Drawing.Size(408, 59);
+            this.panel7.TabIndex = 4;
+            // 
+            // textBoxStartPagefinditem
+            // 
+            this.textBoxStartPagefinditem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.textBoxStartPagefinditem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxStartPagefinditem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxStartPagefinditem.ForeColor = System.Drawing.Color.White;
+            this.textBoxStartPagefinditem.Location = new System.Drawing.Point(5, 20);
+            this.textBoxStartPagefinditem.Multiline = true;
+            this.textBoxStartPagefinditem.Name = "textBoxStartPagefinditem";
+            this.textBoxStartPagefinditem.Size = new System.Drawing.Size(323, 24);
+            this.textBoxStartPagefinditem.TabIndex = 3;
+            this.textBoxStartPagefinditem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSPfinditem_KeyDown);
+            // 
+            // buttonStartPageFinditem
+            // 
+            this.buttonStartPageFinditem.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonStartPageFinditem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.buttonStartPageFinditem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonStartPageFinditem.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonStartPageFinditem.ForeColor = System.Drawing.Color.White;
+            this.buttonStartPageFinditem.Location = new System.Drawing.Point(328, 20);
+            this.buttonStartPageFinditem.Name = "buttonStartPageFinditem";
+            this.buttonStartPageFinditem.Size = new System.Drawing.Size(75, 24);
+            this.buttonStartPageFinditem.TabIndex = 4;
+            this.buttonStartPageFinditem.Text = "Szukaj";
+            this.buttonStartPageFinditem.UseVisualStyleBackColor = true;
+            this.buttonStartPageFinditem.Click += new System.EventHandler(this.buttonStartPageFinditem_Click);
+            // 
+            // labelSatusWorkingApp
+            // 
+            this.labelSatusWorkingApp.Dock = System.Windows.Forms.DockStyle.Right;
+            this.labelSatusWorkingApp.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSatusWorkingApp.ForeColor = System.Drawing.SystemColors.Window;
+            this.labelSatusWorkingApp.Location = new System.Drawing.Point(598, 6);
+            this.labelSatusWorkingApp.Name = "labelSatusWorkingApp";
+            this.labelSatusWorkingApp.Size = new System.Drawing.Size(222, 59);
+            this.labelSatusWorkingApp.TabIndex = 2;
+            this.labelSatusWorkingApp.Text = "Satus działania:";
+            this.labelSatusWorkingApp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // buttonMenuOpen
+            // 
+            this.buttonMenuOpen.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonMenuOpen.FlatAppearance.BorderSize = 0;
+            this.buttonMenuOpen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.buttonMenuOpen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.buttonMenuOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMenuOpen.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonMenuOpen.ForeColor = System.Drawing.Color.White;
+            this.buttonMenuOpen.Location = new System.Drawing.Point(820, 6);
+            this.buttonMenuOpen.Name = "buttonMenuOpen";
+            this.buttonMenuOpen.Size = new System.Drawing.Size(71, 59);
+            this.buttonMenuOpen.TabIndex = 1;
+            this.buttonMenuOpen.Text = "=";
+            this.buttonMenuOpen.UseVisualStyleBackColor = true;
+            this.buttonMenuOpen.Click += new System.EventHandler(this.buttonMenuOpen_Click);
+            // 
+            // label
+            // 
+            this.label.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label.ForeColor = System.Drawing.SystemColors.Window;
+            this.label.Location = new System.Drawing.Point(20, 6);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(170, 59);
+            this.label.TabIndex = 0;
+            this.label.Text = "Twoje anime pl";
+            this.label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // flowLayoutPanelAll
             // 
             this.flowLayoutPanelAll.AutoScroll = true;
@@ -443,9 +544,9 @@
             this.labelLoading.ForeColor = System.Drawing.Color.White;
             this.labelLoading.Location = new System.Drawing.Point(355, 237);
             this.labelLoading.Name = "labelLoading";
-            this.labelLoading.Size = new System.Drawing.Size(166, 38);
+            this.labelLoading.Size = new System.Drawing.Size(145, 38);
             this.labelLoading.TabIndex = 0;
-            this.labelLoading.Text = "Ładowanie...";
+            this.labelLoading.Text = "Ładowanie";
             this.labelLoading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelLoading.VisibleChanged += new System.EventHandler(this.labelLoading_VisibleChanged);
             // 
@@ -454,6 +555,7 @@
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.panelMenu.Controls.Add(this.panel5);
             this.panelMenu.Controls.Add(this.buttonExitApp);
+            this.panelMenu.Controls.Add(this.buttonRestartApp);
             this.panelMenu.Controls.Add(this.buttonViewFindintems);
             this.panelMenu.Controls.Add(this.buttonPlayer);
             this.panelMenu.Controls.Add(this.buttonSetting);
@@ -522,7 +624,7 @@
             this.buttonExitApp.FlatAppearance.BorderSize = 0;
             this.buttonExitApp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonExitApp.ForeColor = System.Drawing.Color.White;
-            this.buttonExitApp.Location = new System.Drawing.Point(10, 158);
+            this.buttonExitApp.Location = new System.Drawing.Point(10, 198);
             this.buttonExitApp.Name = "buttonExitApp";
             this.buttonExitApp.Size = new System.Drawing.Size(180, 40);
             this.buttonExitApp.TabIndex = 3;
@@ -630,145 +732,6 @@
             this.panel6.Size = new System.Drawing.Size(948, 100);
             this.panel6.TabIndex = 0;
             // 
-            // panelNotifiError
-            // 
-            this.panelNotifiError.Controls.Add(this.labelError);
-            this.panelNotifiError.Controls.Add(this.pictureBox3);
-            this.panelNotifiError.Location = new System.Drawing.Point(0, 0);
-            this.panelNotifiError.Name = "panelNotifiError";
-            this.panelNotifiError.Size = new System.Drawing.Size(200, 51);
-            this.panelNotifiError.TabIndex = 6;
-            // 
-            // labelError
-            // 
-            this.labelError.AutoEllipsis = true;
-            this.labelError.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelError.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelError.ForeColor = System.Drawing.Color.Red;
-            this.labelError.Location = new System.Drawing.Point(57, 0);
-            this.labelError.Name = "labelError";
-            this.labelError.Size = new System.Drawing.Size(143, 51);
-            this.labelError.TabIndex = 1;
-            this.labelError.Text = "Error code:";
-            this.labelError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox3.Image = global::AnimePlayer.Properties.Resource.error;
-            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(57, 51);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
-            // 
-            // timerAnimationError
-            // 
-            this.timerAnimationError.Interval = 1;
-            this.timerAnimationError.Tick += new System.EventHandler(this.timerAnimationError_Tick);
-            // 
-            // roundedPanel1
-            // 
-            this.roundedPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.roundedPanel1.ColorEdges = System.Drawing.SystemColors.ActiveCaptionText;
-            this.roundedPanel1.Controls.Add(this.panel7);
-            this.roundedPanel1.Controls.Add(this.labelSatusWorkingApp);
-            this.roundedPanel1.Controls.Add(this.buttonMenuOpen);
-            this.roundedPanel1.Controls.Add(this.label);
-            this.roundedPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundedPanel1.ExBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.roundedPanel1.Location = new System.Drawing.Point(10, 10);
-            this.roundedPanel1.Margin = new System.Windows.Forms.Padding(10);
-            this.roundedPanel1.Name = "roundedPanel1";
-            this.roundedPanel1.Padding = new System.Windows.Forms.Padding(20, 6, 20, 6);
-            this.roundedPanel1.RadiusArcPanel = 15F;
-            this.roundedPanel1.Size = new System.Drawing.Size(911, 71);
-            this.roundedPanel1.TabIndex = 0;
-            this.roundedPanel1.Resize += new System.EventHandler(this.Panel_Resize);
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.textBoxStartPagefinditem);
-            this.panel7.Controls.Add(this.buttonStartPageFinditem);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.panel7.Location = new System.Drawing.Point(190, 6);
-            this.panel7.Name = "panel7";
-            this.panel7.Padding = new System.Windows.Forms.Padding(5, 20, 5, 15);
-            this.panel7.Size = new System.Drawing.Size(408, 59);
-            this.panel7.TabIndex = 4;
-            // 
-            // textBoxStartPagefinditem
-            // 
-            this.textBoxStartPagefinditem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.textBoxStartPagefinditem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxStartPagefinditem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxStartPagefinditem.ForeColor = System.Drawing.Color.White;
-            this.textBoxStartPagefinditem.Location = new System.Drawing.Point(5, 20);
-            this.textBoxStartPagefinditem.Multiline = true;
-            this.textBoxStartPagefinditem.Name = "textBoxStartPagefinditem";
-            this.textBoxStartPagefinditem.Size = new System.Drawing.Size(323, 24);
-            this.textBoxStartPagefinditem.TabIndex = 3;
-            this.textBoxStartPagefinditem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSPfinditem_KeyDown);
-            // 
-            // buttonStartPageFinditem
-            // 
-            this.buttonStartPageFinditem.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonStartPageFinditem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.buttonStartPageFinditem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonStartPageFinditem.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonStartPageFinditem.ForeColor = System.Drawing.Color.White;
-            this.buttonStartPageFinditem.Location = new System.Drawing.Point(328, 20);
-            this.buttonStartPageFinditem.Name = "buttonStartPageFinditem";
-            this.buttonStartPageFinditem.Size = new System.Drawing.Size(75, 24);
-            this.buttonStartPageFinditem.TabIndex = 4;
-            this.buttonStartPageFinditem.Text = "Szukaj";
-            this.buttonStartPageFinditem.UseVisualStyleBackColor = true;
-            this.buttonStartPageFinditem.Click += new System.EventHandler(this.buttonStartPageFinditem_Click);
-            // 
-            // labelSatusWorkingApp
-            // 
-            this.labelSatusWorkingApp.Dock = System.Windows.Forms.DockStyle.Right;
-            this.labelSatusWorkingApp.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSatusWorkingApp.ForeColor = System.Drawing.SystemColors.Window;
-            this.labelSatusWorkingApp.Location = new System.Drawing.Point(598, 6);
-            this.labelSatusWorkingApp.Name = "labelSatusWorkingApp";
-            this.labelSatusWorkingApp.Size = new System.Drawing.Size(222, 59);
-            this.labelSatusWorkingApp.TabIndex = 2;
-            this.labelSatusWorkingApp.Text = "Satus działania:";
-            this.labelSatusWorkingApp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // buttonMenuOpen
-            // 
-            this.buttonMenuOpen.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonMenuOpen.FlatAppearance.BorderSize = 0;
-            this.buttonMenuOpen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.buttonMenuOpen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.buttonMenuOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMenuOpen.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonMenuOpen.ForeColor = System.Drawing.Color.White;
-            this.buttonMenuOpen.Location = new System.Drawing.Point(820, 6);
-            this.buttonMenuOpen.Name = "buttonMenuOpen";
-            this.buttonMenuOpen.Size = new System.Drawing.Size(71, 59);
-            this.buttonMenuOpen.TabIndex = 1;
-            this.buttonMenuOpen.Text = "=";
-            this.buttonMenuOpen.UseVisualStyleBackColor = true;
-            this.buttonMenuOpen.Click += new System.EventHandler(this.buttonMenuOpen_Click);
-            // 
-            // label
-            // 
-            this.label.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label.ForeColor = System.Drawing.SystemColors.Window;
-            this.label.Location = new System.Drawing.Point(20, 6);
-            this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(170, 59);
-            this.label.TabIndex = 0;
-            this.label.Text = "Twoje anime pl";
-            this.label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // roundedPanel2
             // 
             this.roundedPanel2.BackColor = System.Drawing.Color.Transparent;
@@ -868,14 +831,67 @@
             this.buttonFinditemPageClose.UseVisualStyleBackColor = false;
             this.buttonFinditemPageClose.Click += new System.EventHandler(this.buttonFinditemPageClose_Click);
             // 
+            // panelNotifiError
+            // 
+            this.panelNotifiError.Controls.Add(this.labelError);
+            this.panelNotifiError.Controls.Add(this.pictureBox3);
+            this.panelNotifiError.Location = new System.Drawing.Point(0, 0);
+            this.panelNotifiError.Name = "panelNotifiError";
+            this.panelNotifiError.Size = new System.Drawing.Size(200, 51);
+            this.panelNotifiError.TabIndex = 6;
+            // 
+            // labelError
+            // 
+            this.labelError.AutoEllipsis = true;
+            this.labelError.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelError.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelError.ForeColor = System.Drawing.Color.Red;
+            this.labelError.Location = new System.Drawing.Point(57, 0);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(143, 51);
+            this.labelError.TabIndex = 1;
+            this.labelError.Text = "Error code:";
+            this.labelError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox3.Image = global::AnimePlayer.Properties.Resource.error;
+            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(57, 51);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
+            // 
+            // timerAnimationError
+            // 
+            this.timerAnimationError.Interval = 1;
+            this.timerAnimationError.Tick += new System.EventHandler(this.timerAnimationError_Tick);
+            // 
+            // buttonRestartApp
+            // 
+            this.buttonRestartApp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonRestartApp.FlatAppearance.BorderSize = 0;
+            this.buttonRestartApp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRestartApp.ForeColor = System.Drawing.Color.White;
+            this.buttonRestartApp.Location = new System.Drawing.Point(10, 158);
+            this.buttonRestartApp.Name = "buttonRestartApp";
+            this.buttonRestartApp.Size = new System.Drawing.Size(180, 40);
+            this.buttonRestartApp.TabIndex = 6;
+            this.buttonRestartApp.Text = "Zrestartuj aplikacjie";
+            this.buttonRestartApp.UseVisualStyleBackColor = true;
+            this.buttonRestartApp.Click += new System.EventHandler(this.buttonRestartApp_Click);
+            // 
             // OknoG
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.ClientSize = new System.Drawing.Size(948, 541);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelMenu);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelNotifiError);
             this.DoubleBuffered = true;
             this.KeyPreview = true;
@@ -906,6 +922,9 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelTop.ResumeLayout(false);
+            this.roundedPanel1.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.panelLoading.ResumeLayout(false);
             this.panelLoading.PerformLayout();
             this.panelMenu.ResumeLayout(false);
@@ -915,13 +934,10 @@
             this.panel2.ResumeLayout(false);
             this.panelAllitem.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
-            this.panelNotifiError.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.roundedPanel1.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
             this.roundedPanel2.ResumeLayout(false);
             this.roundedPanel2.PerformLayout();
+            this.panelNotifiError.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -956,7 +972,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.Panel panePolecane;
-        private System.Windows.Forms.Label labelLoading;
         public System.Windows.Forms.Panel panelLoading;
         public System.Windows.Forms.FlowLayoutPanel flowLayoutPanelPolecane;
         private System.Windows.Forms.Panel panelMenu;
@@ -990,6 +1005,8 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button buttonViewFindintems;
+        public System.Windows.Forms.Label labelLoading;
+        private System.Windows.Forms.Button buttonRestartApp;
     }
 }
 

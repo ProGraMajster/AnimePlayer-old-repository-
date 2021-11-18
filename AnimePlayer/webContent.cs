@@ -33,6 +33,7 @@ namespace AnimePlayer
         public static void Initialize(OknoG oknoG)
         {
             oknoG.panelLoading.Show();
+            Application.DoEvents();
             if(downloadMainFile() == false)
             {
                 //MessageBox.Show("Wystąpił błąd podczas pobierania zawartości!", "Wstąpił błąd", MessageBoxButtons.OK);
@@ -42,18 +43,28 @@ namespace AnimePlayer
                 oknoG.ShowErrorCode("Error code: DF01", 500);
                 oknoG.timerAnimationError.Start();
                 Console.WriteLine("--------- Local ----------");
+                oknoG.labelLoading.Text += ".";
+                Application.DoEvents();
                 Interpreter interpreter = new Interpreter(oknoG);
                 interpreter.Local();
                 oknoG.onOnline = false;
+                oknoG.labelLoading.Text += ".";
+                Application.DoEvents();
             }
             else
             {
+                oknoG.labelLoading.Text += ".";
+                Application.DoEvents();
                 openMainFile(oknoG);
+                oknoG.labelLoading.Text += ".";
+                Application.DoEvents();
                 oknoG.onOnline = true;
                 oknoG.labelSatusWorkingApp.Text = "Status działania: Prawidłowy";
             }
             
             oknoG.panelLoading.Hide();
+            Application.DoEvents();
+            oknoG.labelLoading.Text += "Ładowanie...";
         }
         public static void openMainFile(OknoG oknoG)
         {
