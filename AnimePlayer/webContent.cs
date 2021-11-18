@@ -64,7 +64,7 @@ namespace AnimePlayer
             
             oknoG.panelLoading.Hide();
             Application.DoEvents();
-            oknoG.labelLoading.Text += "Ładowanie...";
+            oknoG.labelLoading.Text = "Ładowanie...";
         }
         public static void openMainFile(OknoG oknoG)
         {
@@ -273,6 +273,9 @@ namespace AnimePlayer
                 SetImage();
                 buttonItem.Click += ButtonItem_Click;
                 pictureBoxItem.Click += ButtonItem_Click;
+                ControlsNewMethods.RoundingControl rc = new ControlsNewMethods.RoundingControl();
+                rc.TargetControl = buttonItem;
+                rc.CornerRadius = 15;
             }
 
             public CtnPanel()
@@ -380,6 +383,9 @@ namespace AnimePlayer
                 {
                     button.Text = values.name;
                     picture.LoadAsync(values.iconPath);
+                    ControlsNewMethods.RoundingControl rc = new ControlsNewMethods.RoundingControl();
+                    rc.TargetControl = panel;
+                    rc.CornerRadius = 15;
                 }
                 catch(Exception ex)
                 {

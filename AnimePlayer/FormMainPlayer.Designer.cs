@@ -57,13 +57,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panelTop = new System.Windows.Forms.Panel();
-            this.roundedPanel1 = new AnimePlayer.RoundedPanel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.textBoxStartPagefinditem = new System.Windows.Forms.TextBox();
-            this.buttonStartPageFinditem = new System.Windows.Forms.Button();
-            this.labelSatusWorkingApp = new System.Windows.Forms.Label();
-            this.buttonMenuOpen = new System.Windows.Forms.Button();
-            this.label = new System.Windows.Forms.Label();
             this.flowLayoutPanelAll = new System.Windows.Forms.FlowLayoutPanel();
             this.panelLoading = new System.Windows.Forms.Panel();
             this.labelLoading = new System.Windows.Forms.Label();
@@ -73,6 +66,7 @@
             this.pictureBoxSite = new System.Windows.Forms.PictureBox();
             this.buttonSite = new System.Windows.Forms.Button();
             this.buttonExitApp = new System.Windows.Forms.Button();
+            this.buttonRestartApp = new System.Windows.Forms.Button();
             this.buttonViewFindintems = new System.Windows.Forms.Button();
             this.buttonPlayer = new System.Windows.Forms.Button();
             this.buttonSetting = new System.Windows.Forms.Button();
@@ -81,6 +75,10 @@
             this.panelAllitem = new System.Windows.Forms.Panel();
             this.flowLayoutPanelFinditem = new System.Windows.Forms.FlowLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.panelNotifiError = new System.Windows.Forms.Panel();
+            this.labelError = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.timerAnimationError = new System.Windows.Forms.Timer(this.components);
             this.roundedPanel2 = new AnimePlayer.RoundedPanel();
             this.labelFindSatus = new System.Windows.Forms.Label();
             this.buttonfinditemReset = new System.Windows.Forms.Button();
@@ -88,11 +86,13 @@
             this.textBoxFinditem = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.buttonFinditemPageClose = new System.Windows.Forms.Button();
-            this.panelNotifiError = new System.Windows.Forms.Panel();
-            this.labelError = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.timerAnimationError = new System.Windows.Forms.Timer(this.components);
-            this.buttonRestartApp = new System.Windows.Forms.Button();
+            this.roundedPanel1 = new AnimePlayer.RoundedPanel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.textBoxStartPagefinditem = new System.Windows.Forms.TextBox();
+            this.buttonStartPageFinditem = new System.Windows.Forms.Button();
+            this.labelSatusWorkingApp = new System.Windows.Forms.Label();
+            this.buttonMenuOpen = new System.Windows.Forms.Button();
+            this.label = new System.Windows.Forms.Label();
             this.panelYTlink.SuspendLayout();
             this.panelWeb.SuspendLayout();
             this.panelPlayer.SuspendLayout();
@@ -108,8 +108,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panelTop.SuspendLayout();
-            this.roundedPanel1.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.panelLoading.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -118,9 +116,11 @@
             this.panel2.SuspendLayout();
             this.panelAllitem.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.roundedPanel2.SuspendLayout();
             this.panelNotifiError.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.roundedPanel2.SuspendLayout();
+            this.roundedPanel1.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMainPlayer
@@ -415,106 +415,6 @@
             this.panelTop.Size = new System.Drawing.Size(931, 91);
             this.panelTop.TabIndex = 0;
             // 
-            // roundedPanel1
-            // 
-            this.roundedPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.roundedPanel1.ColorEdges = System.Drawing.SystemColors.ActiveCaptionText;
-            this.roundedPanel1.Controls.Add(this.panel7);
-            this.roundedPanel1.Controls.Add(this.labelSatusWorkingApp);
-            this.roundedPanel1.Controls.Add(this.buttonMenuOpen);
-            this.roundedPanel1.Controls.Add(this.label);
-            this.roundedPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundedPanel1.ExBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.roundedPanel1.Location = new System.Drawing.Point(10, 10);
-            this.roundedPanel1.Margin = new System.Windows.Forms.Padding(10);
-            this.roundedPanel1.Name = "roundedPanel1";
-            this.roundedPanel1.Padding = new System.Windows.Forms.Padding(20, 6, 20, 6);
-            this.roundedPanel1.RadiusArcPanel = 15F;
-            this.roundedPanel1.Size = new System.Drawing.Size(911, 71);
-            this.roundedPanel1.TabIndex = 0;
-            this.roundedPanel1.Resize += new System.EventHandler(this.Panel_Resize);
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.textBoxStartPagefinditem);
-            this.panel7.Controls.Add(this.buttonStartPageFinditem);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.panel7.Location = new System.Drawing.Point(190, 6);
-            this.panel7.Name = "panel7";
-            this.panel7.Padding = new System.Windows.Forms.Padding(5, 20, 5, 15);
-            this.panel7.Size = new System.Drawing.Size(408, 59);
-            this.panel7.TabIndex = 4;
-            // 
-            // textBoxStartPagefinditem
-            // 
-            this.textBoxStartPagefinditem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.textBoxStartPagefinditem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxStartPagefinditem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxStartPagefinditem.ForeColor = System.Drawing.Color.White;
-            this.textBoxStartPagefinditem.Location = new System.Drawing.Point(5, 20);
-            this.textBoxStartPagefinditem.Multiline = true;
-            this.textBoxStartPagefinditem.Name = "textBoxStartPagefinditem";
-            this.textBoxStartPagefinditem.Size = new System.Drawing.Size(323, 24);
-            this.textBoxStartPagefinditem.TabIndex = 3;
-            this.textBoxStartPagefinditem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSPfinditem_KeyDown);
-            // 
-            // buttonStartPageFinditem
-            // 
-            this.buttonStartPageFinditem.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonStartPageFinditem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.buttonStartPageFinditem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonStartPageFinditem.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonStartPageFinditem.ForeColor = System.Drawing.Color.White;
-            this.buttonStartPageFinditem.Location = new System.Drawing.Point(328, 20);
-            this.buttonStartPageFinditem.Name = "buttonStartPageFinditem";
-            this.buttonStartPageFinditem.Size = new System.Drawing.Size(75, 24);
-            this.buttonStartPageFinditem.TabIndex = 4;
-            this.buttonStartPageFinditem.Text = "Szukaj";
-            this.buttonStartPageFinditem.UseVisualStyleBackColor = true;
-            this.buttonStartPageFinditem.Click += new System.EventHandler(this.buttonStartPageFinditem_Click);
-            // 
-            // labelSatusWorkingApp
-            // 
-            this.labelSatusWorkingApp.Dock = System.Windows.Forms.DockStyle.Right;
-            this.labelSatusWorkingApp.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSatusWorkingApp.ForeColor = System.Drawing.SystemColors.Window;
-            this.labelSatusWorkingApp.Location = new System.Drawing.Point(598, 6);
-            this.labelSatusWorkingApp.Name = "labelSatusWorkingApp";
-            this.labelSatusWorkingApp.Size = new System.Drawing.Size(222, 59);
-            this.labelSatusWorkingApp.TabIndex = 2;
-            this.labelSatusWorkingApp.Text = "Satus działania:";
-            this.labelSatusWorkingApp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // buttonMenuOpen
-            // 
-            this.buttonMenuOpen.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonMenuOpen.FlatAppearance.BorderSize = 0;
-            this.buttonMenuOpen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.buttonMenuOpen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.buttonMenuOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMenuOpen.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonMenuOpen.ForeColor = System.Drawing.Color.White;
-            this.buttonMenuOpen.Location = new System.Drawing.Point(820, 6);
-            this.buttonMenuOpen.Name = "buttonMenuOpen";
-            this.buttonMenuOpen.Size = new System.Drawing.Size(71, 59);
-            this.buttonMenuOpen.TabIndex = 1;
-            this.buttonMenuOpen.Text = "=";
-            this.buttonMenuOpen.UseVisualStyleBackColor = true;
-            this.buttonMenuOpen.Click += new System.EventHandler(this.buttonMenuOpen_Click);
-            // 
-            // label
-            // 
-            this.label.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label.ForeColor = System.Drawing.SystemColors.Window;
-            this.label.Location = new System.Drawing.Point(20, 6);
-            this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(170, 59);
-            this.label.TabIndex = 0;
-            this.label.Text = "Twoje anime pl";
-            this.label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // flowLayoutPanelAll
             // 
             this.flowLayoutPanelAll.AutoScroll = true;
@@ -632,6 +532,20 @@
             this.buttonExitApp.UseVisualStyleBackColor = true;
             this.buttonExitApp.Click += new System.EventHandler(this.buttonExitApp_Click);
             // 
+            // buttonRestartApp
+            // 
+            this.buttonRestartApp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonRestartApp.FlatAppearance.BorderSize = 0;
+            this.buttonRestartApp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRestartApp.ForeColor = System.Drawing.Color.White;
+            this.buttonRestartApp.Location = new System.Drawing.Point(10, 158);
+            this.buttonRestartApp.Name = "buttonRestartApp";
+            this.buttonRestartApp.Size = new System.Drawing.Size(180, 40);
+            this.buttonRestartApp.TabIndex = 6;
+            this.buttonRestartApp.Text = "Zrestartuj aplikacjie";
+            this.buttonRestartApp.UseVisualStyleBackColor = true;
+            this.buttonRestartApp.Click += new System.EventHandler(this.buttonRestartApp_Click);
+            // 
             // buttonViewFindintems
             // 
             this.buttonViewFindintems.Dock = System.Windows.Forms.DockStyle.Top;
@@ -732,105 +646,6 @@
             this.panel6.Size = new System.Drawing.Size(948, 100);
             this.panel6.TabIndex = 0;
             // 
-            // roundedPanel2
-            // 
-            this.roundedPanel2.BackColor = System.Drawing.Color.Transparent;
-            this.roundedPanel2.ColorEdges = System.Drawing.SystemColors.ActiveCaptionText;
-            this.roundedPanel2.Controls.Add(this.labelFindSatus);
-            this.roundedPanel2.Controls.Add(this.buttonfinditemReset);
-            this.roundedPanel2.Controls.Add(this.buttonFindItem);
-            this.roundedPanel2.Controls.Add(this.textBoxFinditem);
-            this.roundedPanel2.Controls.Add(this.label4);
-            this.roundedPanel2.Controls.Add(this.buttonFinditemPageClose);
-            this.roundedPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundedPanel2.ExBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.roundedPanel2.Location = new System.Drawing.Point(10, 10);
-            this.roundedPanel2.Name = "roundedPanel2";
-            this.roundedPanel2.Padding = new System.Windows.Forms.Padding(10, 30, 10, 28);
-            this.roundedPanel2.RadiusArcPanel = 20F;
-            this.roundedPanel2.Size = new System.Drawing.Size(928, 80);
-            this.roundedPanel2.TabIndex = 0;
-            // 
-            // labelFindSatus
-            // 
-            this.labelFindSatus.Dock = System.Windows.Forms.DockStyle.Left;
-            this.labelFindSatus.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelFindSatus.ForeColor = System.Drawing.Color.White;
-            this.labelFindSatus.Location = new System.Drawing.Point(685, 30);
-            this.labelFindSatus.Name = "labelFindSatus";
-            this.labelFindSatus.Size = new System.Drawing.Size(206, 22);
-            this.labelFindSatus.TabIndex = 4;
-            this.labelFindSatus.Text = "Szukanie";
-            this.labelFindSatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelFindSatus.Visible = false;
-            // 
-            // buttonfinditemReset
-            // 
-            this.buttonfinditemReset.Dock = System.Windows.Forms.DockStyle.Left;
-            this.buttonfinditemReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.buttonfinditemReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonfinditemReset.ForeColor = System.Drawing.Color.White;
-            this.buttonfinditemReset.Location = new System.Drawing.Point(610, 30);
-            this.buttonfinditemReset.Name = "buttonfinditemReset";
-            this.buttonfinditemReset.Size = new System.Drawing.Size(75, 22);
-            this.buttonfinditemReset.TabIndex = 3;
-            this.buttonfinditemReset.Text = "Reset";
-            this.buttonfinditemReset.UseVisualStyleBackColor = true;
-            this.buttonfinditemReset.Click += new System.EventHandler(this.buttonfinditemReset_Click);
-            // 
-            // buttonFindItem
-            // 
-            this.buttonFindItem.Dock = System.Windows.Forms.DockStyle.Left;
-            this.buttonFindItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.buttonFindItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonFindItem.ForeColor = System.Drawing.Color.White;
-            this.buttonFindItem.Location = new System.Drawing.Point(535, 30);
-            this.buttonFindItem.Name = "buttonFindItem";
-            this.buttonFindItem.Size = new System.Drawing.Size(75, 22);
-            this.buttonFindItem.TabIndex = 2;
-            this.buttonFindItem.Text = "Szukaj";
-            this.buttonFindItem.UseVisualStyleBackColor = true;
-            this.buttonFindItem.Click += new System.EventHandler(this.buttonFindItem_Click);
-            // 
-            // textBoxFinditem
-            // 
-            this.textBoxFinditem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.textBoxFinditem.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBoxFinditem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxFinditem.ForeColor = System.Drawing.Color.White;
-            this.textBoxFinditem.Location = new System.Drawing.Point(185, 30);
-            this.textBoxFinditem.Name = "textBoxFinditem";
-            this.textBoxFinditem.Size = new System.Drawing.Size(350, 21);
-            this.textBoxFinditem.TabIndex = 1;
-            this.textBoxFinditem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxFinditem_KeyDown);
-            // 
-            // label4
-            // 
-            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label4.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.Window;
-            this.label4.Location = new System.Drawing.Point(10, 30);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(175, 22);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Twojeanimepl - Wyszukiwarka";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // buttonFinditemPageClose
-            // 
-            this.buttonFinditemPageClose.BackColor = System.Drawing.Color.Transparent;
-            this.buttonFinditemPageClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonFinditemPageClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonFinditemPageClose.ForeColor = System.Drawing.Color.Red;
-            this.buttonFinditemPageClose.Location = new System.Drawing.Point(893, 30);
-            this.buttonFinditemPageClose.MaximumSize = new System.Drawing.Size(25, 25);
-            this.buttonFinditemPageClose.Name = "buttonFinditemPageClose";
-            this.buttonFinditemPageClose.Size = new System.Drawing.Size(25, 22);
-            this.buttonFinditemPageClose.TabIndex = 0;
-            this.buttonFinditemPageClose.Text = "X";
-            this.buttonFinditemPageClose.UseVisualStyleBackColor = false;
-            this.buttonFinditemPageClose.Click += new System.EventHandler(this.buttonFinditemPageClose_Click);
-            // 
             // panelNotifiError
             // 
             this.panelNotifiError.Controls.Add(this.labelError);
@@ -870,19 +685,216 @@
             this.timerAnimationError.Interval = 1;
             this.timerAnimationError.Tick += new System.EventHandler(this.timerAnimationError_Tick);
             // 
-            // buttonRestartApp
+            // roundedPanel2
             // 
-            this.buttonRestartApp.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonRestartApp.FlatAppearance.BorderSize = 0;
-            this.buttonRestartApp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRestartApp.ForeColor = System.Drawing.Color.White;
-            this.buttonRestartApp.Location = new System.Drawing.Point(10, 158);
-            this.buttonRestartApp.Name = "buttonRestartApp";
-            this.buttonRestartApp.Size = new System.Drawing.Size(180, 40);
-            this.buttonRestartApp.TabIndex = 6;
-            this.buttonRestartApp.Text = "Zrestartuj aplikacjie";
-            this.buttonRestartApp.UseVisualStyleBackColor = true;
-            this.buttonRestartApp.Click += new System.EventHandler(this.buttonRestartApp_Click);
+            this.roundedPanel2.BackColor = System.Drawing.Color.Transparent;
+            this.roundedPanel2.ColorEdges = System.Drawing.SystemColors.ActiveCaptionText;
+            this.roundedPanel2.Controls.Add(this.labelFindSatus);
+            this.roundedPanel2.Controls.Add(this.buttonfinditemReset);
+            this.roundedPanel2.Controls.Add(this.buttonFindItem);
+            this.roundedPanel2.Controls.Add(this.textBoxFinditem);
+            this.roundedPanel2.Controls.Add(this.label4);
+            this.roundedPanel2.Controls.Add(this.buttonFinditemPageClose);
+            this.roundedPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.roundedPanel2.ExBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.roundedPanel2.Location = new System.Drawing.Point(10, 10);
+            this.roundedPanel2.Name = "roundedPanel2";
+            this.roundedPanel2.Padding = new System.Windows.Forms.Padding(10, 30, 10, 28);
+            this.roundedPanel2.RadiusArcPanel = 20F;
+            this.roundedPanel2.Size = new System.Drawing.Size(928, 80);
+            this.roundedPanel2.TabIndex = 0;
+            // 
+            // labelFindSatus
+            // 
+            this.labelFindSatus.Dock = System.Windows.Forms.DockStyle.Left;
+            this.labelFindSatus.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelFindSatus.ForeColor = System.Drawing.Color.White;
+            this.labelFindSatus.Location = new System.Drawing.Point(685, 30);
+            this.labelFindSatus.Name = "labelFindSatus";
+            this.labelFindSatus.Size = new System.Drawing.Size(148, 22);
+            this.labelFindSatus.TabIndex = 4;
+            this.labelFindSatus.Text = "Szukanie";
+            this.labelFindSatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelFindSatus.Visible = false;
+            // 
+            // buttonfinditemReset
+            // 
+            this.buttonfinditemReset.Dock = System.Windows.Forms.DockStyle.Left;
+            this.buttonfinditemReset.FlatAppearance.BorderSize = 0;
+            this.buttonfinditemReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.buttonfinditemReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.buttonfinditemReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonfinditemReset.ForeColor = System.Drawing.Color.White;
+            this.buttonfinditemReset.Location = new System.Drawing.Point(610, 30);
+            this.buttonfinditemReset.Name = "buttonfinditemReset";
+            this.buttonfinditemReset.Size = new System.Drawing.Size(75, 22);
+            this.buttonfinditemReset.TabIndex = 3;
+            this.buttonfinditemReset.Text = "Reset";
+            this.buttonfinditemReset.UseVisualStyleBackColor = true;
+            this.buttonfinditemReset.Click += new System.EventHandler(this.buttonfinditemReset_Click);
+            // 
+            // buttonFindItem
+            // 
+            this.buttonFindItem.Dock = System.Windows.Forms.DockStyle.Left;
+            this.buttonFindItem.FlatAppearance.BorderSize = 0;
+            this.buttonFindItem.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.buttonFindItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.buttonFindItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonFindItem.ForeColor = System.Drawing.Color.White;
+            this.buttonFindItem.Location = new System.Drawing.Point(535, 30);
+            this.buttonFindItem.Name = "buttonFindItem";
+            this.buttonFindItem.Size = new System.Drawing.Size(75, 22);
+            this.buttonFindItem.TabIndex = 2;
+            this.buttonFindItem.Text = "Szukaj";
+            this.buttonFindItem.UseVisualStyleBackColor = true;
+            this.buttonFindItem.Click += new System.EventHandler(this.buttonFindItem_Click);
+            // 
+            // textBoxFinditem
+            // 
+            this.textBoxFinditem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.textBoxFinditem.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxFinditem.Dock = System.Windows.Forms.DockStyle.Left;
+            this.textBoxFinditem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxFinditem.ForeColor = System.Drawing.Color.White;
+            this.textBoxFinditem.Location = new System.Drawing.Point(185, 30);
+            this.textBoxFinditem.Multiline = true;
+            this.textBoxFinditem.Name = "textBoxFinditem";
+            this.textBoxFinditem.Size = new System.Drawing.Size(350, 22);
+            this.textBoxFinditem.TabIndex = 1;
+            this.textBoxFinditem.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxFinditem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxFinditem_KeyDown);
+            // 
+            // label4
+            // 
+            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label4.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.Window;
+            this.label4.Location = new System.Drawing.Point(10, 30);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(175, 22);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Twojeanimepl - Wyszukiwarka";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // buttonFinditemPageClose
+            // 
+            this.buttonFinditemPageClose.BackColor = System.Drawing.Color.Transparent;
+            this.buttonFinditemPageClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonFinditemPageClose.FlatAppearance.BorderSize = 0;
+            this.buttonFinditemPageClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonFinditemPageClose.ForeColor = System.Drawing.Color.Red;
+            this.buttonFinditemPageClose.Location = new System.Drawing.Point(839, 30);
+            this.buttonFinditemPageClose.Name = "buttonFinditemPageClose";
+            this.buttonFinditemPageClose.Size = new System.Drawing.Size(79, 22);
+            this.buttonFinditemPageClose.TabIndex = 0;
+            this.buttonFinditemPageClose.Text = "Zamknij kartę";
+            this.buttonFinditemPageClose.UseVisualStyleBackColor = false;
+            this.buttonFinditemPageClose.Click += new System.EventHandler(this.buttonFinditemPageClose_Click);
+            // 
+            // roundedPanel1
+            // 
+            this.roundedPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.roundedPanel1.ColorEdges = System.Drawing.SystemColors.ActiveCaptionText;
+            this.roundedPanel1.Controls.Add(this.panel7);
+            this.roundedPanel1.Controls.Add(this.labelSatusWorkingApp);
+            this.roundedPanel1.Controls.Add(this.buttonMenuOpen);
+            this.roundedPanel1.Controls.Add(this.label);
+            this.roundedPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.roundedPanel1.ExBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.roundedPanel1.Location = new System.Drawing.Point(10, 10);
+            this.roundedPanel1.Margin = new System.Windows.Forms.Padding(10);
+            this.roundedPanel1.Name = "roundedPanel1";
+            this.roundedPanel1.Padding = new System.Windows.Forms.Padding(20, 6, 20, 6);
+            this.roundedPanel1.RadiusArcPanel = 15F;
+            this.roundedPanel1.Size = new System.Drawing.Size(911, 71);
+            this.roundedPanel1.TabIndex = 0;
+            this.roundedPanel1.Resize += new System.EventHandler(this.Panel_Resize);
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.textBoxStartPagefinditem);
+            this.panel7.Controls.Add(this.buttonStartPageFinditem);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.panel7.Location = new System.Drawing.Point(190, 6);
+            this.panel7.Name = "panel7";
+            this.panel7.Padding = new System.Windows.Forms.Padding(5, 20, 5, 15);
+            this.panel7.Size = new System.Drawing.Size(408, 59);
+            this.panel7.TabIndex = 4;
+            // 
+            // textBoxStartPagefinditem
+            // 
+            this.textBoxStartPagefinditem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.textBoxStartPagefinditem.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxStartPagefinditem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxStartPagefinditem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxStartPagefinditem.ForeColor = System.Drawing.Color.White;
+            this.textBoxStartPagefinditem.Location = new System.Drawing.Point(5, 20);
+            this.textBoxStartPagefinditem.Multiline = true;
+            this.textBoxStartPagefinditem.Name = "textBoxStartPagefinditem";
+            this.textBoxStartPagefinditem.Size = new System.Drawing.Size(323, 24);
+            this.textBoxStartPagefinditem.TabIndex = 3;
+            this.textBoxStartPagefinditem.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxStartPagefinditem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSPfinditem_KeyDown);
+            // 
+            // buttonStartPageFinditem
+            // 
+            this.buttonStartPageFinditem.BackColor = System.Drawing.Color.Transparent;
+            this.buttonStartPageFinditem.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonStartPageFinditem.FlatAppearance.BorderSize = 0;
+            this.buttonStartPageFinditem.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.buttonStartPageFinditem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.buttonStartPageFinditem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonStartPageFinditem.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonStartPageFinditem.ForeColor = System.Drawing.Color.White;
+            this.buttonStartPageFinditem.Location = new System.Drawing.Point(328, 20);
+            this.buttonStartPageFinditem.Name = "buttonStartPageFinditem";
+            this.buttonStartPageFinditem.Size = new System.Drawing.Size(75, 24);
+            this.buttonStartPageFinditem.TabIndex = 4;
+            this.buttonStartPageFinditem.Text = "Szukaj";
+            this.buttonStartPageFinditem.UseVisualStyleBackColor = false;
+            this.buttonStartPageFinditem.Click += new System.EventHandler(this.buttonStartPageFinditem_Click);
+            // 
+            // labelSatusWorkingApp
+            // 
+            this.labelSatusWorkingApp.Dock = System.Windows.Forms.DockStyle.Right;
+            this.labelSatusWorkingApp.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSatusWorkingApp.ForeColor = System.Drawing.SystemColors.Window;
+            this.labelSatusWorkingApp.Location = new System.Drawing.Point(598, 6);
+            this.labelSatusWorkingApp.Name = "labelSatusWorkingApp";
+            this.labelSatusWorkingApp.Size = new System.Drawing.Size(222, 59);
+            this.labelSatusWorkingApp.TabIndex = 2;
+            this.labelSatusWorkingApp.Text = "Satus działania:";
+            this.labelSatusWorkingApp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // buttonMenuOpen
+            // 
+            this.buttonMenuOpen.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonMenuOpen.FlatAppearance.BorderSize = 0;
+            this.buttonMenuOpen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.buttonMenuOpen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.buttonMenuOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMenuOpen.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonMenuOpen.ForeColor = System.Drawing.Color.White;
+            this.buttonMenuOpen.Location = new System.Drawing.Point(820, 6);
+            this.buttonMenuOpen.Name = "buttonMenuOpen";
+            this.buttonMenuOpen.Size = new System.Drawing.Size(71, 59);
+            this.buttonMenuOpen.TabIndex = 1;
+            this.buttonMenuOpen.Text = "=";
+            this.buttonMenuOpen.UseVisualStyleBackColor = true;
+            this.buttonMenuOpen.Click += new System.EventHandler(this.buttonMenuOpen_Click);
+            // 
+            // label
+            // 
+            this.label.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label.ForeColor = System.Drawing.SystemColors.Window;
+            this.label.Location = new System.Drawing.Point(20, 6);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(170, 59);
+            this.label.TabIndex = 0;
+            this.label.Text = "Twoje anime pl";
+            this.label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // OknoG
             // 
@@ -890,8 +902,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.ClientSize = new System.Drawing.Size(948, 541);
-            this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelNotifiError);
             this.DoubleBuffered = true;
             this.KeyPreview = true;
@@ -922,9 +934,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelTop.ResumeLayout(false);
-            this.roundedPanel1.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
             this.panelLoading.ResumeLayout(false);
             this.panelLoading.PerformLayout();
             this.panelMenu.ResumeLayout(false);
@@ -934,10 +943,13 @@
             this.panel2.ResumeLayout(false);
             this.panelAllitem.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
-            this.roundedPanel2.ResumeLayout(false);
-            this.roundedPanel2.PerformLayout();
             this.panelNotifiError.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.roundedPanel2.ResumeLayout(false);
+            this.roundedPanel2.PerformLayout();
+            this.roundedPanel1.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.ResumeLayout(false);
 
         }

@@ -70,6 +70,28 @@ namespace AnimePlayer
 
             }
             CreateBackupicon();
+            ControlsNewMethods.RoundingControl rc = new ControlsNewMethods.RoundingControl();
+            rc.TargetControl = buttonStartPageFinditem;
+            rc.CornerRadius = 15;
+            rc = new ControlsNewMethods.RoundingControl();
+            rc.TargetControl = buttonMenuOpen;
+            rc.CornerRadius = 15;
+            rc = new ControlsNewMethods.RoundingControl();
+            rc.TargetControl = textBoxStartPagefinditem;
+            rc.CornerRadius = 15;
+
+            rc = new ControlsNewMethods.RoundingControl();
+            rc.TargetControl = textBoxFinditem;
+            rc.CornerRadius = 15;
+            rc = new ControlsNewMethods.RoundingControl();
+            rc.TargetControl = buttonFindItem;
+            rc.CornerRadius = 15;
+            rc = new ControlsNewMethods.RoundingControl();
+            rc.TargetControl = buttonfinditemReset;
+            rc.CornerRadius = 15;
+            rc = new ControlsNewMethods.RoundingControl();
+            rc.TargetControl = buttonFinditemPageClose;
+            rc.CornerRadius = 15;
         }
 
         Task CreateBackupicon()
@@ -438,6 +460,7 @@ namespace AnimePlayer
 
         public void findItems()
         {
+            string findText = textBoxFinditem.Text.ToLower().Replace("\n", "").Replace("\r", "").Replace("\t", "");
             if (textBoxFinditem.Text == null)
             {
                 flowLayoutPanelFinditem.Hide();
@@ -462,7 +485,7 @@ namespace AnimePlayer
                         if (c.Tag != null)
                         {
                             WebContentControls.CtnPanel ctn = (WebContentControls.CtnPanel)c.Tag;
-                            if (ctn.values.name.ToLower().Contains(textBoxFinditem.Text.ToLower()))
+                            if (ctn.values.name.ToLower().Contains(findText))
                             {
                                 flowLayoutPanelFinditem.Controls.Add(ctn.Duplication());
                                 i++;
@@ -474,6 +497,7 @@ namespace AnimePlayer
                         Console.WriteLine(ex.ToString());
                     }
                 }
+                textBoxFinditem.Text = findText;
                 labelFindSatus.Text = "Znaleziono: " + i;
                 flowLayoutPanelFinditem.Show();
             }
@@ -485,6 +509,7 @@ namespace AnimePlayer
         
         public void findItems(string findText)
         {
+            findText = findText.ToLower().Replace("\n", "").Replace("\r", "").Replace("\t", "");
             if (findText == null)
             {
                 flowLayoutPanelFinditem.Hide();
@@ -537,6 +562,7 @@ namespace AnimePlayer
             labelFindSatus.Text = "Szukanie";
             labelFindSatus.Hide();
             flowLayoutPanelAll.Show();
+            textBoxFinditem.Text = "";
         }
 
         private void buttonFinditemPageClose_Click(object sender, EventArgs e)

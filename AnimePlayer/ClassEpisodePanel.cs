@@ -34,6 +34,7 @@ namespace AnimePlayer
             panelMain.BackColor = Color.FromArgb(30, 30, 30);
             panelMain.Size = new Size(800, 40);
 
+
             labelTitle = new Label();
             labelTitle.Dock = DockStyle.Left;
             labelTitle.Text = text;
