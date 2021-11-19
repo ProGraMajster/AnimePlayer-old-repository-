@@ -274,12 +274,15 @@ namespace AnimePlayer
                 SetImage();
                 buttonItem.Click += ButtonItem_Click;
                 pictureBoxItem.Click += ButtonItem_Click;
-                ControlsNewMethods.RoundingControl rc = new ControlsNewMethods.RoundingControl();
-                rc.TargetControl = buttonItem;
-                rc.CornerRadius = 15;
-                rc = new ControlsNewMethods.RoundingControl();
-                rc.TargetControl = panelItem;
-                rc.CornerRadius = 15;
+                if (AnimePlayer.Properties.Settings.Default.RoundingControl)
+                {
+                    ControlsNewMethods.RoundingControl rc = new ControlsNewMethods.RoundingControl();
+                    rc.TargetControl = buttonItem;
+                    rc.CornerRadius = 15;
+                    rc = new ControlsNewMethods.RoundingControl();
+                    rc.TargetControl = panelItem;
+                    rc.CornerRadius = 15;
+                }
             }
 
             public CtnPanel()
@@ -388,12 +391,15 @@ namespace AnimePlayer
                 {
                     button.Text = values.name;
                     picture.LoadAsync(values.iconPath);
-                    ControlsNewMethods.RoundingControl rc = new ControlsNewMethods.RoundingControl();
-                    rc.TargetControl = button;
-                    rc.CornerRadius = 15;
-                    rc = new ControlsNewMethods.RoundingControl();
-                    rc.TargetControl = panel;
-                    rc.CornerRadius = 15;
+                    if (AnimePlayer.Properties.Settings.Default.RoundingControl)
+                    {
+                        ControlsNewMethods.RoundingControl rc = new ControlsNewMethods.RoundingControl();
+                        rc.TargetControl = button;
+                        rc.CornerRadius = 15;
+                        rc = new ControlsNewMethods.RoundingControl();
+                        rc.TargetControl = panel;
+                        rc.CornerRadius = 15;
+                    }
                 }
                 catch(Exception ex)
                 {

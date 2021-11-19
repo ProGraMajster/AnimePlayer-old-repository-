@@ -70,28 +70,31 @@ namespace AnimePlayer
 
             }
             CreateBackupicon();
-            ControlsNewMethods.RoundingControl rc = new ControlsNewMethods.RoundingControl();
-            rc.TargetControl = buttonStartPageFinditem;
-            rc.CornerRadius = 15;
-            rc = new ControlsNewMethods.RoundingControl();
-            rc.TargetControl = buttonMenuOpen;
-            rc.CornerRadius = 15;
-            rc = new ControlsNewMethods.RoundingControl();
-            rc.TargetControl = textBoxStartPagefinditem;
-            rc.CornerRadius = 15;
+            if(AnimePlayer.Properties.Settings.Default.RoundingControl)
+            {
+                ControlsNewMethods.RoundingControl rc = new ControlsNewMethods.RoundingControl();
+                rc.TargetControl = buttonStartPageFinditem;
+                rc.CornerRadius = 15;
+                rc = new ControlsNewMethods.RoundingControl();
+                rc.TargetControl = buttonMenuOpen;
+                rc.CornerRadius = 15;
+                rc = new ControlsNewMethods.RoundingControl();
+                rc.TargetControl = textBoxStartPagefinditem;
+                rc.CornerRadius = 15;
 
-            rc = new ControlsNewMethods.RoundingControl();
-            rc.TargetControl = textBoxFinditem;
-            rc.CornerRadius = 15;
-            rc = new ControlsNewMethods.RoundingControl();
-            rc.TargetControl = buttonFindItem;
-            rc.CornerRadius = 15;
-            rc = new ControlsNewMethods.RoundingControl();
-            rc.TargetControl = buttonfinditemReset;
-            rc.CornerRadius = 15;
-            rc = new ControlsNewMethods.RoundingControl();
-            rc.TargetControl = buttonFinditemPageClose;
-            rc.CornerRadius = 15;
+                rc = new ControlsNewMethods.RoundingControl();
+                rc.TargetControl = textBoxFinditem;
+                rc.CornerRadius = 15;
+                rc = new ControlsNewMethods.RoundingControl();
+                rc.TargetControl = buttonFindItem;
+                rc.CornerRadius = 15;
+                rc = new ControlsNewMethods.RoundingControl();
+                rc.TargetControl = buttonfinditemReset;
+                rc.CornerRadius = 15;
+                rc = new ControlsNewMethods.RoundingControl();
+                rc.TargetControl = buttonFinditemPageClose;
+                rc.CornerRadius = 15;
+            }
             
         }
         Task CreateBackupicon()
@@ -281,6 +284,11 @@ namespace AnimePlayer
         private void buttonSetting_Click(object sender, EventArgs e)
         {
             panelMenu.Hide();
+            PageSettings pageSettings = new PageSettings();
+            pageSettings.Dock = DockStyle.Fill;
+            panel2.Controls.Add(pageSettings);
+            pageSettings.Show();
+            pageSettings.BringToFront();
         }
 
         private void buttonPlayer_Click(object sender, EventArgs e)
@@ -459,6 +467,7 @@ namespace AnimePlayer
 
         public void findItems()
         {
+            Stopwatch stopWatch = new Stopwatch();
             string findText = textBoxFinditem.Text.ToLower().Replace("\n", "").Replace("\r", "").Replace("\t", "");
             if (textBoxFinditem.Text == null)
             {
@@ -504,10 +513,18 @@ namespace AnimePlayer
             {
                 Console.WriteLine(eex.ToString());
             }
+            stopWatch.Stop();
+            TimeSpan ts = stopWatch.Elapsed;
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+            ts.Hours, ts.Minutes, ts.Seconds,
+            ts.Milliseconds / 10);
+            stopWatch.Reset();
+            Console.WriteLine("Loading time: " + elapsedTime);
         }
         
         public void findItems(string findText)
         {
+            Stopwatch stopWatch = new Stopwatch();
             findText = findText.ToLower().Replace("\n", "").Replace("\r", "").Replace("\t", "");
             if (findText == null)
             {
@@ -552,6 +569,14 @@ namespace AnimePlayer
             {
                 Console.WriteLine(eex.ToString());
             }
+
+            stopWatch.Stop();
+            TimeSpan ts = stopWatch.Elapsed;
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+            ts.Hours, ts.Minutes, ts.Seconds,
+            ts.Milliseconds / 10);
+            stopWatch.Reset();
+            Console.WriteLine("Loading time: " + elapsedTime);
         }
 
         private void buttonfinditemReset_Click(object sender, EventArgs e)

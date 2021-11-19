@@ -34,5 +34,17 @@ namespace AnimePlayer.Properties {
                 this["idMain"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool RoundingControl {
+            get {
+                return ((bool)(this["RoundingControl"]));
+            }
+            set {
+                this["RoundingControl"] = value;
+            }
+        }
     }
 }

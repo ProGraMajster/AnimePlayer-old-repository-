@@ -14,9 +14,17 @@ namespace AnimePlayer
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new OknoG());
+            try
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new OknoG());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Wystąpił krytyczny błąd", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                System.IO.File.AppendAllText("CrashApplogs.txt", ex.ToString() + Environment.NewLine);
+            }
         }
     }
 }
