@@ -333,6 +333,7 @@
             this.flowLayoutPanelPolecane.Size = new System.Drawing.Size(931, 266);
             this.flowLayoutPanelPolecane.TabIndex = 5;
             this.flowLayoutPanelPolecane.WrapContents = false;
+            this.flowLayoutPanelPolecane.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.flowLayoutPanel_ControlAdded);
             // 
             // panel1
             // 

@@ -33,8 +33,8 @@ namespace AnimePlayer
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.labelotherTitle = new System.Windows.Forms.Label();
             this.labelTitle = new System.Windows.Forms.Label();
-            this.pictureBoxIcon = new System.Windows.Forms.PictureBox();
             this.button = new System.Windows.Forms.Button();
+            this.pictureBoxIcon = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.labelDes = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -65,6 +65,9 @@ namespace AnimePlayer
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanelRelatedSeries = new AnimePlayer.NewFlowLayoutPanel();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.labelOtherTags = new System.Windows.Forms.Label();
@@ -92,6 +95,7 @@ namespace AnimePlayer
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel11.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panelViewIcon.SuspendLayout();
@@ -158,19 +162,6 @@ namespace AnimePlayer
             this.labelTitle.TabIndex = 1;
             this.labelTitle.Text = "Title";
             // 
-            // pictureBoxIcon
-            // 
-            this.pictureBoxIcon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.pictureBoxIcon.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBoxIcon.Image = global::AnimePlayer.Properties.Resource.NoImage;
-            this.pictureBoxIcon.Location = new System.Drawing.Point(20, 20);
-            this.pictureBoxIcon.Name = "pictureBoxIcon";
-            this.pictureBoxIcon.Size = new System.Drawing.Size(160, 200);
-            this.pictureBoxIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxIcon.TabIndex = 0;
-            this.pictureBoxIcon.TabStop = false;
-            this.pictureBoxIcon.Click += new System.EventHandler(this.pictureBoxIcon_Click);
-            // 
             // button
             // 
             this.button.Dock = System.Windows.Forms.DockStyle.Right;
@@ -186,6 +177,19 @@ namespace AnimePlayer
             this.button.Text = "X";
             this.button.UseVisualStyleBackColor = true;
             this.button.Click += new System.EventHandler(this.button_Click);
+            // 
+            // pictureBoxIcon
+            // 
+            this.pictureBoxIcon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.pictureBoxIcon.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBoxIcon.Image = global::AnimePlayer.Properties.Resource.NoImage;
+            this.pictureBoxIcon.Location = new System.Drawing.Point(20, 20);
+            this.pictureBoxIcon.Name = "pictureBoxIcon";
+            this.pictureBoxIcon.Size = new System.Drawing.Size(160, 200);
+            this.pictureBoxIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxIcon.TabIndex = 0;
+            this.pictureBoxIcon.TabStop = false;
+            this.pictureBoxIcon.Click += new System.EventHandler(this.pictureBoxIcon_Click);
             // 
             // panel3
             // 
@@ -547,6 +551,7 @@ namespace AnimePlayer
             // listBoxEpType
             // 
             this.listBoxEpType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.listBoxEpType.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBoxEpType.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxEpType.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             this.listBoxEpType.ForeColor = System.Drawing.Color.White;
@@ -588,6 +593,7 @@ namespace AnimePlayer
             // 
             this.panel6.AutoScroll = true;
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.panel6.Controls.Add(this.panel11);
             this.panel6.Controls.Add(this.panel5);
             this.panel6.Controls.Add(this.panel9);
             this.panel6.Controls.Add(this.panel3);
@@ -597,6 +603,42 @@ namespace AnimePlayer
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(805, 511);
             this.panel6.TabIndex = 2;
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.flowLayoutPanelRelatedSeries);
+            this.panel11.Controls.Add(this.label6);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel11.Location = new System.Drawing.Point(0, 1572);
+            this.panel11.Margin = new System.Windows.Forms.Padding(10);
+            this.panel11.Name = "panel11";
+            this.panel11.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.panel11.Size = new System.Drawing.Size(788, 334);
+            this.panel11.TabIndex = 6;
+            // 
+            // flowLayoutPanelRelatedSeries
+            // 
+            this.flowLayoutPanelRelatedSeries.AutoScroll = true;
+            this.flowLayoutPanelRelatedSeries.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.flowLayoutPanelRelatedSeries.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanelRelatedSeries.Location = new System.Drawing.Point(0, 54);
+            this.flowLayoutPanelRelatedSeries.Name = "flowLayoutPanelRelatedSeries";
+            this.flowLayoutPanelRelatedSeries.Padding = new System.Windows.Forms.Padding(12, 2, 12, 2);
+            this.flowLayoutPanelRelatedSeries.Size = new System.Drawing.Size(788, 270);
+            this.flowLayoutPanelRelatedSeries.TabIndex = 6;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label6.Font = new System.Drawing.Font("Comic Sans MS", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(0, 10);
+            this.label6.Name = "label6";
+            this.label6.Padding = new System.Windows.Forms.Padding(10);
+            this.label6.Size = new System.Drawing.Size(159, 44);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Powiązane serie";
             // 
             // panel9
             // 
@@ -850,6 +892,8 @@ namespace AnimePlayer
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panelViewIcon.ResumeLayout(false);
@@ -913,5 +957,8 @@ namespace AnimePlayer
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button buttonViewIconClose;
         public System.Windows.Forms.Panel panelViewIcon;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Label label6;
+        public NewFlowLayoutPanel flowLayoutPanelRelatedSeries;
     }
 }

@@ -16,19 +16,23 @@ namespace AnimePlayer
         public Panel panelMain;
         public Label labelTitle;
         public Label labelEp;
-
         public Button button_1080p;
         public Button button_720p;
         public Button button_460p;
         public Button button_360p;
         public int NumberBtn;
         public int numEp;
-
+        string pathFile;
         private Panel panelTopv;
+        Form formW;
+        WebContent.Skip skipLolcal;
 
-        public ClassEpisodePanel(string text, int ep, int numberQuality, string path, string link, Panel panel)
+        public ClassEpisodePanel(string text, int ep, int numberQuality, string path, string link, Panel panel, Form form, WebContent.Skip skip)
         {
+            skipLolcal = skip;
+            formW = form;
             panelTopv = panel;
+            pathFile = path;
             string[] zm = link.Split(';');
             panelMain = new Panel();
             panelMain.BackColor = Color.FromArgb(30, 30, 30);
@@ -202,19 +206,19 @@ namespace AnimePlayer
                     {
                         if (btn.Name == "1080")
                         {
-                            VideoPlayer videoPlayer = new VideoPlayer(CdaDownloader.GetVideoLink(btn.Tag.ToString(), CdaQuality.p1080), panelTopv);
+                            VideoPlayer videoPlayer = new VideoPlayer(CdaDownloader.GetVideoLink(btn.Tag.ToString(), CdaQuality.p1080), panelTopv, pathFile, formW, skipLolcal);
                         }
                         else if (btn.Name == "720")
                         {
-                            VideoPlayer videoPlayer = new VideoPlayer(CdaDownloader.GetVideoLink(btn.Tag.ToString(), CdaQuality.p720), panelTopv);
+                            VideoPlayer videoPlayer = new VideoPlayer(CdaDownloader.GetVideoLink(btn.Tag.ToString(), CdaQuality.p720), panelTopv, pathFile, formW, skipLolcal);
                         }
                         else if (btn.Name == "460")
                         {
-                            VideoPlayer videoPlayer = new VideoPlayer(CdaDownloader.GetVideoLink(btn.Tag.ToString(), CdaQuality.p480), panelTopv);
+                            VideoPlayer videoPlayer = new VideoPlayer(CdaDownloader.GetVideoLink(btn.Tag.ToString(), CdaQuality.p480), panelTopv, pathFile, formW, skipLolcal);
                         }
                         else if (btn.Name == "360")
                         {
-                            VideoPlayer videoPlayer = new VideoPlayer(CdaDownloader.GetVideoLink(btn.Tag.ToString(), CdaQuality.p360), panelTopv);
+                            VideoPlayer videoPlayer = new VideoPlayer(CdaDownloader.GetVideoLink(btn.Tag.ToString(), CdaQuality.p360), panelTopv, pathFile, formW, skipLolcal);
                         }
 
                     }

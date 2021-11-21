@@ -17,9 +17,11 @@ namespace AnimePlayer
         public string nameTypeEpisode;
         public string pathToFile;
         WebContent.Values values;
-        public PageEpisode(string name, string path, WebContent.Values val, Panel panel)
+        Form formLocla;
+        public PageEpisode(string name, string path, WebContent.Values val, Panel panel, Form form)
         {
             InitializeComponent();
+            formLocla = form;
             panelvv = panel;
             values = val;
             nameTypeEpisode = name;
@@ -62,6 +64,7 @@ namespace AnimePlayer
                     if (content[position] == "EpisodeListed")
                     {
                         position++;
+                        WebContent.Skip skip = new WebContent.Skip();
                         string zm = "[" + content[position] + "] ";
                         position++;
                         zm += content[position] + " | ";
@@ -86,8 +89,30 @@ namespace AnimePlayer
                                     position++;
                                     ep_link += content[position] + ";";
                                 }
-
-                                ClassEpisodePanel episodePanel = new ClassEpisodePanel(zm, ep, num_btn, path, ep_link, panelvv);
+                                position++;
+                                int more = 1;
+                                if(content[position] == "SkipButton")
+                                {
+                                    try
+                                    {
+                                        more++;
+                                        position++;
+                                        skip.time_showButton = double.Parse(content[position]);
+                                        more++;
+                                        position++;
+                                        skip.time_showButton = double.Parse(content[position]);
+                                    }
+                                    catch(Exception exParse)
+                                    {
+                                        Console.WriteLine(exParse.ToString());
+                                        position = position - more;
+                                    }
+                                }
+                                else
+                                {
+                                    position = position - more;
+                                }
+                                ClassEpisodePanel episodePanel = new ClassEpisodePanel(zm, ep, num_btn, path, ep_link, panelvv, formLocla, skip);
                                 flowLayoutPanel1.Controls.Add(episodePanel.panelMain);
                             }
                         }

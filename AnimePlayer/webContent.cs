@@ -13,6 +13,12 @@ namespace AnimePlayer
 {
     public static class WebContent
     {
+        public class Skip
+        {
+            public double time_showButton { get; set; }
+            public double time_skipIntro { get; set; }
+        }
+
         public class Values
         {
             public Values(string pathToFile)
@@ -195,7 +201,7 @@ namespace AnimePlayer
                 return null;
             }
         }
-            
+         
 
         public static string dUri(string id)
         {
@@ -556,6 +562,36 @@ namespace AnimePlayer
                     Console.WriteLine(ex.ToString());
                     oknoG.panelLoading.Hide();
                 }
+
+                //test
+                /*
+                try
+                {
+                    string name = values.name.ToLower().Replace("\n", "").Replace("\r", "").Replace("\t", "");
+                    foreach (Control c in oknoG.flowLayoutPanelAll.Controls)
+                    {
+                        try
+                        {
+                            if (c.Tag != null)
+                            {
+                                WebContentControls.CtnPanel ctn = (WebContentControls.CtnPanel)c.Tag;
+                                if (ctn.values.name.ToLower().Contains(name.ToLower()))
+                                {
+                                   pageItem1.flowLayoutPanelRelatedSeries.Controls.Add(ctn.Duplication());
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.ToString());
+                        }
+                    }
+                }
+                catch (Exception eex)
+                {
+                    Console.WriteLine(eex.ToString());
+                }
+                */
             }
 
             Task GetListTypeEp(PageItem pageItem, string path)
@@ -616,6 +652,17 @@ namespace AnimePlayer
             }
         }
 
+        public class RelatedSeriesPanel
+        {
+            public Panel mainPanel;
+            public Panel mainContent;
+            public Label labelTop;
+
+            public RelatedSeriesPanel()
+            {
+
+            }
+        }
     }
 
     public class Interpreter

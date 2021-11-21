@@ -103,7 +103,7 @@ namespace AnimePlayer
                         if (listBoxEpType.SelectedItem.ToString() != null)
                         {
                             PageEpisode pageEpisode = new PageEpisode(listBoxEpType.SelectedItem.ToString(),
-                                "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Video\\" + values.name + "_list_ep.txt", values, oknoG.panel2);
+                                "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Video\\" + values.name + "_list_ep.txt", values, oknoG.panel2, oknoG);
 
                             oknoG.panel2.Controls.Add(pageEpisode);
                             pageEpisode.Dock = DockStyle.Fill;
