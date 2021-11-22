@@ -469,6 +469,7 @@ namespace AnimePlayer
         public void findItems()
         {
             Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
             string findText = textBoxFinditem.Text.ToLower().Replace("\n", "").Replace("\r", "").Replace("\t", "");
             if (textBoxFinditem.Text == null)
             {

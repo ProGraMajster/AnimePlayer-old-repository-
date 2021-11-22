@@ -66,7 +66,6 @@ namespace AnimePlayer
             this.label3 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanelRelatedSeries = new AnimePlayer.NewFlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -85,6 +84,7 @@ namespace AnimePlayer
             this.panelViewIcon = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.buttonViewIconClose = new System.Windows.Forms.Button();
+            this.flowLayoutPanelRelatedSeries = new AnimePlayer.NewFlowLayoutPanel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIcon)).BeginInit();
             this.panel3.SuspendLayout();
@@ -616,17 +616,6 @@ namespace AnimePlayer
             this.panel11.Size = new System.Drawing.Size(788, 334);
             this.panel11.TabIndex = 6;
             // 
-            // flowLayoutPanelRelatedSeries
-            // 
-            this.flowLayoutPanelRelatedSeries.AutoScroll = true;
-            this.flowLayoutPanelRelatedSeries.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.flowLayoutPanelRelatedSeries.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanelRelatedSeries.Location = new System.Drawing.Point(0, 54);
-            this.flowLayoutPanelRelatedSeries.Name = "flowLayoutPanelRelatedSeries";
-            this.flowLayoutPanelRelatedSeries.Padding = new System.Windows.Forms.Padding(12, 2, 12, 2);
-            this.flowLayoutPanelRelatedSeries.Size = new System.Drawing.Size(788, 270);
-            this.flowLayoutPanelRelatedSeries.TabIndex = 6;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -869,6 +858,17 @@ namespace AnimePlayer
             this.buttonViewIconClose.UseVisualStyleBackColor = true;
             this.buttonViewIconClose.Click += new System.EventHandler(this.buttonViewIconClose_Click);
             // 
+            // flowLayoutPanelRelatedSeries
+            // 
+            this.flowLayoutPanelRelatedSeries.AutoScroll = true;
+            this.flowLayoutPanelRelatedSeries.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.flowLayoutPanelRelatedSeries.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanelRelatedSeries.Location = new System.Drawing.Point(0, 54);
+            this.flowLayoutPanelRelatedSeries.Name = "flowLayoutPanelRelatedSeries";
+            this.flowLayoutPanelRelatedSeries.Padding = new System.Windows.Forms.Padding(12, 2, 12, 2);
+            this.flowLayoutPanelRelatedSeries.Size = new System.Drawing.Size(788, 270);
+            this.flowLayoutPanelRelatedSeries.TabIndex = 6;
+            // 
             // PageItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -879,6 +879,7 @@ namespace AnimePlayer
             this.DoubleBuffered = true;
             this.Name = "PageItem";
             this.Size = new System.Drawing.Size(805, 511);
+            this.Resize += new System.EventHandler(this.PageItem_Resize);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIcon)).EndInit();

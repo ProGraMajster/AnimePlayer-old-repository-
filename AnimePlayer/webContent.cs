@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Net;
 using System.Net.Http;
+using System.Diagnostics;
 
 namespace AnimePlayer
 {
@@ -297,6 +298,8 @@ namespace AnimePlayer
 
             private void ButtonItem_Click(object sender, EventArgs e)
             {
+                Stopwatch stopWatch = new Stopwatch();
+                stopWatch.Start();
                 oknoG.panelLoading.BringToFront();
                 oknoG.panelLoading.Show();
                 Application.DoEvents();
@@ -326,6 +329,13 @@ namespace AnimePlayer
                 }
                 oknoG.panelLoading.Hide();
                 Application.DoEvents();
+                stopWatch.Stop();
+                TimeSpan ts = stopWatch.Elapsed;
+                string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+                ts.Hours, ts.Minutes, ts.Seconds,
+                ts.Milliseconds / 10);
+                stopWatch.Reset();
+                Console.WriteLine("{CtnPanel} Loading page time: " + elapsedTime);
             }
 
             public void SetName()

@@ -119,7 +119,7 @@ namespace AnimePlayer
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            if (Cursor.Position.Y <= 20)
+            if (Cursor.Position.Y <= 30)
             {
                 panel1.Show();
             }

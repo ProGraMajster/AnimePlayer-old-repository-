@@ -121,9 +121,7 @@ namespace AnimePlayer
 
         private void pictureBoxIcon_Click(object sender, EventArgs e)
         {
-            panelViewIcon.Size = new Size(this.Size.Width - 200, this.Size.Height - 100);
-            panelViewIcon.Left = (this.ClientSize.Width - panelViewIcon.Width) / 2;
-            panelViewIcon.Top = (this.ClientSize.Height - panelViewIcon.Height) / 2;
+            
 
             panelViewIcon.BringToFront();
             panelViewIcon.Show();
@@ -134,6 +132,16 @@ namespace AnimePlayer
         {
             pictureBox2.Image = null;
             panelViewIcon.Hide();
+        }
+
+        private void PageItem_Resize(object sender, EventArgs e)
+        {
+            if(panelViewIcon.Visible)
+            {
+                panelViewIcon.Size = new Size(this.Size.Width - 200, this.Size.Height - 100);
+                panelViewIcon.Left = (this.ClientSize.Width - panelViewIcon.Width) / 2;
+                panelViewIcon.Top = (this.ClientSize.Height - panelViewIcon.Height) / 2;
+            }
         }
     }
 }
