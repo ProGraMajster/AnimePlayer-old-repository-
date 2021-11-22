@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
+using System.Windows.Forms;
 
 namespace AnimePlayer
 {
@@ -121,7 +115,7 @@ namespace AnimePlayer
 
         private void pictureBoxIcon_Click(object sender, EventArgs e)
         {
-            
+
 
             panelViewIcon.BringToFront();
             panelViewIcon.Show();
@@ -136,7 +130,7 @@ namespace AnimePlayer
 
         private void PageItem_Resize(object sender, EventArgs e)
         {
-            if(panelViewIcon.Visible)
+            if (panelViewIcon.Visible)
             {
                 panelViewIcon.Size = new Size(this.Size.Width - 200, this.Size.Height - 100);
                 panelViewIcon.Left = (this.ClientSize.Width - panelViewIcon.Width) / 2;

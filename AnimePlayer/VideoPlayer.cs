@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 
 namespace AnimePlayer
 {
@@ -34,6 +27,7 @@ namespace AnimePlayer
             SkipIntro = skip.time_skipIntro;
             axwmp.Ctlcontrols.pause();
         }
+
         public VideoPlayer(Panel panel, bool local)
         {
             InitializeComponent();
@@ -61,7 +55,7 @@ namespace AnimePlayer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(full)
+            if (full)
             {
                 form.Size = sizeform;
                 form.FormBorderStyle = FormBorderStyle.Sizable;
@@ -105,13 +99,13 @@ namespace AnimePlayer
                 OpenFileDialog openFileDialog = new OpenFileDialog();
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    if(System.IO.File.Exists(openFileDialog.FileName))
+                    if (System.IO.File.Exists(openFileDialog.FileName))
                     {
                         axwmp.URL = openFileDialog.FileName;
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
@@ -131,7 +125,7 @@ namespace AnimePlayer
 
         private void timerShowSkipButton_Tick(object sender, EventArgs e)
         {
-            if(axwmp.Ctlcontrols.currentPosition == ShowSkipIntroTime)
+            if (axwmp.Ctlcontrols.currentPosition == ShowSkipIntroTime)
             {
                 buttonSkip.Show();
                 timerHidebuttonSkip.Start();
@@ -152,7 +146,7 @@ namespace AnimePlayer
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboBox1.SelectedItem.ToString() == "WindowsMediaPlayer")
+            if (comboBox1.SelectedItem.ToString() == "WindowsMediaPlayer")
             {
                 axwmp.uiMode = "full";
             }

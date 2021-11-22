@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AnimePlayer
@@ -17,7 +11,7 @@ namespace AnimePlayer
         private bool isPlaying()
         {
             return false;
-           // return formaa1.axWindowsMediaPlayer1.playState == WMPLib.WMPPlayState.wmppsReady || formaa1.axWindowsMediaPlayer1.playState == WMPLib.WMPPlayState.wmppsPlaying;
+            // return formaa1.axWindowsMediaPlayer1.playState == WMPLib.WMPPlayState.wmppsReady || formaa1.axWindowsMediaPlayer1.playState == WMPLib.WMPPlayState.wmppsPlaying;
         }
 
         public FormMiniPlayer(OknoG forma)

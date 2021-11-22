@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Net;
-using System.Net.Http;
-using System.Diagnostics;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AnimePlayer
 {
@@ -41,7 +37,7 @@ namespace AnimePlayer
         {
             oknoG.panelLoading.Show();
             Application.DoEvents();
-            if(downloadMainFile() == false)
+            if (downloadMainFile() == false)
             {
                 //MessageBox.Show("Wystąpił błąd podczas pobierania zawartości!", "Wstąpił błąd", MessageBoxButtons.OK);
                 oknoG.labelSatusWorkingApp.Text = "Status działania: Ograniczony";
@@ -68,14 +64,14 @@ namespace AnimePlayer
                 oknoG.onOnline = true;
                 oknoG.labelSatusWorkingApp.Text = "Status działania: Prawidłowy";
             }
-            
+
             oknoG.panelLoading.Hide();
             Application.DoEvents();
             oknoG.labelLoading.Text = "Ładowanie...";
         }
         public static void openMainFile(OknoG oknoG)
         {
-            if(File.Exists("main.txt"))
+            if (File.Exists("main.txt"))
             {
                 string[] line = File.ReadAllLines("main.txt");
                 for (int i = 0; i < line.Length; i++)
@@ -107,7 +103,7 @@ namespace AnimePlayer
                 webClient.Dispose();
                 return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
                 return false;
@@ -119,16 +115,16 @@ namespace AnimePlayer
             try
             {
                 WebClient webClient = new WebClient();
-                webClient.DownloadFile(dUri(id), "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\"+id +".txt");
+                webClient.DownloadFile(dUri(id), "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\" + id + ".txt");
                 webClient.Dispose();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("{ERROR}downloadPage > \n" + id);
                 Console.WriteLine(ex.ToString() + Environment.NewLine);
             }
         }
-        
+
         public static void downloadFile(string id, string path)
         {
             try
@@ -137,9 +133,9 @@ namespace AnimePlayer
                 webClient.DownloadFile(dUri(id), path);
                 webClient.Dispose();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                Console.WriteLine("{ERROR}downloadPage > \n" + id + "\n"+path);
+                Console.WriteLine("{ERROR}downloadPage > \n" + id + "\n" + path);
                 Console.WriteLine(ex.ToString() + Environment.NewLine);
             }
         }
@@ -149,11 +145,11 @@ namespace AnimePlayer
             try
             {
                 WebClient webClient = new WebClient();
-                webClient.DownloadFile(dUri(id), "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Page\\"+ filename+".txt");
+                webClient.DownloadFile(dUri(id), "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Page\\" + filename + ".txt");
                 webClient.Dispose();
                 return "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Page\\" + filename + ".txt";
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("{ERROR}downloadPage > \n" + id + "\n" + filename);
                 Console.WriteLine(ex.ToString() + Environment.NewLine);
@@ -166,11 +162,11 @@ namespace AnimePlayer
         {
             try
             {
-                
+
                 WebClient webClient = new WebClient();
-                webClient.DownloadFile(link, "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Icon\\"+filename.Replace(":", " ") + ".png");
+                webClient.DownloadFile(link, "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Icon\\" + filename.Replace(":", " ") + ".png");
                 webClient.Dispose();
-                return "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Icon\\" + filename.Replace(":"," ") + ".png";
+                return "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Icon\\" + filename.Replace(":", " ") + ".png";
             }
             catch (Exception ex)
             {
@@ -191,7 +187,7 @@ namespace AnimePlayer
                     Directory.CreateDirectory("C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Video");
                 }
                 WebClient webClient = new WebClient();
-                webClient.DownloadFile(link, "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Video\\"+filename+ "_list_ep.txt");
+                webClient.DownloadFile(link, "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Video\\" + filename + "_list_ep.txt");
                 webClient.Dispose();
                 return "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Video\\" + filename + "_list_ep.txt";
             }
@@ -202,7 +198,7 @@ namespace AnimePlayer
                 return null;
             }
         }
-         
+
 
         public static string dUri(string id)
         {
@@ -213,7 +209,7 @@ namespace AnimePlayer
 
     public static class WebContentControls
     {
-       
+
         public class CtnPanel
         {
             public WebContent.Values values;
@@ -222,7 +218,7 @@ namespace AnimePlayer
             public Panel panelItem;
             public PictureBox pictureBoxItem;
             public Button buttonItem;
-            
+
             public CtnPanel(WebContent.Values va, OknoG okno)
             {
                 values = va;
@@ -269,9 +265,9 @@ namespace AnimePlayer
                 this.panelItem.Location = new System.Drawing.Point(13, 5);
                 this.panelItem.Name = "panelItem";
                 this.panelItem.Size = new System.Drawing.Size(160, 240);
-                panelItem.BackColor = Color.FromArgb(30,30,30);
+                panelItem.BackColor = Color.FromArgb(30, 30, 30);
                 this.panelItem.TabIndex = 0;
-                if(va.groupName.EndsWith("Polecane"))
+                if (va.groupName.EndsWith("Polecane"))
                 {
                     okno.flowLayoutPanelPolecane.Controls.Add(panelItem);
                     Application.DoEvents();
@@ -309,7 +305,7 @@ namespace AnimePlayer
                 }
                 else
                 {
-                    if(oknoG.onOnline == true)
+                    if (oknoG.onOnline == true)
                     {
                         values.pathPage = WebContent.downloadPage(values.contentId, values.name + "_page");
                         if (values.pathPage != null)
@@ -350,12 +346,12 @@ namespace AnimePlayer
                     pictureBoxItem.Tag = values.iconPath;
                     pictureBoxItem.LoadAsync(values.iconPath);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Console.WriteLine(ex.ToString() + Environment.NewLine);
                 }
             }
-            
+
             public Panel Duplication()
             {
                 // 
@@ -417,7 +413,7 @@ namespace AnimePlayer
                         rc.CornerRadius = 15;
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Console.WriteLine(ex.ToString());
                 }
@@ -426,7 +422,7 @@ namespace AnimePlayer
 
             public void SetPage(string path)
             {
-                if(!File.Exists(path))
+                if (!File.Exists(path))
                 {
                     MessageBox.Show("Wystąpił błąd podczas ładowania zawartości!", "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -440,11 +436,11 @@ namespace AnimePlayer
                 {
                     pageItem1.pictureBoxIcon.LoadAsync(values.iconPath);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Console.WriteLine(ex.ToString() + Environment.NewLine);
                 }
-                
+
                 string[] content = File.ReadAllText(path).Split(';');
                 int limits = 0;
                 for (int i = 0; i < content.Length; i++)
@@ -468,22 +464,22 @@ namespace AnimePlayer
                         {
                             pageItem1.labelTitle.Text = values.name;
                         }
-                        else if(content[position] == "description")
+                        else if (content[position] == "description")
                         {
                             position++;
                             pageItem1.labelDes.Text = content[position];
                         }
-                        else if(content[position] == "OtherName")
+                        else if (content[position] == "OtherName")
                         {
                             position++;
                             pageItem1.labelotherTitle.Text = content[position];
                         }
-                        else if(content[position] == "OtherTags")
+                        else if (content[position] == "OtherTags")
                         {
                             position++;
                             pageItem1.labelOtherTags.Text = content[position];
                         }
-                        else if(content[position] == "Archetype")
+                        else if (content[position] == "Archetype")
                         {
                             position++;
                             pageItem1.labelArchetype.Text = content[position];
@@ -498,7 +494,7 @@ namespace AnimePlayer
                             position++;
                             pageItem1.labelTypesOfCharacters.Text = content[position];
                         }
-                        else if(content[position] == "TargetGroups")
+                        else if (content[position] == "TargetGroups")
                         {
                             position++;
                             pageItem1.labelTargetGroups.Text = content[position];
@@ -521,7 +517,7 @@ namespace AnimePlayer
                         else if (content[position] == "DateOfIssue")
                         {
                             position++;
-                            pageItem1.labelDateS.Text =content[position];
+                            pageItem1.labelDateS.Text = content[position];
                         }
                         else if (content[position] == "EndOfIssue")
                         {
@@ -531,7 +527,7 @@ namespace AnimePlayer
                         else if (content[position] == "NumberOfEpisodes")
                         {
                             position++;
-                            pageItem1.labelNE.Text =content[position];
+                            pageItem1.labelNE.Text = content[position];
                         }
                         else if (content[position] == "Studio")
                         {
@@ -551,7 +547,7 @@ namespace AnimePlayer
                         else if (content[position] == "EpisodeList")
                         {
                             position++;
-                            if(oknoG.onOnline)
+                            if (oknoG.onOnline)
                             {
                                 string zm = WebContent.downloadVideoContent(WebContent.dUri(content[position]), values.name);
                                 GetListTypeEp(pageItem1, zm);
@@ -606,7 +602,7 @@ namespace AnimePlayer
 
             Task GetListTypeEp(PageItem pageItem, string path)
             {
-                if(!File.Exists(path))
+                if (!File.Exists(path))
                 {
                     pageItem.listBoxEpType.Items.Add("Brak odcinków");
                     return null;
@@ -629,12 +625,12 @@ namespace AnimePlayer
                             end = true;
                         }
 
-                        if(content[position] == "EpisodeListed")
+                        if (content[position] == "EpisodeListed")
                         {
                             position++;
                             string zm = "[" + content[position] + "] ";
                             position++;
-                            zm += content[position]+" | ";
+                            zm += content[position] + " | ";
                             position++;
                             zm += content[position] + " ;";
                             position++;
@@ -651,7 +647,7 @@ namespace AnimePlayer
                         position++;
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Console.WriteLine(ex.ToString());
                     pageItem.listBoxEpType.Items.Add("Error: FLI02");
@@ -683,7 +679,7 @@ namespace AnimePlayer
 
         public void Local()
         {
-            if(Directory.Exists(@"C:\ContentLibrarys\OtherFiles\WMP_OverlayApp\Polecane"))
+            if (Directory.Exists(@"C:\ContentLibrarys\OtherFiles\WMP_OverlayApp\Polecane"))
             {
                 StartLocal(@"C:\ContentLibrarys\OtherFiles\WMP_OverlayApp\1g4n1bVnHcI_W6WXVjScBos2dG6Kpbglk.txt");
             }
@@ -784,7 +780,7 @@ namespace AnimePlayer
 
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("Start>\n" + path);
                 Console.WriteLine(ex.ToString());
@@ -876,7 +872,7 @@ namespace AnimePlayer
                                         try
                                         {
                                             values.groupName = Path.GetDirectoryName(path);
-                                            if(FindFileNameInDirPage(values.name+"_page.txt"))
+                                            if (FindFileNameInDirPage(values.name + "_page.txt"))
                                             {
                                                 values.pathPage = "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Page\\" + values.name + "_page.txt";
                                             }
@@ -899,7 +895,7 @@ namespace AnimePlayer
 
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("Start>\n" + path);
                 Console.WriteLine(ex.ToString());
@@ -911,9 +907,9 @@ namespace AnimePlayer
         {
             DirectoryInfo di = new DirectoryInfo("C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Icon");
 
-            foreach(FileInfo file in di.GetFiles())
+            foreach (FileInfo file in di.GetFiles())
             {
-                if(file.Name == filename)
+                if (file.Name == filename)
                 {
                     return true;
                 }
@@ -924,9 +920,9 @@ namespace AnimePlayer
         {
             DirectoryInfo di = new DirectoryInfo("C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\IconBackup");
 
-            foreach(FileInfo file in di.GetFiles())
+            foreach (FileInfo file in di.GetFiles())
             {
-                if(file.Name == filename)
+                if (file.Name == filename)
                 {
                     return true;
                 }
@@ -938,9 +934,9 @@ namespace AnimePlayer
         {
             DirectoryInfo di = new DirectoryInfo("C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Page");
 
-            foreach(FileInfo file in di.GetFiles())
+            foreach (FileInfo file in di.GetFiles())
             {
-                if(file.Name == filename)
+                if (file.Name == filename)
                 {
                     return true;
                 }

@@ -1,22 +1,10 @@
-﻿using AxWMPLib;
+﻿using Microsoft.WindowsAPICodePack.Shell;
 using System;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Management;
-using System.Net;
-using System.Net.Mail;
-using System.Windows.Forms;
-using System.Linq;
-using System.Data;
-using Microsoft.Win32;
 using System.Threading.Tasks;
-using System.Net.NetworkInformation;
-using System.Text;
-using AnimePlayer;
-using Microsoft.WindowsAPICodePack;
-using Microsoft.WindowsAPICodePack.Shell;
+using System.Windows.Forms;
 
 namespace AnimePlayer
 {
@@ -70,7 +58,7 @@ namespace AnimePlayer
 
             }
             CreateBackupicon();
-            if(AnimePlayer.Properties.Settings.Default.RoundingControl)
+            if (AnimePlayer.Properties.Settings.Default.RoundingControl)
             {
                 ControlsNewMethods.RoundingControl rc = new ControlsNewMethods.RoundingControl();
                 rc.TargetControl = buttonStartPageFinditem;
@@ -95,7 +83,7 @@ namespace AnimePlayer
                 rc.TargetControl = buttonFinditemPageClose;
                 rc.CornerRadius = 15;
             }
-            
+
         }
         Task CreateBackupicon()
         {
@@ -149,7 +137,7 @@ namespace AnimePlayer
         bool stan_kl = false;
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Escape)
+            if (e.KeyCode == Keys.Escape)
             {
                 if (panelMenu.Visible == false)
                 {
@@ -269,7 +257,7 @@ namespace AnimePlayer
             panelMenu.Show();
             panelMenu.BringToFront();
         }
-        
+
 
         private void labelLoading_VisibleChanged(object sender, EventArgs e)
         {
@@ -337,7 +325,7 @@ namespace AnimePlayer
                     Process.Start("https://github.com/ProGraMajster/AnimePlayer");
                 });
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
@@ -457,7 +445,7 @@ namespace AnimePlayer
 
         private void flowLayoutPanelAll_ControlAdded(object sender, ControlEventArgs e)
         {
-            
+
         }
 
         private void buttonFindItem_Click(object sender, EventArgs e)
@@ -523,7 +511,7 @@ namespace AnimePlayer
             stopWatch.Reset();
             Console.WriteLine("Loading time: " + elapsedTime);
         }
-        
+
         public void findItems(string findText)
         {
             Stopwatch stopWatch = new Stopwatch();
@@ -598,7 +586,7 @@ namespace AnimePlayer
 
         private void textBoxFinditem_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 findItems();
             }

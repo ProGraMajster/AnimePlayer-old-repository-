@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -85,13 +80,13 @@ namespace AnimePlayer
                                 for (int i = 0; i < num_btn; i++)
                                 {
                                     position++;
-                                    ep_link += content[position]+";";
+                                    ep_link += content[position] + ";";
                                     position++;
                                     ep_link += content[position] + ";";
                                 }
                                 position++;
                                 int more = 1;
-                                if(content[position] == "SkipButton")
+                                if (content[position] == "SkipButton")
                                 {
                                     try
                                     {
@@ -102,7 +97,7 @@ namespace AnimePlayer
                                         position++;
                                         skip.time_showButton = double.Parse(content[position]);
                                     }
-                                    catch(Exception exParse)
+                                    catch (Exception exParse)
                                     {
                                         Console.WriteLine(exParse.ToString());
                                         position = position - more;
@@ -140,7 +135,7 @@ namespace AnimePlayer
             panelViewIcon.Size = new Size(this.Size.Width - 200, this.Size.Height - 100);
             panelViewIcon.Left = (this.ClientSize.Width - panelViewIcon.Width) / 2;
             panelViewIcon.Top = (this.ClientSize.Height - panelViewIcon.Height) / 2;
-            
+
             panelViewIcon.BringToFront();
             panelViewIcon.Show();
             pictureBox2.Image = pictureBox1.Image;
@@ -154,7 +149,7 @@ namespace AnimePlayer
 
         private void PageEpisode_Resize(object sender, EventArgs e)
         {
-            if(panelViewIcon.Visible)
+            if (panelViewIcon.Visible)
             {
                 panelViewIcon.Size = new Size(this.Size.Width - 200, this.Size.Height - 100);
                 panelViewIcon.Left = (this.ClientSize.Width - panelViewIcon.Width) / 2;

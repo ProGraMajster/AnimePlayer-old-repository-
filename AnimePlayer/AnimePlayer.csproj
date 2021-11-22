@@ -86,10 +86,6 @@
     <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="WindowsFormsIntegration" />
-    <Reference Include="WpfControlLibrary">
-      <HintPath>..\..\WpfControlLibrary\WpfControlLibrary\bin\Debug\WpfControlLibrary.dll</HintPath>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CdaDownloader.cs" />
