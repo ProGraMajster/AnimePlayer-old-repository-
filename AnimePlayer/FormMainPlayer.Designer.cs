@@ -1,4 +1,5 @@
-﻿namespace AnimePlayer
+﻿using AnimePlayerLibrary;
+namespace AnimePlayer
 {
     partial class OknoG
     {
@@ -49,12 +50,12 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panePolecane = new System.Windows.Forms.Panel();
-            this.flowLayoutPanelPolecane = new AnimePlayer.NewFlowLayoutPanel();
+            this.flowLayoutPanelPolecane = new NewFlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panelTop = new System.Windows.Forms.Panel();
-            this.roundedPanel1 = new AnimePlayer.RoundedPanel();
+            this.roundedPanel1 = new RoundedPanel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.textBoxStartPagefinditem = new System.Windows.Forms.TextBox();
             this.buttonStartPageFinditem = new System.Windows.Forms.Button();
@@ -79,7 +80,7 @@
             this.panelAllitem = new System.Windows.Forms.Panel();
             this.flowLayoutPanelFinditem = new System.Windows.Forms.FlowLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.roundedPanel2 = new AnimePlayer.RoundedPanel();
+            this.roundedPanel2 = new RoundedPanel();
             this.labelFindSatus = new System.Windows.Forms.Label();
             this.buttonfinditemReset = new System.Windows.Forms.Button();
             this.buttonFindItem = new System.Windows.Forms.Button();
@@ -926,7 +927,7 @@
         private System.Windows.Forms.Panel panelPlayer;
         private System.Windows.Forms.Panel panelStartPage;
         private System.Windows.Forms.Panel panelTop;
-        private AnimePlayer.RoundedPanel roundedPanel1;
+        private AnimePlayerLibrary.RoundedPanel roundedPanel1;
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.Button buttonMenuOpen;
         private System.Windows.Forms.Panel panel1;

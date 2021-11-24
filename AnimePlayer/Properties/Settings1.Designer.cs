@@ -46,5 +46,29 @@ namespace AnimePlayer.Properties {
                 this["RoundingControl"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://drive.google.com/uc?export=download&id=14Y98H4JD0MPXoodWJefB8k2CJCNWhUNl")]
+        public string UpdateLink_Version {
+            get {
+                return ((string)(this["UpdateLink_Version"]));
+            }
+            set {
+                this["UpdateLink_Version"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string UpdateLink_File {
+            get {
+                return ((string)(this["UpdateLink_File"]));
+            }
+            set {
+                this["UpdateLink_File"] = value;
+            }
+        }
     }
 }

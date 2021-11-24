@@ -4,9 +4,9 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace AnimePlayer
+namespace AnimePlayerLibrary
 {
-    static class GraphicsExtension
+    public static class GraphicsExtension
     {
         private static GraphicsPath GenerateRoundedRectangle(
             this Graphics graphics,

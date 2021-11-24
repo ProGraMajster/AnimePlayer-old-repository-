@@ -1,4 +1,6 @@
 ﻿
+using AnimePlayerLibrary;
+
 namespace AnimePlayer
 {
     partial class PageItem
@@ -84,7 +86,7 @@ namespace AnimePlayer
             this.panelViewIcon = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.buttonViewIconClose = new System.Windows.Forms.Button();
-            this.flowLayoutPanelRelatedSeries = new AnimePlayer.NewFlowLayoutPanel();
+            this.flowLayoutPanelRelatedSeries = new NewFlowLayoutPanel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIcon)).BeginInit();
             this.panel3.SuspendLayout();

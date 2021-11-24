@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace AnimePlayer
+namespace AnimePlayerLibrary
 {
     public enum CdaQuality
     {
@@ -14,7 +14,7 @@ namespace AnimePlayer
         p1080 = 1080
     }
 
-    static class CdaDownloader
+    public static class CdaDownloader
     {
         static HttpClient web = new HttpClient();
         static Regex regex_link = new Regex(@"https:\/\/www.cda.pl\/video\/([^\/\s]+)");

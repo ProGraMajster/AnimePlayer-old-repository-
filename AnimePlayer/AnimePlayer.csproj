@@ -88,8 +88,6 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CdaDownloader.cs" />
-    <Compile Include="ClassControls.cs" />
     <Compile Include="ClassEpisodePanel.cs" />
     <Compile Include="ControlsNewMethods.cs" />
     <Compile Include="FormMainPlayer.cs">
@@ -150,8 +148,35 @@
     <Compile Include="webContent.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\AnimePlayer.exe" />
+    <Content Include="bin\Debug\AnimePlayer.pdb" />
+    <Content Include="bin\Debug\AxInterop.WMPLib.dll" />
+    <Content Include="bin\Debug\Interop.WMPLib.dll" />
+    <Content Include="bin\Debug\main.txt" />
+    <Content Include="bin\Debug\Microsoft.WindowsAPICodePack.dll" />
+    <Content Include="bin\Debug\Microsoft.WindowsAPICodePack.ExtendedLinguisticServices.dll" />
+    <Content Include="bin\Debug\Microsoft.WindowsAPICodePack.Sensors.dll" />
+    <Content Include="bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll" />
+    <Content Include="bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.dll" />
+    <Content Include="bin\Debug\WpfControlLibrary.dll" />
+    <Content Include="bin\Debug\WpfControlLibrary.pdb" />
+    <Content Include="bin\Release\AnimePlayer.exe" />
+    <Content Include="bin\Release\AnimePlayer.pdb" />
+    <Content Include="bin\Release\AnimePlayerLibrary.dll" />
+    <Content Include="bin\Release\AnimePlayerLibrary.pdb" />
+    <Content Include="bin\Release\AxInterop.WMPLib.dll" />
+    <Content Include="bin\Release\Interop.WMPLib.dll" />
+    <Content Include="bin\Release\main.txt" />
+    <Content Include="bin\Release\Microsoft.WindowsAPICodePack.dll" />
+    <Content Include="bin\Release\Microsoft.WindowsAPICodePack.ExtendedLinguisticServices.dll" />
+    <Content Include="bin\Release\Microsoft.WindowsAPICodePack.Sensors.dll" />
+    <Content Include="bin\Release\Microsoft.WindowsAPICodePack.Shell.dll" />
+    <Content Include="bin\Release\Microsoft.WindowsAPICodePack.ShellExtensions.dll" />
     <Content Include="license.txt" />
     <Content Include="player_button_play.png" />
+    <None Include="bin\Debug\AnimePlayer.exe.config" />
+    <None Include="bin\Release\AnimePlayer.exe.config" />
+    <None Include="bin\Release\AnimePlayerLibrary.dll.config" />
     <None Include="Resources\error.png" />
     <None Include="Resources\GitHub-Mark-120px-plus.png" />
     <None Include="Resources\GitHub-Mark-Light-120px-plus.png" />
@@ -229,6 +254,12 @@
     <EmbeddedResource Include="VideoPlayer.resx">
       <DependentUpon>VideoPlayer.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AnimePlayerLibrary\AnimePlayerLibrary.csproj">
+      <Project>{f5dc8331-6f29-453f-922c-f1a9375228d4}</Project>
+      <Name>AnimePlayerLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

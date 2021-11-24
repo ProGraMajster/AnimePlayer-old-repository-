@@ -8,5 +8,11 @@
     <Setting Name="RoundingControl" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="UpdateLink_Version" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://drive.google.com/uc?export=download&amp;id=14Y98H4JD0MPXoodWJefB8k2CJCNWhUNl</Value>
+    </Setting>
+    <Setting Name="UpdateLink_File" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>
