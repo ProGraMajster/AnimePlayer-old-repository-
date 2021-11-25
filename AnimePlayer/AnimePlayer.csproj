@@ -89,7 +89,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassEpisodePanel.cs" />
-    <Compile Include="ControlsNewMethods.cs" />
     <Compile Include="FormMainPlayer.cs">
       <SubType>Form</SubType>
     </Compile>

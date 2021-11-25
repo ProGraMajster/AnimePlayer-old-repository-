@@ -18,6 +18,7 @@ namespace AnimePlayer
         public OknoG()
         {
             InitializeComponent();
+            AP_Lib aP_Lib = new AP_Lib((Form)this);
             form2 = new FormMiniPlayer(this);
             try
             {
@@ -135,7 +136,6 @@ namespace AnimePlayer
         {
         }
 
-        bool stan_kl = false;
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)

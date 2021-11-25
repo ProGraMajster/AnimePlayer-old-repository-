@@ -47,27 +47,21 @@ namespace AnimePlayer.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://drive.google.com/uc?export=download&id=14Y98H4JD0MPXoodWJefB8k2CJCNWhUNl")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://drive.google.com/uc?export=download&id=1iLx01amO8pto7mm8PjDY3kPNi4Zgm3S0")]
         public string UpdateLink_Version {
             get {
                 return ((string)(this["UpdateLink_Version"]));
             }
-            set {
-                this["UpdateLink_Version"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://drive.google.com/uc?export=download&id=1Kswt2QT267dkIfF9p3H-6f_bYdq9QBDP")]
         public string UpdateLink_File {
             get {
                 return ((string)(this["UpdateLink_File"]));
-            }
-            set {
-                this["UpdateLink_File"] = value;
             }
         }
     }

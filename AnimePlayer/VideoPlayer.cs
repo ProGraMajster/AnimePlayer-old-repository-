@@ -113,14 +113,7 @@ namespace AnimePlayer
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            if (Cursor.Position.Y <= 30)
-            {
-                panel1.Show();
-            }
-            else
-            {
-                panel1.Hide();
-            }
+            
         }
 
         private void timerShowSkipButton_Tick(object sender, EventArgs e)
@@ -153,6 +146,18 @@ namespace AnimePlayer
             else
             {
                 axwmp.uiMode = "none";
+            }
+        }
+
+        private void VideoPlayer_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Location.Y <= 30)
+            {
+                panel1.Show();
+            }
+            else
+            {
+                panel1.Hide();
             }
         }
     }

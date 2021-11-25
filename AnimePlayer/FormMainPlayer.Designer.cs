@@ -50,12 +50,12 @@ namespace AnimePlayer
             this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panePolecane = new System.Windows.Forms.Panel();
-            this.flowLayoutPanelPolecane = new NewFlowLayoutPanel();
+            this.flowLayoutPanelPolecane = new AnimePlayerLibrary.NewFlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panelTop = new System.Windows.Forms.Panel();
-            this.roundedPanel1 = new RoundedPanel();
+            this.roundedPanel1 = new AnimePlayerLibrary.RoundedPanel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.textBoxStartPagefinditem = new System.Windows.Forms.TextBox();
             this.buttonStartPageFinditem = new System.Windows.Forms.Button();
@@ -64,6 +64,7 @@ namespace AnimePlayer
             this.label = new System.Windows.Forms.Label();
             this.flowLayoutPanelAll = new System.Windows.Forms.FlowLayoutPanel();
             this.panelLoading = new System.Windows.Forms.Panel();
+            this.labelLoadingDetails = new System.Windows.Forms.Label();
             this.labelLoading = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -80,7 +81,7 @@ namespace AnimePlayer
             this.panelAllitem = new System.Windows.Forms.Panel();
             this.flowLayoutPanelFinditem = new System.Windows.Forms.FlowLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.roundedPanel2 = new RoundedPanel();
+            this.roundedPanel2 = new AnimePlayerLibrary.RoundedPanel();
             this.labelFindSatus = new System.Windows.Forms.Label();
             this.buttonfinditemReset = new System.Windows.Forms.Button();
             this.buttonFindItem = new System.Windows.Forms.Button();
@@ -496,6 +497,7 @@ namespace AnimePlayer
             // 
             // panelLoading
             // 
+            this.panelLoading.Controls.Add(this.labelLoadingDetails);
             this.panelLoading.Controls.Add(this.labelLoading);
             this.panelLoading.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelLoading.Location = new System.Drawing.Point(0, 0);
@@ -503,6 +505,18 @@ namespace AnimePlayer
             this.panelLoading.Size = new System.Drawing.Size(948, 541);
             this.panelLoading.TabIndex = 2;
             this.panelLoading.VisibleChanged += new System.EventHandler(this.panelLoading_VisibleChanged);
+            // 
+            // labelLoadingDetails
+            // 
+            this.labelLoadingDetails.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.labelLoadingDetails.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelLoadingDetails.ForeColor = System.Drawing.Color.White;
+            this.labelLoadingDetails.Location = new System.Drawing.Point(0, 513);
+            this.labelLoadingDetails.Name = "labelLoadingDetails";
+            this.labelLoadingDetails.Size = new System.Drawing.Size(948, 28);
+            this.labelLoadingDetails.TabIndex = 1;
+            this.labelLoadingDetails.Text = ":";
+            this.labelLoadingDetails.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelLoading
             // 
@@ -670,10 +684,10 @@ namespace AnimePlayer
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.panelLoading);
             this.panel2.Controls.Add(this.panelStartPage);
             this.panel2.Controls.Add(this.panelAllitem);
             this.panel2.Controls.Add(this.panelPlayer);
-            this.panel2.Controls.Add(this.panelLoading);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -941,7 +955,6 @@ namespace AnimePlayer
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.Panel panePolecane;
         public System.Windows.Forms.Panel panelLoading;
-        private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Button buttonMenuClose;
         private System.Windows.Forms.Button buttonPlayer;
         private System.Windows.Forms.Button buttonSetting;
@@ -975,6 +988,8 @@ namespace AnimePlayer
         public System.Windows.Forms.Label labelLoading;
         private System.Windows.Forms.Button buttonRestartApp;
         public NewFlowLayoutPanel flowLayoutPanelPolecane;
+        public System.Windows.Forms.Panel panelMenu;
+        public System.Windows.Forms.Label labelLoadingDetails;
     }
 }
 

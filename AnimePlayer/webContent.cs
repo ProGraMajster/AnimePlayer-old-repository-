@@ -5,6 +5,7 @@ using System.IO;
 using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AnimePlayerLibrary;
 
 namespace AnimePlayer
 {
@@ -35,11 +36,15 @@ namespace AnimePlayer
 
         public static void Initialize(OknoG oknoG)
         {
+            oknoG.labelLoadingDetails.Text = "Initialize";
             oknoG.panelLoading.Show();
+            Application.DoEvents();
+            oknoG.labelLoadingDetails.Text = "DonloadMainFile";
             Application.DoEvents();
             if (downloadMainFile() == false)
             {
                 //MessageBox.Show("Wystąpił błąd podczas pobierania zawartości!", "Wstąpił błąd", MessageBoxButtons.OK);
+                oknoG.labelLoadingDetails.Text = "DownloadMainFile > an error occured";
                 oknoG.labelSatusWorkingApp.Text = "Status działania: Ograniczony";
                 ToolTip toolTip = new ToolTip();
                 toolTip.SetToolTip(oknoG.labelSatusWorkingApp, "Ograniczony dostęp do serwera");
@@ -47,6 +52,7 @@ namespace AnimePlayer
                 oknoG.timerAnimationError.Start();
                 Console.WriteLine("--------- Local ----------");
                 oknoG.labelLoading.Text += ".";
+                oknoG.labelLoadingDetails.Text = "Interpreter > Local";
                 Application.DoEvents();
                 Interpreter interpreter = new Interpreter(oknoG);
                 interpreter.Local();
@@ -56,6 +62,7 @@ namespace AnimePlayer
             }
             else
             {
+                oknoG.labelLoadingDetails.Text = "DownloadMainFile > successfully downloaded >> openMainFile";
                 oknoG.labelLoading.Text += ".";
                 Application.DoEvents();
                 openMainFile(oknoG);
@@ -71,13 +78,19 @@ namespace AnimePlayer
         }
         public static void openMainFile(OknoG oknoG)
         {
+            oknoG.labelLoadingDetails.Text = "openMainFile > File.Exists";
+            Application.DoEvents();
             if (File.Exists("main.txt"))
             {
+                oknoG.labelLoadingDetails.Text = "openMainFile > File.ReadAllLines";
+                Application.DoEvents();
                 string[] line = File.ReadAllLines("main.txt");
                 for (int i = 0; i < line.Length; i++)
                 {
                     if (line[i] != null)
                     {
+                        oknoG.labelLoadingDetails.Text = "openMainFile > downloadFile: "+i +"/"+ (line.Length-1);
+                        Application.DoEvents();
                         downloadFile(line[i]);
                     }
                 }
@@ -87,6 +100,8 @@ namespace AnimePlayer
                 {
                     if (line[i] != null)
                     {
+                        oknoG.labelLoadingDetails.Text = "openMainFile > Interpreter > file: " + i + "/" + (line.Length - 1);
+                        Application.DoEvents();
                         Interpreter interpreter = new Interpreter(oknoG);
                         interpreter.Start("C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\" + line[i] + ".txt");
                     }
@@ -227,6 +242,8 @@ namespace AnimePlayer
                 // 
                 // pictureBoxItem
                 // 
+                oknoG.labelLoadingDetails.Text = ">> Create CtnPanel file:" +va.path +" > create PictureBox";
+                Application.DoEvents();
                 pictureBoxItem = new PictureBox();
                 this.pictureBoxItem.Dock = System.Windows.Forms.DockStyle.Fill;
                 this.pictureBoxItem.Image = global::AnimePlayer.Properties.Resource.NoImage;
@@ -239,6 +256,8 @@ namespace AnimePlayer
                 // 
                 // buttonItem
                 // 
+                oknoG.labelLoadingDetails.Text = ">> Create CtnPanel file:" + va.path + "> create Button";
+                Application.DoEvents();
                 buttonItem = new Button();
                 this.buttonItem.Dock = System.Windows.Forms.DockStyle.Bottom;
                 this.buttonItem.Location = new System.Drawing.Point(0, 199);
@@ -258,6 +277,8 @@ namespace AnimePlayer
                 // 
                 // panelItem
                 // 
+                oknoG.labelLoadingDetails.Text = ">> Create CtnPanel file:" + va.path + "> create Panel";
+                Application.DoEvents();
                 panelItem = new Panel();
                 panelItem.Tag = this;
                 this.panelItem.Controls.Add(pictureBoxItem);
@@ -269,16 +290,23 @@ namespace AnimePlayer
                 this.panelItem.TabIndex = 0;
                 if (va.groupName.EndsWith("Polecane"))
                 {
+                    oknoG.labelLoadingDetails.Text = ">> Create CtnPanel file:" + va.path + "> Add to group";
+                    Application.DoEvents();
                     okno.flowLayoutPanelPolecane.Controls.Add(panelItem);
                     Application.DoEvents();
                 }
 
+                oknoG.labelLoadingDetails.Text = ">> Create CtnPanel file:" + va.path + "> Set name";
+                Application.DoEvents();
                 SetName();
+                oknoG.labelLoadingDetails.Text = ">> Create CtnPanel file:" + va.path + "> Set image";
+                Application.DoEvents();
                 SetImage();
                 buttonItem.Click += ButtonItem_Click;
                 pictureBoxItem.Click += ButtonItem_Click;
                 if (AnimePlayer.Properties.Settings.Default.RoundingControl)
                 {
+                    oknoG.labelLoadingDetails.Text = ">> Create CtnPanel > RoundingControl";
                     ControlsNewMethods.RoundingControl rc = new ControlsNewMethods.RoundingControl();
                     rc.TargetControl = buttonItem;
                     rc.CornerRadius = 15;
@@ -286,6 +314,7 @@ namespace AnimePlayer
                     rc.TargetControl = panelItem;
                     rc.CornerRadius = 15;
                 }
+                oknoG.labelLoadingDetails.Text = ">> Create CtnPanel > "+va.name+ "> Created";
             }
 
             public CtnPanel()
@@ -294,6 +323,8 @@ namespace AnimePlayer
 
             private void ButtonItem_Click(object sender, EventArgs e)
             {
+                oknoG.labelLoadingDetails.Text = "Click >" + values.name;
+                Application.DoEvents();
                 Stopwatch stopWatch = new Stopwatch();
                 stopWatch.Start();
                 oknoG.panelLoading.BringToFront();
@@ -307,6 +338,8 @@ namespace AnimePlayer
                 {
                     if (oknoG.onOnline == true)
                     {
+                        oknoG.labelLoadingDetails.Text = "Click >" + values.name +" > downloadPage";
+                        Application.DoEvents();
                         values.pathPage = WebContent.downloadPage(values.contentId, values.name + "_page");
                         if (values.pathPage != null)
                         {
@@ -314,12 +347,16 @@ namespace AnimePlayer
                         }
                         else
                         {
+                            oknoG.labelLoadingDetails.Text = "Click >" + values.name + " > donloadPage > Error";
+                            Application.DoEvents();
                             MessageBox.Show("Nie udało się załadować strony!", "Błąd",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else
                     {
+                        oknoG.labelLoadingDetails.Text = "Click >" + values.name + " > load local";
+                        Application.DoEvents();
                         SetPage("C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Page\\" + values.name + "_page.txt");
                     }
                 }
@@ -422,13 +459,21 @@ namespace AnimePlayer
 
             public void SetPage(string path)
             {
+                oknoG.labelLoadingDetails.Text = "Load page: " + values.name + " [0%]";
+                Application.DoEvents();
                 if (!File.Exists(path))
                 {
+                    oknoG.labelLoadingDetails.Text = "Load page: " + values.name + "> file not found";
+                    Application.DoEvents();
                     MessageBox.Show("Wystąpił błąd podczas ładowania zawartości!", "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                oknoG.labelLoadingDetails.Text = "Load page: " + values.name + " [1%]";
+                Application.DoEvents();
                 PageItem pageItem1 = new PageItem(values, oknoG);
+                oknoG.labelLoadingDetails.Text = "Load page: " + values.name + " [10%]";
+                Application.DoEvents();
                 oknoG.panel2.Controls.Add(pageItem1);
                 pageItem1.Dock = DockStyle.Fill;
                 pageItem1.BringToFront();
@@ -441,6 +486,9 @@ namespace AnimePlayer
                     Console.WriteLine(ex.ToString() + Environment.NewLine);
                 }
 
+                oknoG.labelLoadingDetails.Text = "Load page: " + values.name + " [15%]";
+                Application.DoEvents();
+
                 string[] content = File.ReadAllText(path).Split(';');
                 int limits = 0;
                 for (int i = 0; i < content.Length; i++)
@@ -448,7 +496,8 @@ namespace AnimePlayer
                     limits = i;
                     content[i] = content[i].Replace("\n", "").Replace("\r", "").Replace("\t", "");
                 }
-
+                oknoG.labelLoadingDetails.Text = "Load page: " + values.name + " [20%]";
+                Application.DoEvents();
                 try
                 {
                     bool end = false;
@@ -466,86 +515,120 @@ namespace AnimePlayer
                         }
                         else if (content[position] == "description")
                         {
+                            oknoG.labelLoadingDetails.Text = "Load page: " + values.name + "> load > description";
+                            Application.DoEvents();
                             position++;
                             pageItem1.labelDes.Text = content[position];
                         }
                         else if (content[position] == "OtherName")
                         {
+                            oknoG.labelLoadingDetails.Text = "Load page: " + values.name + "> load > OtherName";
+                            Application.DoEvents();
                             position++;
                             pageItem1.labelotherTitle.Text = content[position];
                         }
                         else if (content[position] == "OtherTags")
                         {
+                            oknoG.labelLoadingDetails.Text = "Load page: " + values.name + "> load > OtherTags";
+                            Application.DoEvents();
                             position++;
                             pageItem1.labelOtherTags.Text = content[position];
                         }
                         else if (content[position] == "Archetype")
                         {
+                            oknoG.labelLoadingDetails.Text = "Load page: " + values.name + "> load > Archetype";
+                            Application.DoEvents();
                             position++;
                             pageItem1.labelArchetype.Text = content[position];
                         }
                         else if (content[position] == "Species")
                         {
+                            oknoG.labelLoadingDetails.Text = "Load page: " + values.name + "> load > Species";
+                            Application.DoEvents();
                             position++;
                             pageItem1.labelSpecies.Text = content[position];
                         }
                         else if (content[position] == "typesOfCharacters")
                         {
+                            oknoG.labelLoadingDetails.Text = "Load page: " + values.name + "> load > typesOfCharacters";
+                            Application.DoEvents();
                             position++;
                             pageItem1.labelTypesOfCharacters.Text = content[position];
                         }
                         else if (content[position] == "TargetGroups")
                         {
+                            oknoG.labelLoadingDetails.Text = "Load page: " + values.name + "> load > TargetGroups";
+                            Application.DoEvents();
                             position++;
                             pageItem1.labelTargetGroups.Text = content[position];
                         }
                         else if (content[position] == "PlaceAndTime")
                         {
+                            oknoG.labelLoadingDetails.Text = "Load page: " + values.name + "> load > PlaceAndTime";
+                            Application.DoEvents();
                             position++;
                             pageItem1.labelPlaceAndTime.Text = content[position];
                         }
                         else if (content[position] == "Type")
                         {
+                            oknoG.labelLoadingDetails.Text = "Load page: " + values.name + "> load > Type";
+                            Application.DoEvents();
                             position++;
                             pageItem1.labelType.Text = content[position];
                         }
                         else if (content[position] == "Status")
                         {
+                            oknoG.labelLoadingDetails.Text = "Load page: " + values.name + "> load > Status";
+                            Application.DoEvents();
                             position++;
                             pageItem1.labelStatus.Text = content[position];
                         }
                         else if (content[position] == "DateOfIssue")
                         {
+                            oknoG.labelLoadingDetails.Text = "Load page: " + values.name + "> load > DateOfIssue";
+                            Application.DoEvents();
                             position++;
                             pageItem1.labelDateS.Text = content[position];
                         }
                         else if (content[position] == "EndOfIssue")
                         {
+                            oknoG.labelLoadingDetails.Text = "Load page: " + values.name + "> load > EndOfIssue";
+                            Application.DoEvents();
                             position++;
                             pageItem1.labelDateE.Text = content[position];
                         }
                         else if (content[position] == "NumberOfEpisodes")
                         {
+                            oknoG.labelLoadingDetails.Text = "Load page: " + values.name + "> load > NumberOfEpisodes";
+                            Application.DoEvents();
                             position++;
                             pageItem1.labelNE.Text = content[position];
                         }
                         else if (content[position] == "Studio")
                         {
+                            oknoG.labelLoadingDetails.Text = "Load page: " + values.name + "> load > Studio";
+                            Application.DoEvents();
                             position++;
                             pageItem1.labelStudio.Text = content[position];
                         }
                         else if (content[position] == "EpisodeLength")
                         {
+                            oknoG.labelLoadingDetails.Text = "Load page: " + values.name + "> load > EpisodeLength";
+                            Application.DoEvents();
                             position++;
                             pageItem1.labelLE.Text = content[position];
                         }
                         else if (content[position] == "MPAA")
                         {
+                            oknoG.labelLoadingDetails.Text = "Load page: " + values.name + "> load > MPAA";
+                            Application.DoEvents();
                             position++;
                             pageItem1.labelMPAA.Text = content[position];
                         }
                         else if (content[position] == "EpisodeList")
                         {
+                            oknoG.labelLoadingDetails.Text = "Load page: " + values.name + "> load > episode list";
+                            Application.DoEvents();
                             position++;
                             if (oknoG.onOnline)
                             {
@@ -568,7 +651,8 @@ namespace AnimePlayer
                     Console.WriteLine(ex.ToString());
                     oknoG.panelLoading.Hide();
                 }
-
+                oknoG.labelLoadingDetails.Text = "Load page: " + values.name + " [100%]";
+                Application.DoEvents();
                 // test
                 /*
                 try
@@ -602,6 +686,8 @@ namespace AnimePlayer
 
             Task GetListTypeEp(PageItem pageItem, string path)
             {
+                oknoG.labelLoadingDetails.Text = "Load page: " + values.name + "> load > episode list";
+                Application.DoEvents();
                 if (!File.Exists(path))
                 {
                     pageItem.listBoxEpType.Items.Add("Brak odcinków");
@@ -640,6 +726,7 @@ namespace AnimePlayer
                             // Determine if a valid index is returned. Select the item if it is valid.
                             if (index == ListBox.NoMatches)
                             {
+                                oknoG.labelLoadingDetails.Text = "Load page: " + values.name + "> load > episode list > "+zm;
                                 pageItem.listBoxEpType.Items.Add(zm);
                             }
                         }
@@ -681,6 +768,8 @@ namespace AnimePlayer
         {
             if (Directory.Exists(@"C:\ContentLibrarys\OtherFiles\WMP_OverlayApp\Polecane"))
             {
+                oknoG.labelLoadingDetails.Text = "Interpreter > Local > StartLocal";
+                Application.DoEvents();
                 StartLocal(@"C:\ContentLibrarys\OtherFiles\WMP_OverlayApp\1g4n1bVnHcI_W6WXVjScBos2dG6Kpbglk.txt");
             }
         }
@@ -791,6 +880,7 @@ namespace AnimePlayer
 
         public void StartLocal(string path)
         {
+            oknoG.labelLoadingDetails.Text = "Interpreter > Local > StartLocal > file:"+path;
             string[] content = File.ReadAllText(path).Split(';');
             int limits = 0;
             for (int i = 0; i < content.Length; i++)
@@ -832,6 +922,9 @@ namespace AnimePlayer
                             {
                                 position++;
                                 //WebContent.downloadFile(content[position], dirpath + "Polecane\\" + content[position] + ".txt");
+                                oknoG.labelLoadingDetails.Text = "Interpreter > Local > StartLocal > new Interpreter > StartLocal path:" +
+                                    dirpath + "Polecane\\" + content[position] + ".txt";
+                                Application.DoEvents();
                                 Interpreter interpreter = new Interpreter(oknoG);
                                 interpreter.StartLocal(dirpath + "Polecane\\" + content[position] + ".txt");
 
@@ -881,6 +974,7 @@ namespace AnimePlayer
                                         {
 
                                         }
+                                        oknoG.labelLoadingDetails.Text = "Interpreter > Local > StartLocal > file:" + path+ " > Create CtnPanel";
                                         WebContentControls.CtnPanel panel = new WebContentControls.CtnPanel(values, oknoG);
                                     }
                                 }

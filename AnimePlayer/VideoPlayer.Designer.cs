@@ -213,6 +213,7 @@ namespace AnimePlayer
             this.Name = "VideoPlayer";
             this.Size = new System.Drawing.Size(718, 537);
             this.Load += new System.EventHandler(this.VideoPlayer_Load);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.VideoPlayer_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.axwmp)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
