@@ -166,19 +166,20 @@ namespace AnimePlayer
             // 
             // button
             // 
+            this.button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.button.Dock = System.Windows.Forms.DockStyle.Right;
             this.button.FlatAppearance.BorderSize = 0;
             this.button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button.ForeColor = System.Drawing.Color.Red;
+            this.button.ForeColor = System.Drawing.Color.White;
             this.button.Location = new System.Drawing.Point(668, 20);
             this.button.MaximumSize = new System.Drawing.Size(100, 45);
             this.button.Name = "button";
             this.button.Size = new System.Drawing.Size(100, 45);
             this.button.TabIndex = 2;
             this.button.Text = "Zamknij stronę";
-            this.button.UseVisualStyleBackColor = true;
+            this.button.UseVisualStyleBackColor = false;
             this.button.Click += new System.EventHandler(this.button_Click);
             // 
             // pictureBoxIcon

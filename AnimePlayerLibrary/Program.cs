@@ -24,7 +24,7 @@ namespace AnimePlayerLibrary
                 buttonUpdate = new Button();
                 panelMenu = (Panel)form.Controls.Find("panelMenu", true)[0];
                 buttonUpdate.Size = new System.Drawing.Size(180, 40);
-                buttonUpdate.Visible = true;
+                buttonUpdate.Visible = false;
                 panelMenu.Controls.Add(buttonUpdate);
                 buttonUpdate.ForeColor = Color.Yellow;
                 buttonUpdate.FlatStyle = FlatStyle.Flat;

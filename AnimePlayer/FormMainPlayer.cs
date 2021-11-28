@@ -14,6 +14,8 @@ namespace AnimePlayer
         FormMiniPlayer form2;
         string[] args = Environment.GetCommandLineArgs();
 
+        public int server = 0;
+
         public bool onOnline = true;
         public OknoG()
         {
@@ -22,7 +24,6 @@ namespace AnimePlayer
             form2 = new FormMiniPlayer(this);
             try
             {
-
                 if (!Directory.Exists("C:\\ContentLibrarys"))
                 {
                     Directory.CreateDirectory("C:\\ContentLibrarys");
@@ -222,7 +223,7 @@ namespace AnimePlayer
                 Interpreter interpreter = new Interpreter(this);
                 interpreter.Local();
             }
-
+            panelLoading.Hide();
         }
 
         public void CenterControlInForm(Control control)
@@ -578,6 +579,7 @@ namespace AnimePlayer
             labelFindSatus.Hide();
             flowLayoutPanelAll.Show();
             textBoxFinditem.Text = "";
+            GC.Collect();
         }
 
         private void buttonFinditemPageClose_Click(object sender, EventArgs e)

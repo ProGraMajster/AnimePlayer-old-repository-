@@ -30,6 +30,7 @@ namespace AnimePlayer
             public string iconPath { get; set; }
             public string siteLink { get; set; }
             public string contentId { get; set; }
+            public string contentId2 { get; set; }
             public string pathPage { get; set; }
             public string groupName { get; set; }
         }
@@ -41,7 +42,7 @@ namespace AnimePlayer
             Application.DoEvents();
             oknoG.labelLoadingDetails.Text = "DonloadMainFile";
             Application.DoEvents();
-            if (downloadMainFile() == false)
+            if (downloadMainFile(oknoG) == false)
             {
                 //MessageBox.Show("Wystąpił błąd podczas pobierania zawartości!", "Wstąpił błąd", MessageBoxButtons.OK);
                 oknoG.labelLoadingDetails.Text = "DownloadMainFile > an error occured";
@@ -73,8 +74,8 @@ namespace AnimePlayer
             }
 
             oknoG.panelLoading.Hide();
-            Application.DoEvents();
             oknoG.labelLoading.Text = "Ładowanie...";
+            Application.DoEvents();
         }
         public static void openMainFile(OknoG oknoG)
         {
@@ -91,7 +92,14 @@ namespace AnimePlayer
                     {
                         oknoG.labelLoadingDetails.Text = "openMainFile > downloadFile: "+i +"/"+ (line.Length-1);
                         Application.DoEvents();
-                        downloadFile(line[i]);
+                        if(oknoG.server == 0)
+                        {
+                            downloadFile(line[i]);
+                        }
+                        else if(oknoG.server == 1)
+                        {
+                            AnimePlayerLibrary.Download.OneDrive.downloadFile(line[i]);
+                        }
                     }
                 }
 
@@ -103,20 +111,61 @@ namespace AnimePlayer
                         oknoG.labelLoadingDetails.Text = "openMainFile > Interpreter > file: " + i + "/" + (line.Length - 1);
                         Application.DoEvents();
                         Interpreter interpreter = new Interpreter(oknoG);
-                        interpreter.Start("C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\" + line[i] + ".txt");
+                        if(oknoG.server == 0)
+                        {
+                            interpreter.Start("C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\" + line[i] + ".txt");
+                        }
+                        else if(oknoG.server == 1)
+                        {
+                            interpreter.Start("C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\" + Download.OneDrive.onedriveUri(line[i]) + ".txt");
+                        }
                     }
                 }
             }
         }
-        public static bool downloadMainFile()
+
+        public static bool downloadMainFile(OknoG oknoG)
         {
             try
             {
-                Console.WriteLine("downloadMainFile");
-                WebClient webClient = new WebClient();
-                webClient.DownloadFile(dUri(AnimePlayer.Properties.Settings.Default.idMain), "main.txt");
-                webClient.Dispose();
-                return true;
+                try
+                {
+                    foreach (string a in Environment.GetCommandLineArgs())
+                    {
+                        if (a == "-local")
+                        {
+                            return false;
+                        }
+                        else if(a == "-server_0")
+                        {
+                            oknoG.server = 0;
+                        }
+                        else if(a == "-server_1")
+                        {
+                            oknoG.server = 1;
+                        }
+                    }
+                    Console.WriteLine("downloadMainFile");
+                    if (oknoG.server == 0)
+                    {
+                        Console.WriteLine("server: 0");
+                        WebClient webClient = new WebClient();
+                        webClient.DownloadFile(dUri(AnimePlayer.Properties.Settings.Default.idMain), "main.txt");
+                        webClient.Dispose();
+                        return true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("server: 1");
+                        return AnimePlayerLibrary.Download.OneDrive.MainFile();
+                    }
+                }
+                catch(Exception ex0)
+                {
+                    Console.WriteLine(ex0.ToString());
+                    oknoG.server = 1;
+                    return AnimePlayerLibrary.Download.OneDrive.MainFile();
+                }
             }
             catch (Exception ex)
             {
@@ -340,7 +389,15 @@ namespace AnimePlayer
                     {
                         oknoG.labelLoadingDetails.Text = "Click >" + values.name +" > downloadPage";
                         Application.DoEvents();
-                        values.pathPage = WebContent.downloadPage(values.contentId, values.name + "_page");
+                        if (oknoG.server == 0)
+                        {
+                            values.pathPage = WebContent.downloadPage(values.contentId, values.name + "_page");
+                        }
+                        else if(oknoG.server == 1 )
+                        {
+                            values.pathPage = Download.OneDrive.downloadPage(values.contentId2, values.name + "_page");
+                        }
+
                         if (values.pathPage != null)
                         {
                             SetPage(values.pathPage);
@@ -380,12 +437,52 @@ namespace AnimePlayer
             {
                 try
                 {
+                    SetImage2(pictureBoxItem);
+                    /*
                     pictureBoxItem.Tag = values.iconPath;
+                    pictureBoxItem.ImageLocation = values.iconPath;
                     pictureBoxItem.LoadAsync(values.iconPath);
+                    */
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.ToString() + Environment.NewLine);
+                }
+            }
+            
+            public void SetImage2(PictureBox box)
+            {
+                string nam = values.name.Replace(":","");
+                Interpreter interpreter = new Interpreter(oknoG);
+                try
+                {
+                    if(interpreter.FindFileNameInDirIcon(nam + "_icon.png"))
+                    {
+                        box.Tag = "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Icon\\" + nam + "_icon.png";
+                        //box.ImageLocation = "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Icon\\" + nam + "_icon.png";
+                        box.LoadAsync("C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Icon\\" + nam + "_icon.png");
+                    }
+                    else
+                    {
+                        box.Tag = "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\IconBackup\\" + nam + "_icon.png";
+                        //box.ImageLocation = "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\IconBackup\\" + nam + "_icon.png";
+                        box.LoadAsync("C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\IconBackup\\" + nam + "_icon.png");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString() + Environment.NewLine);
+                    try
+                    {   
+                        box.Tag = "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\IconBackup\\" + nam + "_icon.png";
+                       // box.ImageLocation = "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\IconBackup\\" + nam + "_icon.png";
+                        box.LoadAsync("C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\IconBackup\\" + nam + "_icon.png");
+                    }
+                    catch (Exception ex2)
+                    {
+                        Console.WriteLine(ex2.ToString() + Environment.NewLine);
+                        box.Image = AnimePlayer.Properties.Resource.NoImage;
+                    }
                 }
             }
 
@@ -432,14 +529,16 @@ namespace AnimePlayer
                 panel.Name = "panelItem";
                 panel.Size = new System.Drawing.Size(160, 240);
                 panel.BackColor = Color.FromArgb(30, 30, 30);
-                SetName();
-                SetImage();
                 button.Click += ButtonItem_Click;
                 picture.Click += ButtonItem_Click;
                 try
                 {
                     button.Text = values.name;
+                    SetImage2(picture);
+                    /*
+                    picture.ImageLocation = values.iconPath;
                     picture.LoadAsync(values.iconPath);
+                    */
                     if (AnimePlayer.Properties.Settings.Default.RoundingControl)
                     {
                         ControlsNewMethods.RoundingControl rc = new ControlsNewMethods.RoundingControl();
@@ -632,8 +731,16 @@ namespace AnimePlayer
                             position++;
                             if (oknoG.onOnline)
                             {
-                                string zm = WebContent.downloadVideoContent(WebContent.dUri(content[position]), values.name);
-                                GetListTypeEp(pageItem1, zm);
+                                if(oknoG.server == 0)
+                                {
+                                    string zm = WebContent.downloadVideoContent(WebContent.dUri(content[position]), values.name);
+                                    GetListTypeEp(pageItem1, zm);
+                                }
+                                else if(oknoG.server == 1)
+                                {
+                                    string zm = Download.OneDrive.downloadVideoContent(content[position], values.name);
+                                    GetListTypeEp(pageItem1, zm);
+                                }
                             }
                             else
                             {
@@ -821,6 +928,54 @@ namespace AnimePlayer
                                 interpreter.Start(dirpath + "Polecane\\" + content[position] + ".txt");
 
                             }
+                            else if(content[position] == "oneDriveUri")
+                            {
+                                position++;
+                                Download.OneDrive.downloadFile(content[position],
+                                    dirpath + "Polecane\\" + Download.OneDrive.onedriveUri(content[position]) + ".txt");
+                                Interpreter interpreter = new Interpreter(oknoG);
+                                interpreter.Start(dirpath + "Polecane\\" + Download.OneDrive.onedriveUri(content[position]) + ".txt");
+                            }
+                        }
+                        else
+                        {
+                            string gname = content[position];
+                            AnimePlayerLibrary.ItemsGroup itemsGroup = new ItemsGroup(oknoG, gname);
+                            itemsGroup.Dock = DockStyle.Top;
+                            oknoG.panel2.Controls.Add(itemsGroup);
+                            if (!Directory.Exists(dirpath + gname))
+                            {
+                                try
+                                {
+                                    Directory.CreateDirectory(dirpath + gname);
+                                }
+                                catch (Exception)
+                                {
+
+                                }
+                            }
+                            position++;
+                            if (content[position] == "dUri")
+                            {
+                                position++;
+                                //WebContent.downloadFile(content[position], dirpath + "Polecane\\" + content[position] + ".txt");
+                                oknoG.labelLoadingDetails.Text = "Interpreter > Local > StartLocal > new Interpreter > StartLocal path:" +
+                                    dirpath + gname + "\\" + content[position] + ".txt";
+                                Application.DoEvents();
+                                WebContent.downloadFile(content[position], dirpath + gname+ "\\" + content[position] + ".txt");
+                                Interpreter interpreter = new Interpreter(oknoG);
+                                interpreter.Start(dirpath + gname + "\\" + content[position] + ".txt");
+                            }
+                            else if (content[position] == "oneDriveUri")
+                            {
+                                position++;
+                                oknoG.labelLoadingDetails.Text = "Interpreter > Local > StartLocal > new Interpreter > StartLocal";
+                                Application.DoEvents();
+                                Download.OneDrive.downloadFile(content[position],
+                                    dirpath + gname + "\\" + Download.OneDrive.onedriveUri(content[position]) + ".txt");
+                                Interpreter interpreter = new Interpreter(oknoG);
+                                interpreter.Start(dirpath + gname + "\\" + Download.OneDrive.onedriveUri(content[position]) + ".txt");
+                            }
                         }
 
                     }
@@ -856,6 +1011,16 @@ namespace AnimePlayer
 
                                         }
                                         WebContentControls.CtnPanel panel = new WebContentControls.CtnPanel(values, oknoG);
+                                    }
+                                    position++;
+                                    if(content[position] == "ContentId_2")
+                                    {
+                                        position++;
+                                        values.contentId2 = content[position];
+                                    }
+                                    else
+                                    {
+                                        position--;
                                     }
                                 }
                             }
@@ -927,7 +1092,47 @@ namespace AnimePlayer
                                 Application.DoEvents();
                                 Interpreter interpreter = new Interpreter(oknoG);
                                 interpreter.StartLocal(dirpath + "Polecane\\" + content[position] + ".txt");
+                            }
+                            else if (content[position] == "oneDriveUri")
+                            {
+                                position++;
+                                Interpreter interpreter = new Interpreter(oknoG);
+                                interpreter.StartLocal(dirpath + "Polecane\\" + Download.OneDrive.onedriveUri(content[position]) + ".txt");
+                            }
+                        }
+                        else
+                        {
+                            string gname = content[position];
+                            AnimePlayerLibrary.ItemsGroup itemsGroup = new ItemsGroup(oknoG, gname);
+                            itemsGroup.Dock = DockStyle.Top;
+                            oknoG.panel2.Controls.Add(itemsGroup);
+                            if (!Directory.Exists(dirpath + gname))
+                            {
+                                try
+                                {
+                                    Directory.CreateDirectory(dirpath + gname);
+                                }
+                                catch (Exception)
+                                {
 
+                                }
+                            }
+                            position++;
+                            if (content[position] == "dUri")
+                            {
+                                position++;
+                                //WebContent.downloadFile(content[position], dirpath + "Polecane\\" + content[position] + ".txt");
+                                oknoG.labelLoadingDetails.Text = "Interpreter > Local > StartLocal > new Interpreter > StartLocal path:" +
+                                    dirpath + gname + "\\" + content[position] + ".txt";
+                                Application.DoEvents();
+                                Interpreter interpreter = new Interpreter(oknoG);
+                                interpreter.StartLocal(dirpath + gname + "\\" + content[position] + ".txt");
+                            }
+                            else if (content[position] == "oneDriveUri")
+                            {
+                                position++;
+                                Interpreter interpreter = new Interpreter(oknoG);
+                                interpreter.StartLocal(dirpath + gname + "\\" + Download.OneDrive.onedriveUri(content[position]) + ".txt");
                             }
                         }
 
@@ -976,6 +1181,16 @@ namespace AnimePlayer
                                         }
                                         oknoG.labelLoadingDetails.Text = "Interpreter > Local > StartLocal > file:" + path+ " > Create CtnPanel";
                                         WebContentControls.CtnPanel panel = new WebContentControls.CtnPanel(values, oknoG);
+                                    }
+                                    position++;
+                                    if (content[position] == "ContentId_2")
+                                    {
+                                        position++;
+                                        values.contentId2 = content[position];
+                                    }
+                                    else
+                                    {
+                                        position--;
                                     }
                                 }
                             }

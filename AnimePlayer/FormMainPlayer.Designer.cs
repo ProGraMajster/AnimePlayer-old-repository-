@@ -523,7 +523,7 @@ namespace AnimePlayer
             this.labelLoading.AutoSize = true;
             this.labelLoading.Font = new System.Drawing.Font("Comic Sans MS", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelLoading.ForeColor = System.Drawing.Color.White;
-            this.labelLoading.Location = new System.Drawing.Point(355, 237);
+            this.labelLoading.Location = new System.Drawing.Point(400, 248);
             this.labelLoading.Name = "labelLoading";
             this.labelLoading.Size = new System.Drawing.Size(145, 38);
             this.labelLoading.TabIndex = 0;
@@ -684,10 +684,10 @@ namespace AnimePlayer
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.panelLoading);
             this.panel2.Controls.Add(this.panelStartPage);
             this.panel2.Controls.Add(this.panelAllitem);
             this.panel2.Controls.Add(this.panelPlayer);
+            this.panel2.Controls.Add(this.panelLoading);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -939,7 +939,6 @@ namespace AnimePlayer
         private System.Windows.Forms.Panel panelWeb;
         private System.Windows.Forms.Button buttonCloseWeb;
         private System.Windows.Forms.Panel panelPlayer;
-        private System.Windows.Forms.Panel panelStartPage;
         private System.Windows.Forms.Panel panelTop;
         private AnimePlayerLibrary.RoundedPanel roundedPanel1;
         private System.Windows.Forms.Label label;
@@ -990,6 +989,7 @@ namespace AnimePlayer
         public NewFlowLayoutPanel flowLayoutPanelPolecane;
         public System.Windows.Forms.Panel panelMenu;
         public System.Windows.Forms.Label labelLoadingDetails;
+        public System.Windows.Forms.Panel panelStartPage;
     }
 }
 

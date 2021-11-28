@@ -67,8 +67,18 @@
     <Compile Include="CdaDownloader.cs" />
     <Compile Include="ClassControls.cs" />
     <Compile Include="ControlsNewMethods.cs" />
+    <Compile Include="Download.cs" />
+    <Compile Include="ItemsGroup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ItemsGroup.Designer.cs">
+      <DependentUpon>ItemsGroup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ItemsGroup.resx">
+      <DependentUpon>ItemsGroup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
