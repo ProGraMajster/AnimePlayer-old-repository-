@@ -50,22 +50,16 @@ namespace AnimePlayer
             this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panePolecane = new System.Windows.Forms.Panel();
-            this.flowLayoutPanelPolecane = new AnimePlayerLibrary.NewFlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panelTop = new System.Windows.Forms.Panel();
-            this.roundedPanel1 = new AnimePlayerLibrary.RoundedPanel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.textBoxStartPagefinditem = new System.Windows.Forms.TextBox();
-            this.buttonStartPageFinditem = new System.Windows.Forms.Button();
-            this.labelSatusWorkingApp = new System.Windows.Forms.Label();
-            this.buttonMenuOpen = new System.Windows.Forms.Button();
-            this.label = new System.Windows.Forms.Label();
             this.flowLayoutPanelAll = new System.Windows.Forms.FlowLayoutPanel();
             this.panelLoading = new System.Windows.Forms.Panel();
+            this.labelLoadingA = new System.Windows.Forms.Label();
             this.labelLoadingDetails = new System.Windows.Forms.Label();
             this.labelLoading = new System.Windows.Forms.Label();
+            this.pictureBoxLoading = new System.Windows.Forms.PictureBox();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBoxGithub = new System.Windows.Forms.PictureBox();
@@ -81,6 +75,18 @@ namespace AnimePlayer
             this.panelAllitem = new System.Windows.Forms.Panel();
             this.flowLayoutPanelFinditem = new System.Windows.Forms.FlowLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.panelNotifiError = new System.Windows.Forms.Panel();
+            this.labelError = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.timerAnimationError = new System.Windows.Forms.Timer(this.components);
+            this.flowLayoutPanelPolecane = new AnimePlayerLibrary.NewFlowLayoutPanel();
+            this.roundedPanel1 = new AnimePlayerLibrary.RoundedPanel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.textBoxStartPagefinditem = new System.Windows.Forms.TextBox();
+            this.buttonStartPageFinditem = new System.Windows.Forms.Button();
+            this.labelSatusWorkingApp = new System.Windows.Forms.Label();
+            this.buttonMenuOpen = new System.Windows.Forms.Button();
+            this.label = new System.Windows.Forms.Label();
             this.roundedPanel2 = new AnimePlayerLibrary.RoundedPanel();
             this.labelFindSatus = new System.Windows.Forms.Label();
             this.buttonfinditemReset = new System.Windows.Forms.Button();
@@ -88,10 +94,6 @@ namespace AnimePlayer
             this.textBoxFinditem = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.buttonFinditemPageClose = new System.Windows.Forms.Button();
-            this.panelNotifiError = new System.Windows.Forms.Panel();
-            this.labelError = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.timerAnimationError = new System.Windows.Forms.Timer(this.components);
             this.panelYTlink.SuspendLayout();
             this.panelWeb.SuspendLayout();
             this.panelPlayer.SuspendLayout();
@@ -104,9 +106,8 @@ namespace AnimePlayer
             this.panePolecane.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelTop.SuspendLayout();
-            this.roundedPanel1.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.panelLoading.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLoading)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGithub)).BeginInit();
@@ -114,9 +115,11 @@ namespace AnimePlayer
             this.panel2.SuspendLayout();
             this.panelAllitem.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.roundedPanel2.SuspendLayout();
             this.panelNotifiError.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.roundedPanel1.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.roundedPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMainPlayer
@@ -325,18 +328,6 @@ namespace AnimePlayer
             this.panePolecane.TabIndex = 3;
             this.panePolecane.Visible = false;
             // 
-            // flowLayoutPanelPolecane
-            // 
-            this.flowLayoutPanelPolecane.AutoScroll = true;
-            this.flowLayoutPanelPolecane.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanelPolecane.Location = new System.Drawing.Point(0, 30);
-            this.flowLayoutPanelPolecane.Name = "flowLayoutPanelPolecane";
-            this.flowLayoutPanelPolecane.Padding = new System.Windows.Forms.Padding(12, 2, 12, 2);
-            this.flowLayoutPanelPolecane.Size = new System.Drawing.Size(931, 266);
-            this.flowLayoutPanelPolecane.TabIndex = 5;
-            this.flowLayoutPanelPolecane.WrapContents = false;
-            this.flowLayoutPanelPolecane.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.flowLayoutPanel_ControlAdded);
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.label2);
@@ -378,111 +369,6 @@ namespace AnimePlayer
             this.panelTop.Size = new System.Drawing.Size(931, 91);
             this.panelTop.TabIndex = 0;
             // 
-            // roundedPanel1
-            // 
-            this.roundedPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.roundedPanel1.ColorEdges = System.Drawing.SystemColors.ActiveCaptionText;
-            this.roundedPanel1.Controls.Add(this.panel7);
-            this.roundedPanel1.Controls.Add(this.labelSatusWorkingApp);
-            this.roundedPanel1.Controls.Add(this.buttonMenuOpen);
-            this.roundedPanel1.Controls.Add(this.label);
-            this.roundedPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundedPanel1.ExBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.roundedPanel1.Location = new System.Drawing.Point(10, 10);
-            this.roundedPanel1.Margin = new System.Windows.Forms.Padding(10);
-            this.roundedPanel1.Name = "roundedPanel1";
-            this.roundedPanel1.Padding = new System.Windows.Forms.Padding(20, 6, 20, 6);
-            this.roundedPanel1.RadiusArcPanel = 15F;
-            this.roundedPanel1.Size = new System.Drawing.Size(911, 71);
-            this.roundedPanel1.TabIndex = 0;
-            this.roundedPanel1.Resize += new System.EventHandler(this.Panel_Resize);
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.textBoxStartPagefinditem);
-            this.panel7.Controls.Add(this.buttonStartPageFinditem);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.panel7.Location = new System.Drawing.Point(190, 6);
-            this.panel7.Name = "panel7";
-            this.panel7.Padding = new System.Windows.Forms.Padding(5, 20, 5, 15);
-            this.panel7.Size = new System.Drawing.Size(408, 59);
-            this.panel7.TabIndex = 4;
-            // 
-            // textBoxStartPagefinditem
-            // 
-            this.textBoxStartPagefinditem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.textBoxStartPagefinditem.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxStartPagefinditem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxStartPagefinditem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxStartPagefinditem.ForeColor = System.Drawing.Color.White;
-            this.textBoxStartPagefinditem.Location = new System.Drawing.Point(5, 20);
-            this.textBoxStartPagefinditem.Multiline = true;
-            this.textBoxStartPagefinditem.Name = "textBoxStartPagefinditem";
-            this.textBoxStartPagefinditem.Size = new System.Drawing.Size(323, 24);
-            this.textBoxStartPagefinditem.TabIndex = 3;
-            this.textBoxStartPagefinditem.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxStartPagefinditem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSPfinditem_KeyDown);
-            // 
-            // buttonStartPageFinditem
-            // 
-            this.buttonStartPageFinditem.BackColor = System.Drawing.Color.Transparent;
-            this.buttonStartPageFinditem.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonStartPageFinditem.FlatAppearance.BorderSize = 0;
-            this.buttonStartPageFinditem.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.buttonStartPageFinditem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.buttonStartPageFinditem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonStartPageFinditem.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonStartPageFinditem.ForeColor = System.Drawing.Color.White;
-            this.buttonStartPageFinditem.Location = new System.Drawing.Point(328, 20);
-            this.buttonStartPageFinditem.Name = "buttonStartPageFinditem";
-            this.buttonStartPageFinditem.Size = new System.Drawing.Size(75, 24);
-            this.buttonStartPageFinditem.TabIndex = 4;
-            this.buttonStartPageFinditem.Text = "Szukaj";
-            this.buttonStartPageFinditem.UseVisualStyleBackColor = false;
-            this.buttonStartPageFinditem.Click += new System.EventHandler(this.buttonStartPageFinditem_Click);
-            // 
-            // labelSatusWorkingApp
-            // 
-            this.labelSatusWorkingApp.Dock = System.Windows.Forms.DockStyle.Right;
-            this.labelSatusWorkingApp.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSatusWorkingApp.ForeColor = System.Drawing.SystemColors.Window;
-            this.labelSatusWorkingApp.Location = new System.Drawing.Point(598, 6);
-            this.labelSatusWorkingApp.Name = "labelSatusWorkingApp";
-            this.labelSatusWorkingApp.Size = new System.Drawing.Size(222, 59);
-            this.labelSatusWorkingApp.TabIndex = 2;
-            this.labelSatusWorkingApp.Text = "Satus działania:";
-            this.labelSatusWorkingApp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // buttonMenuOpen
-            // 
-            this.buttonMenuOpen.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonMenuOpen.FlatAppearance.BorderSize = 0;
-            this.buttonMenuOpen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.buttonMenuOpen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.buttonMenuOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMenuOpen.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonMenuOpen.ForeColor = System.Drawing.Color.White;
-            this.buttonMenuOpen.Location = new System.Drawing.Point(820, 6);
-            this.buttonMenuOpen.Name = "buttonMenuOpen";
-            this.buttonMenuOpen.Size = new System.Drawing.Size(71, 59);
-            this.buttonMenuOpen.TabIndex = 1;
-            this.buttonMenuOpen.Text = "=";
-            this.buttonMenuOpen.UseVisualStyleBackColor = true;
-            this.buttonMenuOpen.Click += new System.EventHandler(this.buttonMenuOpen_Click);
-            // 
-            // label
-            // 
-            this.label.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label.ForeColor = System.Drawing.SystemColors.Window;
-            this.label.Location = new System.Drawing.Point(20, 6);
-            this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(170, 59);
-            this.label.TabIndex = 0;
-            this.label.Text = "Twoje anime pl";
-            this.label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // flowLayoutPanelAll
             // 
             this.flowLayoutPanelAll.AutoScroll = true;
@@ -497,8 +383,11 @@ namespace AnimePlayer
             // 
             // panelLoading
             // 
+            this.panelLoading.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panelLoading.Controls.Add(this.labelLoadingA);
             this.panelLoading.Controls.Add(this.labelLoadingDetails);
             this.panelLoading.Controls.Add(this.labelLoading);
+            this.panelLoading.Controls.Add(this.pictureBoxLoading);
             this.panelLoading.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelLoading.Location = new System.Drawing.Point(0, 0);
             this.panelLoading.Name = "panelLoading";
@@ -506,8 +395,21 @@ namespace AnimePlayer
             this.panelLoading.TabIndex = 2;
             this.panelLoading.VisibleChanged += new System.EventHandler(this.panelLoading_VisibleChanged);
             // 
+            // labelLoadingA
+            // 
+            this.labelLoadingA.BackColor = System.Drawing.Color.Transparent;
+            this.labelLoadingA.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelLoadingA.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelLoadingA.ForeColor = System.Drawing.Color.White;
+            this.labelLoadingA.Location = new System.Drawing.Point(0, 0);
+            this.labelLoadingA.Name = "labelLoadingA";
+            this.labelLoadingA.Size = new System.Drawing.Size(948, 28);
+            this.labelLoadingA.TabIndex = 2;
+            this.labelLoadingA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // labelLoadingDetails
             // 
+            this.labelLoadingDetails.BackColor = System.Drawing.Color.Transparent;
             this.labelLoadingDetails.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.labelLoadingDetails.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelLoadingDetails.ForeColor = System.Drawing.Color.White;
@@ -521,6 +423,7 @@ namespace AnimePlayer
             // labelLoading
             // 
             this.labelLoading.AutoSize = true;
+            this.labelLoading.BackColor = System.Drawing.Color.Transparent;
             this.labelLoading.Font = new System.Drawing.Font("Comic Sans MS", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelLoading.ForeColor = System.Drawing.Color.White;
             this.labelLoading.Location = new System.Drawing.Point(400, 248);
@@ -530,6 +433,16 @@ namespace AnimePlayer
             this.labelLoading.Text = "Ładowanie";
             this.labelLoading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelLoading.VisibleChanged += new System.EventHandler(this.labelLoading_VisibleChanged);
+            // 
+            // pictureBoxLoading
+            // 
+            this.pictureBoxLoading.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBoxLoading.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxLoading.Name = "pictureBoxLoading";
+            this.pictureBoxLoading.Size = new System.Drawing.Size(948, 541);
+            this.pictureBoxLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxLoading.TabIndex = 3;
+            this.pictureBoxLoading.TabStop = false;
             // 
             // panelMenu
             // 
@@ -685,9 +598,9 @@ namespace AnimePlayer
             // panel2
             // 
             this.panel2.Controls.Add(this.panelStartPage);
+            this.panel2.Controls.Add(this.panelLoading);
             this.panel2.Controls.Add(this.panelAllitem);
             this.panel2.Controls.Add(this.panelPlayer);
-            this.panel2.Controls.Add(this.panelLoading);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -726,6 +639,162 @@ namespace AnimePlayer
             this.panel6.Padding = new System.Windows.Forms.Padding(10);
             this.panel6.Size = new System.Drawing.Size(948, 100);
             this.panel6.TabIndex = 0;
+            // 
+            // panelNotifiError
+            // 
+            this.panelNotifiError.Controls.Add(this.labelError);
+            this.panelNotifiError.Controls.Add(this.pictureBox3);
+            this.panelNotifiError.Location = new System.Drawing.Point(0, 0);
+            this.panelNotifiError.Name = "panelNotifiError";
+            this.panelNotifiError.Size = new System.Drawing.Size(200, 51);
+            this.panelNotifiError.TabIndex = 6;
+            // 
+            // labelError
+            // 
+            this.labelError.AutoEllipsis = true;
+            this.labelError.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelError.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelError.ForeColor = System.Drawing.Color.Red;
+            this.labelError.Location = new System.Drawing.Point(57, 0);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(143, 51);
+            this.labelError.TabIndex = 1;
+            this.labelError.Text = "Error code:";
+            this.labelError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox3.Image = global::AnimePlayer.Properties.Resource.error;
+            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(57, 51);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
+            // 
+            // timerAnimationError
+            // 
+            this.timerAnimationError.Interval = 1;
+            this.timerAnimationError.Tick += new System.EventHandler(this.timerAnimationError_Tick);
+            // 
+            // flowLayoutPanelPolecane
+            // 
+            this.flowLayoutPanelPolecane.AutoScroll = true;
+            this.flowLayoutPanelPolecane.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanelPolecane.Location = new System.Drawing.Point(0, 30);
+            this.flowLayoutPanelPolecane.Name = "flowLayoutPanelPolecane";
+            this.flowLayoutPanelPolecane.Padding = new System.Windows.Forms.Padding(12, 2, 12, 2);
+            this.flowLayoutPanelPolecane.Size = new System.Drawing.Size(931, 266);
+            this.flowLayoutPanelPolecane.TabIndex = 5;
+            this.flowLayoutPanelPolecane.WrapContents = false;
+            this.flowLayoutPanelPolecane.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.flowLayoutPanel_ControlAdded);
+            // 
+            // roundedPanel1
+            // 
+            this.roundedPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.roundedPanel1.ColorEdges = System.Drawing.SystemColors.ActiveCaptionText;
+            this.roundedPanel1.Controls.Add(this.panel7);
+            this.roundedPanel1.Controls.Add(this.labelSatusWorkingApp);
+            this.roundedPanel1.Controls.Add(this.buttonMenuOpen);
+            this.roundedPanel1.Controls.Add(this.label);
+            this.roundedPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.roundedPanel1.ExBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.roundedPanel1.Location = new System.Drawing.Point(10, 10);
+            this.roundedPanel1.Margin = new System.Windows.Forms.Padding(10);
+            this.roundedPanel1.Name = "roundedPanel1";
+            this.roundedPanel1.Padding = new System.Windows.Forms.Padding(20, 6, 20, 6);
+            this.roundedPanel1.RadiusArcPanel = 15F;
+            this.roundedPanel1.Size = new System.Drawing.Size(911, 71);
+            this.roundedPanel1.TabIndex = 0;
+            this.roundedPanel1.Resize += new System.EventHandler(this.Panel_Resize);
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.textBoxStartPagefinditem);
+            this.panel7.Controls.Add(this.buttonStartPageFinditem);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.panel7.Location = new System.Drawing.Point(190, 6);
+            this.panel7.Name = "panel7";
+            this.panel7.Padding = new System.Windows.Forms.Padding(5, 20, 5, 15);
+            this.panel7.Size = new System.Drawing.Size(408, 59);
+            this.panel7.TabIndex = 4;
+            // 
+            // textBoxStartPagefinditem
+            // 
+            this.textBoxStartPagefinditem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.textBoxStartPagefinditem.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxStartPagefinditem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxStartPagefinditem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxStartPagefinditem.ForeColor = System.Drawing.Color.White;
+            this.textBoxStartPagefinditem.Location = new System.Drawing.Point(5, 20);
+            this.textBoxStartPagefinditem.Multiline = true;
+            this.textBoxStartPagefinditem.Name = "textBoxStartPagefinditem";
+            this.textBoxStartPagefinditem.Size = new System.Drawing.Size(323, 24);
+            this.textBoxStartPagefinditem.TabIndex = 3;
+            this.textBoxStartPagefinditem.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxStartPagefinditem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSPfinditem_KeyDown);
+            // 
+            // buttonStartPageFinditem
+            // 
+            this.buttonStartPageFinditem.BackColor = System.Drawing.Color.Transparent;
+            this.buttonStartPageFinditem.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonStartPageFinditem.FlatAppearance.BorderSize = 0;
+            this.buttonStartPageFinditem.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.buttonStartPageFinditem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.buttonStartPageFinditem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonStartPageFinditem.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonStartPageFinditem.ForeColor = System.Drawing.Color.White;
+            this.buttonStartPageFinditem.Location = new System.Drawing.Point(328, 20);
+            this.buttonStartPageFinditem.Name = "buttonStartPageFinditem";
+            this.buttonStartPageFinditem.Size = new System.Drawing.Size(75, 24);
+            this.buttonStartPageFinditem.TabIndex = 4;
+            this.buttonStartPageFinditem.Text = "Szukaj";
+            this.buttonStartPageFinditem.UseVisualStyleBackColor = false;
+            this.buttonStartPageFinditem.Click += new System.EventHandler(this.buttonStartPageFinditem_Click);
+            // 
+            // labelSatusWorkingApp
+            // 
+            this.labelSatusWorkingApp.Dock = System.Windows.Forms.DockStyle.Right;
+            this.labelSatusWorkingApp.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSatusWorkingApp.ForeColor = System.Drawing.SystemColors.Window;
+            this.labelSatusWorkingApp.Location = new System.Drawing.Point(598, 6);
+            this.labelSatusWorkingApp.Name = "labelSatusWorkingApp";
+            this.labelSatusWorkingApp.Size = new System.Drawing.Size(222, 59);
+            this.labelSatusWorkingApp.TabIndex = 2;
+            this.labelSatusWorkingApp.Text = "Satus działania:";
+            this.labelSatusWorkingApp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // buttonMenuOpen
+            // 
+            this.buttonMenuOpen.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonMenuOpen.FlatAppearance.BorderSize = 0;
+            this.buttonMenuOpen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.buttonMenuOpen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.buttonMenuOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMenuOpen.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonMenuOpen.ForeColor = System.Drawing.Color.White;
+            this.buttonMenuOpen.Location = new System.Drawing.Point(820, 6);
+            this.buttonMenuOpen.Name = "buttonMenuOpen";
+            this.buttonMenuOpen.Size = new System.Drawing.Size(71, 59);
+            this.buttonMenuOpen.TabIndex = 1;
+            this.buttonMenuOpen.Text = "=";
+            this.buttonMenuOpen.UseVisualStyleBackColor = true;
+            this.buttonMenuOpen.Click += new System.EventHandler(this.buttonMenuOpen_Click);
+            // 
+            // label
+            // 
+            this.label.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label.ForeColor = System.Drawing.SystemColors.Window;
+            this.label.Location = new System.Drawing.Point(20, 6);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(170, 59);
+            this.label.TabIndex = 0;
+            this.label.Text = "Twoje anime pl";
+            this.label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // roundedPanel2
             // 
@@ -833,45 +902,6 @@ namespace AnimePlayer
             this.buttonFinditemPageClose.UseVisualStyleBackColor = false;
             this.buttonFinditemPageClose.Click += new System.EventHandler(this.buttonFinditemPageClose_Click);
             // 
-            // panelNotifiError
-            // 
-            this.panelNotifiError.Controls.Add(this.labelError);
-            this.panelNotifiError.Controls.Add(this.pictureBox3);
-            this.panelNotifiError.Location = new System.Drawing.Point(0, 0);
-            this.panelNotifiError.Name = "panelNotifiError";
-            this.panelNotifiError.Size = new System.Drawing.Size(200, 51);
-            this.panelNotifiError.TabIndex = 6;
-            // 
-            // labelError
-            // 
-            this.labelError.AutoEllipsis = true;
-            this.labelError.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelError.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelError.ForeColor = System.Drawing.Color.Red;
-            this.labelError.Location = new System.Drawing.Point(57, 0);
-            this.labelError.Name = "labelError";
-            this.labelError.Size = new System.Drawing.Size(143, 51);
-            this.labelError.TabIndex = 1;
-            this.labelError.Text = "Error code:";
-            this.labelError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox3.Image = global::AnimePlayer.Properties.Resource.error;
-            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(57, 51);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
-            // 
-            // timerAnimationError
-            // 
-            this.timerAnimationError.Interval = 1;
-            this.timerAnimationError.Tick += new System.EventHandler(this.timerAnimationError_Tick);
-            // 
             // OknoG
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -907,11 +937,9 @@ namespace AnimePlayer
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelTop.ResumeLayout(false);
-            this.roundedPanel1.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
             this.panelLoading.ResumeLayout(false);
             this.panelLoading.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLoading)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGithub)).EndInit();
@@ -919,10 +947,13 @@ namespace AnimePlayer
             this.panel2.ResumeLayout(false);
             this.panelAllitem.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
-            this.roundedPanel2.ResumeLayout(false);
-            this.roundedPanel2.PerformLayout();
             this.panelNotifiError.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.roundedPanel1.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.roundedPanel2.ResumeLayout(false);
+            this.roundedPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -990,6 +1021,8 @@ namespace AnimePlayer
         public System.Windows.Forms.Panel panelMenu;
         public System.Windows.Forms.Label labelLoadingDetails;
         public System.Windows.Forms.Panel panelStartPage;
+        public System.Windows.Forms.Label labelLoadingA;
+        public System.Windows.Forms.PictureBox pictureBoxLoading;
     }
 }
 

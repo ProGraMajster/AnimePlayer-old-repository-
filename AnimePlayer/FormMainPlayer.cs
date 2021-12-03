@@ -13,7 +13,6 @@ namespace AnimePlayer
     {
         FormMiniPlayer form2;
         string[] args = Environment.GetCommandLineArgs();
-
         public int server = 0;
 
         public bool onOnline = true;

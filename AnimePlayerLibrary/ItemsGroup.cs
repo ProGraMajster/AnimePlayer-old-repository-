@@ -13,16 +13,16 @@ namespace AnimePlayerLibrary
     public partial class ItemsGroup : UserControl
     {
         string groupTitle;
-        Form formMain;
-        Panel panelMain;
-        public ItemsGroup(Form form, string title)
+        Panel panelDock;
+        public ItemsGroup(Panel panel, string title)
         {
             InitializeComponent();
-            formMain = form;
+            panelDock = panel;
             groupTitle = title;
             try
             {
-                panelMain = (Panel)form.Controls.Find("panelStartPage", true)[0];
+                //panelDock.Controls.Add(this);
+                //
             }
             catch(Exception ex)
             {

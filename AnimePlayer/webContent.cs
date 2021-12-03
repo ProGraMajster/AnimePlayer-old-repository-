@@ -23,6 +23,10 @@ namespace AnimePlayer
             {
                 path = pathToFile;
             }
+            public Values()
+            {
+
+            }
 
             public string path { get; set; }
             public string name { get; set; }
@@ -263,7 +267,6 @@ namespace AnimePlayer
             }
         }
 
-
         public static string dUri(string id)
         {
             id = "https://drive.google.com/uc?export=download&id=" + id;
@@ -296,10 +299,13 @@ namespace AnimePlayer
                 pictureBoxItem = new PictureBox();
                 this.pictureBoxItem.Dock = System.Windows.Forms.DockStyle.Fill;
                 this.pictureBoxItem.Image = global::AnimePlayer.Properties.Resource.NoImage;
+                pictureBoxItem.ErrorImage = AnimePlayer.Properties.Resource.NoImage;
+                pictureBoxItem.InitialImage = AnimePlayer.Properties.Resource.NoImage;
                 this.pictureBoxItem.Location = new System.Drawing.Point(0, 0);
                 this.pictureBoxItem.Name = "pictureBoxItem";
                 this.pictureBoxItem.Size = new System.Drawing.Size(160, 199);
                 this.pictureBoxItem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+                pictureBoxItem.BackgroundImageLayout = ImageLayout.Zoom;
                 this.pictureBoxItem.TabIndex = 0;
                 this.pictureBoxItem.TabStop = false;
                 // 
@@ -494,10 +500,13 @@ namespace AnimePlayer
                 PictureBox picture = new PictureBox();
                 picture.Dock = System.Windows.Forms.DockStyle.Fill;
                 picture.Image = global::AnimePlayer.Properties.Resource.NoImage;
+                picture.ErrorImage = AnimePlayer.Properties.Resource.NoImage;
+                picture.InitialImage = AnimePlayer.Properties.Resource.NoImage;
                 picture.Location = new System.Drawing.Point(0, 0);
                 picture.Name = "pictureBoxItem";
                 picture.Size = new System.Drawing.Size(160, 199);
                 picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+                picture.BackgroundImageLayout = ImageLayout.Zoom;
                 picture.TabIndex = 0;
                 // 
                 // button
@@ -851,18 +860,6 @@ namespace AnimePlayer
                 return null;
             }
         }
-
-        public class RelatedSeriesPanel
-        {
-            public Panel mainPanel;
-            public Panel mainContent;
-            public Label labelTop;
-
-            public RelatedSeriesPanel()
-            {
-
-            }
-        }
     }
 
     public class Interpreter
@@ -940,7 +937,7 @@ namespace AnimePlayer
                         else
                         {
                             string gname = content[position];
-                            AnimePlayerLibrary.ItemsGroup itemsGroup = new ItemsGroup(oknoG, gname);
+                            AnimePlayerLibrary.ItemsGroup itemsGroup = new ItemsGroup(oknoG.panelStartPage, gname);
                             itemsGroup.Dock = DockStyle.Top;
                             oknoG.panel2.Controls.Add(itemsGroup);
                             if (!Directory.Exists(dirpath + gname))
@@ -1046,6 +1043,12 @@ namespace AnimePlayer
         public void StartLocal(string path)
         {
             oknoG.labelLoadingDetails.Text = "Interpreter > Local > StartLocal > file:"+path;
+            if(!File.Exists(path))
+            {
+                oknoG.labelLoadingDetails.Text = "Interpreter > Local > StartLocal > file > Error";
+                Application.DoEvents();
+                return;
+            }
             string[] content = File.ReadAllText(path).Split(';');
             int limits = 0;
             for (int i = 0; i < content.Length; i++)
@@ -1103,9 +1106,15 @@ namespace AnimePlayer
                         else
                         {
                             string gname = content[position];
-                            AnimePlayerLibrary.ItemsGroup itemsGroup = new ItemsGroup(oknoG, gname);
-                            itemsGroup.Dock = DockStyle.Top;
-                            oknoG.panel2.Controls.Add(itemsGroup);
+                            Panel panel = new Panel();
+                            panel.Show();
+                            panel.Size = new Size(931, 296);
+                            panel.Dock = DockStyle.Top;
+                            AnimePlayerLibrary.ItemsGroup itemsGroup = new ItemsGroup(oknoG.panelStartPage, gname);
+                            oknoG.panelStartPage.Controls.Add(panel);
+                            panel.Controls.Add(itemsGroup);
+                            itemsGroup.Dock = DockStyle.Fill;
+                            oknoG.panelStartPage.Controls.SetChildIndex(panel, 0);
                             if (!Directory.Exists(dirpath + gname))
                             {
                                 try

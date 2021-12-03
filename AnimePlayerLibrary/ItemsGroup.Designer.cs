@@ -74,9 +74,11 @@ namespace AnimePlayerLibrary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.Controls.Add(this.flowLayoutPanelGroup);
             this.Controls.Add(this.panelTop);
+            this.DoubleBuffered = true;
             this.Name = "ItemsGroup";
             this.Size = new System.Drawing.Size(931, 296);
             this.panelTop.ResumeLayout(false);
