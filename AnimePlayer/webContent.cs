@@ -198,12 +198,12 @@ namespace AnimePlayer
             try
             {
                 WebClient webClient = new WebClient();
-                webClient.DownloadFile(dUri(id), path);
+                webClient.DownloadFile(dUri(id), path.Replace(":", " "));
                 webClient.Dispose();
             }
             catch (Exception ex)
             {
-                Console.WriteLine("{ERROR}downloadPage > \n" + id + "\n" + path);
+                Console.WriteLine("{ERROR}downloadPage > \n" + id + "\n" + path.Replace(":", " "));
                 Console.WriteLine(ex.ToString() + Environment.NewLine);
             }
         }
@@ -219,7 +219,7 @@ namespace AnimePlayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine("{ERROR}downloadPage > \n" + id + "\n" + filename);
+                Console.WriteLine("{ERROR}downloadPage > \n" + id + "\n" + filename +"\n");
                 Console.WriteLine(ex.ToString() + Environment.NewLine);
                 return null;
             }
@@ -280,23 +280,50 @@ namespace AnimePlayer
         public class CtnPanel
         {
             public WebContent.Values values;
+            public ValuesDebug valuesDebug;
             OknoG oknoG;
 
             public Panel panelItem;
             public PictureBox pictureBoxItem;
             public Button buttonItem;
+            public ContextMenuStrip cms;
+            public ToolStripMenuItem menuItem;
 
             public CtnPanel(WebContent.Values va, OknoG okno)
             {
                 values = va;
                 oknoG = okno;
+                try
+                {
+                    valuesDebug = new ValuesDebug();
+                    valuesDebug.path = va.path;
+                    valuesDebug.name = va.name;
+                    valuesDebug.iconLink = va.iconLink;
+                    valuesDebug.iconPath = va.iconPath;
+                    valuesDebug.siteLink = va.siteLink;
+                    valuesDebug.contentId = va.contentId;
+                    valuesDebug.contentId2 = va.contentId2;
+                    valuesDebug.pathPage = va.pathPage;
+                    valuesDebug.groupName = va.groupName;
+                    cms = new ContextMenuStrip();
+                    cms.Name = "cms";
 
+                    menuItem = new ToolStripMenuItem();
+                    menuItem.Text = "DebugInfo";
+                    menuItem.Click += MenuItem_Click;
+                    cms.Items.Add(menuItem);
+                }
+                catch(Exception)
+                {
+
+                }
                 // 
                 // pictureBoxItem
                 // 
                 oknoG.labelLoadingDetails.Text = ">> Create CtnPanel file:" +va.path +" > create PictureBox";
                 Application.DoEvents();
                 pictureBoxItem = new PictureBox();
+                pictureBoxItem.ContextMenuStrip = cms;
                 this.pictureBoxItem.Dock = System.Windows.Forms.DockStyle.Fill;
                 this.pictureBoxItem.Image = global::AnimePlayer.Properties.Resource.NoImage;
                 pictureBoxItem.ErrorImage = AnimePlayer.Properties.Resource.NoImage;
@@ -372,8 +399,10 @@ namespace AnimePlayer
                 oknoG.labelLoadingDetails.Text = ">> Create CtnPanel > "+va.name+ "> Created";
             }
 
-            public CtnPanel()
+            private void MenuItem_Click(object sender, EventArgs e)
             {
+                FormDebug fd = new FormDebug(valuesDebug);
+                fd.Show();
             }
 
             private void ButtonItem_Click(object sender, EventArgs e)
@@ -878,6 +907,21 @@ namespace AnimePlayer
             }
         }
 
+        public string GetImage(string name)
+        {
+            name = Replacer.Names(name);
+            if(FindFileNameInDirIcon(name))
+            {
+                return "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Icon\\" + name;
+            }
+
+            if(FindFileNameInDirIconBackup(name))
+            {
+                return "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\IconBackup\\" + name;
+            }
+            return null;
+        }
+
         public void Start(string path)
         {
             string[] content = File.ReadAllText(path).Split(';');
@@ -982,13 +1026,17 @@ namespace AnimePlayer
                         {
                             WebContent.Values values = new WebContent.Values(path);
                             position++;
-                            values.name = content[position];
+                            values.name = Replacer.Names(content[position]);
                             position++;
                             if (content[position] == "Icon")
                             {
                                 position++;
                                 values.iconLink = content[position];
                                 values.iconPath = WebContent.downloadIcon(content[position], values.name + "_icon");
+                                if(values.iconPath == null)
+                                {
+                                    values.iconPath = GetImage(values.name + "_icon");
+                                }
                                 position++;
                                 if (content[position] == "Link")
                                 {
@@ -1152,7 +1200,7 @@ namespace AnimePlayer
                         {
                             WebContent.Values values = new WebContent.Values(path);
                             position++;
-                            values.name = content[position];
+                            values.name = Replacer.Names(content[position]);
                             position++;
                             if (content[position] == "Icon")
                             {

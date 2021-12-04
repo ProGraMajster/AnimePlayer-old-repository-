@@ -139,7 +139,7 @@ namespace AnimePlayer
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedItem.ToString() == "WindowsMediaPlayer")
+            if (comboBox1.SelectedItem.ToString() == "PlayerType_1")
             {
                 axwmp.uiMode = "full";
             }
@@ -159,6 +159,11 @@ namespace AnimePlayer
             {
                 panel1.Hide();
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

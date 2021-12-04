@@ -77,6 +77,37 @@ namespace AnimePlayerLibrary
         }
     }
 
+    public class ValuesDebug
+    {
+        public ValuesDebug(string pathToFile)
+        {
+            path = pathToFile;  
+        }
+
+        public ValuesDebug()
+        {
+
+        }
+
+        public string path { get; set; }
+        public string name { get; set; }
+        public string iconLink { get; set; }
+        public string iconPath { get; set; }
+        public string siteLink { get; set; }
+        public string contentId { get; set; }
+        public string contentId2 { get; set; }
+        public string pathPage { get; set; }
+        public string groupName { get; set; }
+    }
+
+    public static class Replacer
+    {
+        public static string Names(string name)
+        {
+            return name.Replace(":", " ").Replace("?", " ");
+        }
+    }
+
     public static class FileLog
     {
         public static void Write(string text)
