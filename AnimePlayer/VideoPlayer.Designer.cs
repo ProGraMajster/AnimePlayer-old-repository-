@@ -33,6 +33,7 @@ namespace AnimePlayer
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VideoPlayer));
             this.axwmp = new AxWMPLib.AxWindowsMediaPlayer();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
@@ -44,7 +45,6 @@ namespace AnimePlayer
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.timerShowSkipButton = new System.Windows.Forms.Timer(this.components);
             this.timerHidebuttonSkip = new System.Windows.Forms.Timer(this.components);
-            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.axwmp)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -75,6 +75,20 @@ namespace AnimePlayer
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(718, 25);
             this.panel1.TabIndex = 1;
+            // 
+            // button5
+            // 
+            this.button5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Comic Sans MS", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Location = new System.Drawing.Point(89, 0);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(79, 25);
+            this.button5.TabIndex = 10;
+            this.button5.Text = "Źródło filmu";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // comboBox1
             // 
@@ -206,20 +220,6 @@ namespace AnimePlayer
             // 
             this.timerHidebuttonSkip.Interval = 30000;
             this.timerHidebuttonSkip.Tick += new System.EventHandler(this.timerHidebuttonSkip_Tick);
-            // 
-            // button5
-            // 
-            this.button5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Comic Sans MS", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(89, 0);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(79, 25);
-            this.button5.TabIndex = 10;
-            this.button5.Text = "Źródło filmu";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // VideoPlayer
             // 

@@ -201,19 +201,19 @@ namespace AnimePlayer
                     {
                         if (btn.Name == "1080")
                         {
-                            VideoPlayer videoPlayer = new VideoPlayer(CdaDownloader.GetVideoLink(btn.Tag.ToString(), CdaQuality.p1080), panelTopv, pathFile, formW, skipLolcal);
+                            VideoPlayer videoPlayer = new VideoPlayer(CdaDownloader.GetVideoLink(btn.Tag.ToString(), CdaQuality.p1080), btn.Tag.ToString(), panelTopv, pathFile, formW, skipLolcal);
                         }
                         else if (btn.Name == "720")
                         {
-                            VideoPlayer videoPlayer = new VideoPlayer(CdaDownloader.GetVideoLink(btn.Tag.ToString(), CdaQuality.p720), panelTopv, pathFile, formW, skipLolcal);
+                            VideoPlayer videoPlayer = new VideoPlayer(CdaDownloader.GetVideoLink(btn.Tag.ToString(), CdaQuality.p720), btn.Tag.ToString(), panelTopv, pathFile, formW, skipLolcal);
                         }
                         else if (btn.Name == "460")
                         {
-                            VideoPlayer videoPlayer = new VideoPlayer(CdaDownloader.GetVideoLink(btn.Tag.ToString(), CdaQuality.p480), panelTopv, pathFile, formW, skipLolcal);
+                            VideoPlayer videoPlayer = new VideoPlayer(CdaDownloader.GetVideoLink(btn.Tag.ToString(), CdaQuality.p480), btn.Tag.ToString(), panelTopv, pathFile, formW, skipLolcal);
                         }
                         else if (btn.Name == "360")
                         {
-                            VideoPlayer videoPlayer = new VideoPlayer(CdaDownloader.GetVideoLink(btn.Tag.ToString(), CdaQuality.p360), panelTopv, pathFile, formW, skipLolcal);
+                            VideoPlayer videoPlayer = new VideoPlayer(CdaDownloader.GetVideoLink(btn.Tag.ToString(), CdaQuality.p360), btn.Tag.ToString(), panelTopv, pathFile, formW, skipLolcal);
                         }
 
                     }

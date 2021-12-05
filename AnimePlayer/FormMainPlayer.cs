@@ -449,14 +449,28 @@ namespace AnimePlayer
 
         }
 
+
+        bool flags_findItem = false;
+
         private void buttonFindItem_Click(object sender, EventArgs e)
         {
-            findItems();
+            if(flags_findItem == false)
+            {
+                flowLayoutPanelFinditem.Controls.Clear();
+                flowLayoutPanelFinditem.Enabled = false;
+                findItems();
+                flowLayoutPanelFinditem.Enabled = true;
+            }
+            else
+            {
+                Console.WriteLine("flags_findItem = true");
+            }
         }
 
 
         public void findItems()
         {
+            flags_findItem = true;
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
             string findText = textBoxFinditem.Text.ToLower().Replace("\n", "").Replace("\r", "").Replace("\t", "");
@@ -465,6 +479,7 @@ namespace AnimePlayer
                 flowLayoutPanelFinditem.Hide();
                 labelFindSatus.Hide();
                 labelFindSatus.Text = "";
+                flags_findItem = false;
                 return;
             }
             int i = 0;
@@ -511,10 +526,12 @@ namespace AnimePlayer
             ts.Milliseconds / 10);
             stopWatch.Reset();
             Console.WriteLine("Loading time: " + elapsedTime);
+            flags_findItem = false;
         }
 
         public void findItems(string findText)
         {
+            flags_findItem = true;
             Stopwatch stopWatch = new Stopwatch();
             findText = findText.ToLower().Replace("\n", "").Replace("\r", "").Replace("\t", "");
             if (findText == null)
@@ -522,10 +539,12 @@ namespace AnimePlayer
                 flowLayoutPanelFinditem.Hide();
                 labelFindSatus.Hide();
                 labelFindSatus.Text = "";
+                flags_findItem = false;
                 return;
             }
             int i = 0;
             flowLayoutPanelFinditem.Controls.Clear();
+            Application.DoEvents();
             labelFindSatus.Show();
             flowLayoutPanelAll.Hide();
             try
@@ -568,6 +587,7 @@ namespace AnimePlayer
             ts.Milliseconds / 10);
             stopWatch.Reset();
             Console.WriteLine("Loading time: " + elapsedTime);
+            flags_findItem = false;
         }
 
         private void buttonfinditemReset_Click(object sender, EventArgs e)

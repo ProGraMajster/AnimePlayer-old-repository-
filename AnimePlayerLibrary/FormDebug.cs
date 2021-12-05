@@ -32,6 +32,28 @@ namespace AnimePlayerLibrary
             RtbNewlinie("groupName: "+vd.groupName);
         }
 
+        public FormDebug(ValuesDebug vd, PictureBox box)
+        {
+            InitializeComponent();
+            RtbNewlinie(vd.ToString());
+            RtbNewlinie("path: " + vd.path);
+            RtbNewlinie("name: "+ vd.name);
+            RtbNewlinie("iconLink: "+vd.iconLink);
+            RtbNewlinie("iconPath: "+vd.iconPath);
+            RtbNewlinie("siteLink: "+ vd.siteLink);
+            RtbNewlinie("contentId: "+vd.contentId);
+            RtbNewlinie("contentId2: "+ vd.contentId2);
+            RtbNewlinie("pathPage: "+vd.pathPage);
+            RtbNewlinie("groupName: "+vd.groupName);
+
+
+            if(box != null)
+            {
+                RtbNewlinie("=============  PictureBox   ===========");
+                RtbNewlinie("ImageLocation: " + box.ImageLocation);
+            }
+        }
+
         void RtbNewlinie(string text)
         {
             richTextBox.Text += Environment.NewLine+text;

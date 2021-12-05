@@ -198,12 +198,12 @@ namespace AnimePlayer
             try
             {
                 WebClient webClient = new WebClient();
-                webClient.DownloadFile(dUri(id), path.Replace(":", " "));
+                webClient.DownloadFile(dUri(id), path);
                 webClient.Dispose();
             }
             catch (Exception ex)
             {
-                Console.WriteLine("{ERROR}downloadPage > \n" + id + "\n" + path.Replace(":", " "));
+                Console.WriteLine("{ERROR}downloadPage > \n id: " + id + "\n path: " + path);
                 Console.WriteLine(ex.ToString() + Environment.NewLine);
             }
         }
@@ -401,7 +401,7 @@ namespace AnimePlayer
 
             private void MenuItem_Click(object sender, EventArgs e)
             {
-                FormDebug fd = new FormDebug(valuesDebug);
+                FormDebug fd = new FormDebug(valuesDebug, pictureBoxItem);
                 fd.Show();
             }
 

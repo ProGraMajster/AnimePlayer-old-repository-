@@ -8,15 +8,17 @@ namespace AnimePlayer
     {
         public string videoLink;
         public string pathToFile;
+        public string orginalLink;
         public double ShowSkipIntroTime = double.NaN;
         public double SkipIntro = double.NaN;
         Form form;
-        public VideoPlayer(string vlink, Panel panel, string path, Form f, WebContent.Skip skip)
+        public VideoPlayer(string vlink,string olink, Panel panel, string path, Form f, WebContent.Skip skip)
         {
             InitializeComponent();
             form = f;
             pathToFile = path;
             videoLink = vlink;
+            orginalLink = olink;
             panel.Controls.Add(this);
             this.Dock = DockStyle.Fill;
             this.BringToFront();
@@ -163,7 +165,19 @@ namespace AnimePlayer
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                System.Diagnostics.Process.Start(orginalLink);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Open link");
+                Console.WriteLine("> "+ orginalLink);
+                Console.WriteLine(ex.ToString());
+                AnimePlayerLibrary.FileLog.Write("Open link");
+                AnimePlayerLibrary.FileLog.Write("> "+ orginalLink);
+                AnimePlayerLibrary.FileLog.Write(ex.ToString());
+            }
         }
     }
 }
