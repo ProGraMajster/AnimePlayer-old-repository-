@@ -433,6 +433,14 @@ namespace AnimePlayer
                             values.pathPage = Download.OneDrive.downloadPage(values.contentId2, values.name + "_page");
                         }
 
+                        if(values.pathPage == null)
+                        {
+                            if(Interpreter.FindFileNameInDirPage(values.name + "_page.txt"))
+                            {
+                                values.pathPage = "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Page\\" + values.name + "_page.txt";
+                            }
+                        }
+
                         if (values.pathPage != null)
                         {
                             SetPage(values.pathPage);
@@ -1296,7 +1304,7 @@ namespace AnimePlayer
             return false;
         }
 
-        public bool FindFileNameInDirPage(string filename)
+        public static bool FindFileNameInDirPage(string filename)
         {
             DirectoryInfo di = new DirectoryInfo("C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Page");
 

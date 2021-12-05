@@ -14,6 +14,10 @@ namespace AnimePlayerLibrary
         {
             public static string onedriveUri(string link)
             {
+                if(string.IsNullOrEmpty(link))
+                {
+                    return "null";
+                }
                 link = link.Replace("https://onedrive.live.com/download?cid=", "");
                 return link;
             }
