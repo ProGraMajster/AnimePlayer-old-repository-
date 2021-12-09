@@ -58,6 +58,7 @@ namespace AnimePlayer
             this.axwmp.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axwmp.OcxState")));
             this.axwmp.Size = new System.Drawing.Size(718, 537);
             this.axwmp.TabIndex = 0;
+            this.axwmp.MouseMoveEvent += new AxWMPLib._WMPOCXEvents_MouseMoveEventHandler(this.axwmp_mouseMoveEvent);
             // 
             // panel1
             // 

@@ -15,7 +15,11 @@ namespace AnimePlayer
         string[] args = Environment.GetCommandLineArgs();
         public int server = 0;
 
+        public Control controlAuxiliary;
+        public WebContentControls.CtnPanel ctnPanelAuxiliary;
+
         public bool onOnline = true;
+        PanelSearchFilters panelSearch;
         public OknoG()
         {
             InitializeComponent();
@@ -23,6 +27,13 @@ namespace AnimePlayer
             form2 = new FormMiniPlayer(this);
             try
             {
+                panelSearch = new PanelSearchFilters(flowLayoutPanelAll, flowLayoutPanelFinditem, AnimePlayer.Properties.Settings.Default.RoundingControl);
+                panelSearch.Dock = DockStyle.None;
+                panelAllitem.Controls.Add(panelSearch);
+                panelSearch.Location = new Point(0, 110);
+                panelSearch.Hide();
+                labelLoadingDetails.Text = "Initialize";
+                Application.DoEvents();
                 if (!Directory.Exists("C:\\ContentLibrarys"))
                 {
                     Directory.CreateDirectory("C:\\ContentLibrarys");
@@ -54,6 +65,10 @@ namespace AnimePlayer
                 {
                     Directory.CreateDirectory("C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Video");
                 }
+                if (!Directory.Exists("C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\DatabaseOftitles"))
+                {
+                    Directory.CreateDirectory("C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\DatabaseOftitles");
+                }
             }
             catch (Exception)
             {
@@ -84,8 +99,13 @@ namespace AnimePlayer
                 rc = new ControlsNewMethods.RoundingControl();
                 rc.TargetControl = buttonFinditemPageClose;
                 rc.CornerRadius = 15;
+                rc = new ControlsNewMethods.RoundingControl();
+                rc.TargetControl = panelMenu;
+                rc.CornerRadius = 15;
+                rc = new ControlsNewMethods.RoundingControl();
+                rc.TargetControl = buttonfinditemF;
+                rc.CornerRadius = 15;
             }
-
         }
         Task CreateBackupicon()
         {
@@ -170,25 +190,19 @@ namespace AnimePlayer
 
         private void buttonYTlinkClose_Click(object sender, EventArgs e)
         {
-            panelYTlink.Visible = false;
-            textBoxYTlink.Text = "";
+            
         }
 
         private void buttonUseYTlink_Click(object sender, EventArgs e)
         {
-            panelYTlink.Visible = false;
         }
 
         private void otwórzZlinkuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            panelYTlink.Visible = true;
-            panelYTlink.BringToFront();
         }
 
         private void buttonCloseWeb_Click(object sender, EventArgs e)
         {
-            panelWeb.Visible = false;
-            panelMainPlayer.Visible = true;
         }
 
 
@@ -273,7 +287,7 @@ namespace AnimePlayer
         private void buttonSetting_Click(object sender, EventArgs e)
         {
             panelMenu.Hide();
-            PageSettings pageSettings = new PageSettings();
+            PageSettings pageSettings = new PageSettings(this);
             pageSettings.Dock = DockStyle.Fill;
             panel2.Controls.Add(pageSettings);
             pageSettings.Show();
@@ -283,7 +297,7 @@ namespace AnimePlayer
         private void buttonPlayer_Click(object sender, EventArgs e)
         {
             panelMenu.Hide();
-            VideoPlayer videoPlayer = new VideoPlayer(panel2, true);
+            VideoPlayer videoPlayer = new VideoPlayer(panel2, true, this);
         }
 
         private void buttonExitApp_Click(object sender, EventArgs e)
@@ -601,6 +615,7 @@ namespace AnimePlayer
             GC.Collect();
         }
 
+
         private void buttonFinditemPageClose_Click(object sender, EventArgs e)
         {
             panelAllitem.Hide();
@@ -651,14 +666,19 @@ namespace AnimePlayer
             Application.Restart();
         }
 
-
-
-        /*
-
-private void buttonStart_Click(object sender, EventArgs e)
-{
-axWindowsMediaPlayer1.Ctlcontrols.play();
-}
-*/
+        private void buttonfinditemF_Click(object sender, EventArgs e)
+        {
+            if(panelSearch.Visible == true)
+            {
+                panelSearch.Hide();
+                return;
+            }
+            if(panelSearch.Visible == false)
+            {
+                panelSearch.Show();
+                panelSearch.BringToFront();
+                return;
+            }
+        }
     }
 }

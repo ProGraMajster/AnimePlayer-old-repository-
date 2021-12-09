@@ -120,7 +120,61 @@
   <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
+  <data name="checkBox_Mystery.ToolTip" xml:space="preserve">
+    <value>Fabuła tytułu opiera się na skonstruowanej zagadce lub tajemnicy i dążeniu do jej wyjaśnienia.
+Czasem rozwiązuje ją jeden konkretny bohater.
+Do gatunku należą też tytuły z celowo złożonym światem przedstawionym,
+którego obraz widz stopniowo odkrywa podczas seansu.</value>
+  </data>
+  <data name="checkBox_Steampunk.ToolTip" xml:space="preserve">
+    <value>Fabuła tytułu związana jest z realiami świata przedstawionego opartego na rozwiniętej mechanice.
+Zazwyczaj występują złożone mechanizmy napędzane silnikami parowymi; nie pojawia się prąd ani elektronika.</value>
+  </data>
+  <data name="checkBox_Psychological.ToolTip" xml:space="preserve">
+    <value>Gatunek przedstawiający problemy psychiczne zaburzenia jako główny wątek fabularny,
+ mogą również skupiać się na ukazaniu teorii psychologicznych lub ich elementów.
+Serie z tym tagiem często zawierają motyw żerowania umysłowego na innych,
+ lub gier mających na celu rozstrojenie psychiczne innej osoby.</value>
+  </data>
+  <data name="checkBox_Adventure.ToolTip" xml:space="preserve">
+    <value>Fabuła tytułu opiera się na przedstawieniu następujących po sobie wydarzeń (niekoniecznie związanych),
+ w których decydującą rolę gra stały protagonista lub protagonistka bądź też grupa głównych bohaterów.
+Często pokazywane jest stawianie czoła kolejnym przeszkodom bądź pojawia się motyw drogi i podróży.</value>
+  </data>
+  <data name="checkBox_Sci_Fi.ToolTip" xml:space="preserve">
+    <value>Jeden z podgatunków fantastyki.
+Fabuła tytułu jest osnuta na przewidywanych osiągnięciach nauki i techniki i ukazuje ich wpływ na życie jednostek lub społeczeństwa.
+Czas akcji prawie zawsze jest osadzony w przyszłości względem czasu autora.</value>
+  </data>
+  <data name="checkBox_Madness.ToolTip" xml:space="preserve">
+    <value>Gatunek ten odnosi się do serii w których, bieg wydarzeń, czas, fabuła, ukazane sceny, świat przedstawiony lub psychologia postaci zostaje mocno zakrzywiona i nie odpowiada logice oraz zdrowemu rozumowaniu.
+W głównej mierze zabiegi te mają na celu zmylenie oglądającego i odwrócenie jego uwagi od istotnych informacji poprzez kamuflowanie ich pod przykładowo
+ brakiem zbieżności zachowań bohaterów względem innych epizodów (tak jakby nie miały miejsca).
+Serię tego typu mogą nie mieć jasnych zakończeń tak aby sam oglądający mógł dojść do wizji autora.</value>
+  </data>
+  <data name="checkBox_Supernatural.ToolTip" xml:space="preserve">
+    <value>Podgatunek fantastyki, tytuł zawiera elementy nadprzyrodzone np. super moce, magię, fantastyczne stworzenia,
+ jednak ich istnienie nie jest wiedzą powszechną dla ogółu mieszkańców świata serii.
+
+Podsumowując serie te mogą mieć fantastyczne stworzenia, magie, nadprzyrodzone moce ale w odróżnieniu od
+ fantasty gdzie istnienie takich bytów jest powszechnie znane tutaj ogół mieszkańców świata serii nie może 
+wiedzieć o istnieniu tego typu stworzeń/umiejętności.</value>
+  </data>
+  <data name="checkBox_Historical.ToolTip" xml:space="preserve">
+    <value>Miejscem rozgrywania się akcji jest nasz świat, w jednej z minionych er historycznych.
+Tag służy wyszukiwaniu serii, które są umiejscowione w przeszłości, jednak na potrzeby utworu mogą się tam znaleźć inne moce, poziomy rozwojów świata/miast etc.</value>
+  </data>
+  <data name="checkBox_Horror.ToolTip" xml:space="preserve">
+    <value>Tytuł celowo wywołuje u widza grozę, niepokój, szok lub obrzydzenie za pomocą fabularnych zabiegów. 
+Często pojawiają się stworzenia fantastyczne, a występujące zjawiska są racjonalnie niewytłumaczalne. 
+Poziom przemocy zazwyczaj jest wysoki i często podkreślany scenami gore.
+</value>
+  </data>
+  <data name="checkBox_Hentai.ToolTip" xml:space="preserve">
+    <value>Tytuł przedstawia stosunek płciowy w kategorii pornografii. W tytule pokazywane są genitalia (w tym ocenzurowane)*.
+*Starsze serie sprzed 2000r. mogą mieć wyjątki bez genitaliów, zamiast tego sceny są zastępowane np cieniami w odpoweidnim kształcie, lub innymi substytutami, na które pozwalało prawo w Japonii zamiast pokazywania genitaliów.</value>
+  </data>
+  <data name="checkBox_Fantasy.ToolTip" xml:space="preserve">
+    <value>Fabuła tytułu związana jest z elementami magicznymi lub nadprzyrodzonymi stanowiącymi nieodłączną część przedstawionego świata (to znaczy, że elementy te są powszechnie znane w świecie serii, nie są to np. potwory nieznane mieszkańcom świata, nie zaliczymy też magii, o której istnieniu nie wie większość świata a jedynie używają je np. nieznane opinie publicznej grupki ludzi).</value>
+  </data>
 </root>

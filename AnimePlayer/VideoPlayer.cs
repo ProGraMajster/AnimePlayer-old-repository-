@@ -26,13 +26,14 @@ namespace AnimePlayer
             axwmp.URL = videoLink;
             label1.Text = "Status: Odtwarzanie";
             ShowSkipIntroTime = skip.time_showButton;
-            SkipIntro = skip.time_skipIntro;
+            SkipIntro = skip.time_skipIntro;    
             axwmp.Ctlcontrols.pause();
         }
 
-        public VideoPlayer(Panel panel, bool local)
+        public VideoPlayer(Panel panel, bool local, Form f)
         {
             InitializeComponent();
+            form = f;
             panel.Controls.Add(this);
             this.Dock = DockStyle.Fill;
             this.BringToFront();
@@ -57,6 +58,7 @@ namespace AnimePlayer
 
         private void button1_Click(object sender, EventArgs e)
         {
+            form.SuspendLayout();
             if (full)
             {
                 form.Size = sizeform;
@@ -64,17 +66,23 @@ namespace AnimePlayer
                 full = false;
                 timer.Start();
                 panel1.Show();
+                form.ResumeLayout(true);
                 return;
             }
             else
             {
                 sizeform = form.Size;
+                if (form.WindowState == FormWindowState.Maximized)
+                {
+                    form.WindowState = FormWindowState.Normal;
+                }
                 full = true;
                 timer.Stop();
                 panel1.Hide();
                 form.FormBorderStyle = FormBorderStyle.None;
                 form.Size = new Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
                 form.Location = new Point(0, 0);
+                form.ResumeLayout(true);
                 return;
             }
         }
@@ -153,14 +161,7 @@ namespace AnimePlayer
 
         private void VideoPlayer_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.Location.Y <= 30)
-            {
-                panel1.Show();
-            }
-            else
-            {
-                panel1.Hide();
-            }
+            
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -177,6 +178,21 @@ namespace AnimePlayer
                 AnimePlayerLibrary.FileLog.Write("Open link");
                 AnimePlayerLibrary.FileLog.Write("> "+ orginalLink);
                 AnimePlayerLibrary.FileLog.Write(ex.ToString());
+            }
+        }
+
+        private void axwmp_mouseMoveEvent(object sender, AxWMPLib._WMPOCXEvents_MouseMoveEvent e)
+        {
+            if(full)
+            {
+                if (e.fY <= 50)
+                {
+                    panel1.Show();
+                }
+                else
+                {
+                    panel1.Hide();
+                }
             }
         }
     }

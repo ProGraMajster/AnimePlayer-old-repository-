@@ -22,11 +22,14 @@ namespace AnimePlayer
             public Values(string pathToFile)
             {
                 path = pathToFile;
+                titleInformation = new TitleInformation();
             }
             public Values()
             {
-
+                titleInformation = new TitleInformation();
             }
+
+            public TitleInformation titleInformation;
 
             public string path { get; set; }
             public string name { get; set; }
@@ -41,6 +44,8 @@ namespace AnimePlayer
 
         public static void Initialize(OknoG oknoG)
         {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
             oknoG.labelLoadingDetails.Text = "Initialize";
             oknoG.panelLoading.Show();
             Application.DoEvents();
@@ -80,6 +85,13 @@ namespace AnimePlayer
             oknoG.panelLoading.Hide();
             oknoG.labelLoading.Text = "Ładowanie...";
             Application.DoEvents();
+            stopWatch.Stop();
+            TimeSpan ts = stopWatch.Elapsed;
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+            ts.Hours, ts.Minutes, ts.Seconds,
+            ts.Milliseconds / 10);
+            stopWatch.Reset();
+            Console.WriteLine("{WebContent.Initialize} Loading time: " + elapsedTime);
         }
         public static void openMainFile(OknoG oknoG)
         {
@@ -272,6 +284,23 @@ namespace AnimePlayer
             id = "https://drive.google.com/uc?export=download&id=" + id;
             return id;
         }
+
+        public static void SaveToDatabaseOftitles()
+        {
+            try
+            {
+                if (!Directory.Exists("C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\DatabaseOftitles"))
+                {
+                    Directory.CreateDirectory("C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\DatabaseOftitles");
+                }
+
+
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
     }
 
     public static class WebContentControls
@@ -317,6 +346,7 @@ namespace AnimePlayer
                 {
 
                 }
+                SetInformation();
                 // 
                 // pictureBoxItem
                 // 
@@ -527,6 +557,113 @@ namespace AnimePlayer
                         box.Image = AnimePlayer.Properties.Resource.NoImage;
                     }
                 }
+            }
+
+            public async Task SetInformation()
+            {
+                await Task.Run(() =>
+               {
+                   string path = values.pathPage;
+                   if(path == null)
+                   {
+                       return;
+                   }
+                   string[] content = File.ReadAllText(path).Split(';');
+                   int limits = 0;
+                   for (int i = 0; i < content.Length; i++)
+                   {
+                       limits = i;
+                       content[i] = content[i].Replace("\n", "").Replace("\r", "").Replace("\t", "");
+                   }
+                   try
+                   {
+                       bool end = false;
+                       int position = 0;
+                       while (end != true)
+                       {
+                           if (position == limits)
+                           {
+                               end = true;
+                           }
+
+                           if (content[position] == "Content")
+                           {
+                               values.titleInformation.Title = values.name;
+                           }
+                           else if (content[position] == "description")
+                           {
+                               values.titleInformation.Description = content[position];
+                           }
+                           else if (content[position] == "OtherName")
+                           {
+                               values.titleInformation.OtherTitle = content[position].Split(',');
+                           }
+                           else if (content[position] == "OtherTags")
+                           {
+                               values.titleInformation.OtherTags = content[position].Split(',');
+                           }
+                           else if (content[position] == "Archetype")
+                           {
+                               values.titleInformation.Archetype = content[position];
+                           }
+                           else if (content[position] == "Species")
+                           {
+                               values.titleInformation.Species = content[position].Split(',');
+                           }
+                           else if (content[position] == "typesOfCharacters")
+                           {
+                               values.titleInformation.TypesOfCharacters= content[position].Split(',');
+                           }
+                           else if (content[position] == "TargetGroups")
+                           {
+                               values.titleInformation.TargetGroups = content[position];
+                           }
+                           else if (content[position] == "PlaceAndTime")
+                           {
+                               values.titleInformation.PlaceAndTime = content[position].Split(',');
+                           }
+                           else if (content[position] == "Type")
+                           {
+                               values.titleInformation.Type = content[position];
+                           }
+                           else if (content[position] == "Status")
+                           {
+                               values.titleInformation.Status = content[position];
+                           }
+                           else if (content[position] == "DateOfIssue")
+                           {
+                               values.titleInformation.DateOfIssue = content[position];
+                           }
+                           else if (content[position] == "EndOfIssue")
+                           {
+                               values.titleInformation.EndOfIssue = content[position];
+                           }
+                           else if (content[position] == "NumberOfEpisodes")
+                           {
+                               values.titleInformation.NumberOfEpisodes = content[position];
+                           }
+                           else if (content[position] == "Studio")
+                           {
+                               values.titleInformation.Studio = content[position].Split(',');
+                           }
+                           else if (content[position] == "EpisodeLength")
+                           {
+                               values.titleInformation.EpisodeLength = content[position];
+                           }
+                           else if (content[position] == "MPAA")
+                           {
+                               values.titleInformation.MPAA = content[position];
+                           }
+                           position++;
+
+                       }
+                   }
+                   catch (Exception ex)
+                   {
+                       Console.WriteLine("Start>\n" + path);
+                       Console.WriteLine(ex.ToString());
+                   }
+               });
             }
 
             public Panel Duplication()
@@ -1033,12 +1170,16 @@ namespace AnimePlayer
                         try
                         {
                             WebContent.Values values = new WebContent.Values(path);
+                            string code = content[position]+";";
                             position++;
                             values.name = Replacer.Names(content[position]);
+                            code += content[position] + ";";
                             position++;
+                            code += content[position] + ";";
                             if (content[position] == "Icon")
                             {
                                 position++;
+                                code += content[position] + ";";
                                 values.iconLink = content[position];
                                 values.iconPath = WebContent.downloadIcon(content[position], values.name + "_icon");
                                 if(values.iconPath == null)
@@ -1048,12 +1189,16 @@ namespace AnimePlayer
                                 position++;
                                 if (content[position] == "Link")
                                 {
+                                    code += content[position] + ";";
                                     position++;
+                                    code += content[position] + ";";
                                     values.siteLink = content[position];
                                     position++;
                                     if (content[position] == "ContentId")
                                     {
+                                        code += content[position] + ";";
                                         position++;
+                                        code += content[position] + ";";
                                         values.contentId = content[position];
                                         try
                                         {
@@ -1063,7 +1208,15 @@ namespace AnimePlayer
                                         {
 
                                         }
-                                        WebContentControls.CtnPanel panel = new WebContentControls.CtnPanel(values, oknoG);
+                                        if(FindTitlesInProgram(values.name, oknoG))
+                                        {
+
+                                        }
+                                        else
+                                        {
+                                            WebContentControls.CtnPanel panel = new WebContentControls.CtnPanel(values, oknoG);
+                                        }
+                                        
                                     }
                                     position++;
                                     if(content[position] == "ContentId_2")
@@ -1206,13 +1359,17 @@ namespace AnimePlayer
                     {
                         try
                         {
+                            string code = content[position] + ";";
                             WebContent.Values values = new WebContent.Values(path);
                             position++;
+                            code += content[position] + ";";
                             values.name = Replacer.Names(content[position]);
                             position++;
+                            code += content[position] + ";";
                             if (content[position] == "Icon")
                             {
                                 position++;
+                                code += content[position] + ";";
                                 values.iconLink = content[position];
                                 //"C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Icon\\" + filename + ".png"
                                 //values.iconPath = WebContent.downloadIcon(content[position], values.name + "_icon");
@@ -1225,12 +1382,16 @@ namespace AnimePlayer
                                 position++;
                                 if (content[position] == "Link")
                                 {
+                                    code += content[position] + ";";
                                     position++;
+                                    code += content[position] + ";";
                                     values.siteLink = content[position];
                                     position++;
                                     if (content[position] == "ContentId")
                                     {
+                                        code += content[position] + ";";
                                         position++;
+                                        code += content[position] + ";";
                                         values.contentId = content[position];
                                         try
                                         {
@@ -1245,7 +1406,14 @@ namespace AnimePlayer
 
                                         }
                                         oknoG.labelLoadingDetails.Text = "Interpreter > Local > StartLocal > file:" + path+ " > Create CtnPanel";
-                                        WebContentControls.CtnPanel panel = new WebContentControls.CtnPanel(values, oknoG);
+                                        if (FindTitlesInProgram(values.name, oknoG))
+                                        {
+
+                                        }
+                                        else
+                                        {
+                                            WebContentControls.CtnPanel panel = new WebContentControls.CtnPanel(values, oknoG);
+                                        }
                                     }
                                     position++;
                                     if (content[position] == "ContentId_2")
@@ -1302,6 +1470,87 @@ namespace AnimePlayer
                 }
             }
             return false;
+        }
+
+
+        public static bool FindTitlesInProgram(string name, OknoG okno)
+        {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+            name = name.ToLower().Replace("\n", "").Replace("\r", "").Replace("\t", "");
+            if(okno == null)
+            {
+                return false;
+            }
+            if (name == null)
+            {
+                return false;
+            }
+            try
+            {
+                foreach (Control c in okno.flowLayoutPanelAll.Controls)
+                {
+                    try
+                    {
+                        Application.DoEvents();
+                        if (c.Tag != null)
+                        {
+                            WebContentControls.CtnPanel ctn = (WebContentControls.CtnPanel)c.Tag;
+                            if (ctn.values.name.ToLower().Contains(name.ToLower()))
+                            {
+                                okno.ctnPanelAuxiliary = ctn;
+                                return true;
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.ToString());
+                    }
+                }
+            }
+            catch (Exception eex)
+            {
+                Console.WriteLine(eex.ToString());
+            }
+
+            stopWatch.Stop();
+            TimeSpan ts = stopWatch.Elapsed;
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+            ts.Hours, ts.Minutes, ts.Seconds,
+            ts.Milliseconds / 10);
+            stopWatch.Reset();
+            Console.WriteLine("{FindTitlesInProgram} time: " + elapsedTime);
+            return false;
+        }
+        
+        public static void AddTitleswithProgram(WebContent.Values va)
+        {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+
+            if(va == null)
+            {
+                return;
+            }
+
+            try
+            {
+                //add to group 
+            }
+            catch (Exception eex)
+            {
+                Console.WriteLine(eex.ToString());
+            }
+
+            stopWatch.Stop();
+            TimeSpan ts = stopWatch.Elapsed;
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+            ts.Hours, ts.Minutes, ts.Seconds,
+            ts.Milliseconds / 10);
+            stopWatch.Reset();
+            Console.WriteLine("{AddTitleswithProgram} time: " + elapsedTime);
+            return ;
         }
 
         public static bool FindFileNameInDirPage(string filename)
