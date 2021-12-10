@@ -513,10 +513,37 @@ namespace AnimePlayer
                         if (c.Tag != null)
                         {
                             WebContentControls.CtnPanel ctn = (WebContentControls.CtnPanel)c.Tag;
-                            if (ctn.values.name.ToLower().Contains(findText))
+                            if (panelSearch.use == false)
                             {
-                                flowLayoutPanelFinditem.Controls.Add(ctn.Duplication());
-                                i++;
+                                if (ctn.values.name.ToLower().Contains(findText))
+                                {
+                                    flowLayoutPanelFinditem.Controls.Add(ctn.Duplication());
+                                    i++;
+                                }
+                            }
+                            else
+                            {
+                                bool noAdd = false;
+                                if(panelSearch.use_Species)
+                                {
+                                    foreach(string s in ctn.values.titleInformation.Species)
+                                    {
+                                        if(s.ToLower() == "akcja" && panelSearch.Akcja == 0)
+                                        {
+                                            noAdd = true;
+                                        }
+                                        else if(s.ToLower() == "akcja" && panelSearch.Akcja == 0)
+                                        {
+                                            noAdd = true;
+                                        }
+                                    }
+
+                                    if(noAdd == false)
+                                    {
+                                        flowLayoutPanelFinditem.Controls.Add(ctn.Duplication());
+                                        i++;
+                                    }
+                                }
                             }
                         }
                     }

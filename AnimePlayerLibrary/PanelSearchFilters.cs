@@ -16,6 +16,9 @@ namespace AnimePlayerLibrary
         public Control _source;
         public Control _output;
 
+        public bool use = false;
+        public bool use_Species = false;
+
         public PanelSearchFilters(Control source, Control output, bool flag = true)
         {
             InitializeComponent();
@@ -36,50 +39,49 @@ namespace AnimePlayerLibrary
                 rc = new ControlsNewMethods.RoundingControl();
                 rc.TargetControl = buttonReset;
                 rc.CornerRadius = 15;
-                rc = new ControlsNewMethods.RoundingControl();
-                rc.TargetControl = buttonFind;
-                rc.CornerRadius = 15;
             }
         }
 
+        // Jeszcze trzeba to skończyć...
         #region Species
 
-        int Akcja = 0;
-        int Cyberpunk = 0;
-        int Dramat = 0;
-        int Ecchi = 0;
-        int Eksperymentalne = 0;
-        int Fantasy = 0;
-        int Harem = 0;
-        int Hentai = 0;
-        int Historyczne = 0;
-        int Horror = 0;
-        int Komedia = 0;
-        int Kryminalne = 0;
-        int Magia = 0;
-        int Mecha = 0;
-        int Męski_harem = 0;
-        int Muzyczne = 0;
-        int Nadprzyrodzone = 0;
-        int Obłęd = 0;
-        int Okruchy_życia = 0;
-        int Parodia = 0;
-        int Przygodowe = 0;
-        int Psychologiczne = 0;
-        int Romans = 0;
-        int Sci_Fi = 0;
-        int Shoujo_ai = 0;
-        int Shounen_ai = 0;
-        int Space_opera = 0;
-        int Sportowe = 0;
-        int Steampunk = 0;
-        int Szkolne = 0;
-        int Sztuki_walki = 0;
-        int Tajemnica = 0;
-        int Thriller = 0;
-        int Wojskowe = 0;
-        int Yaoi = 0;
-        int Yuri = 0;
+        public string[] str_Species = { "akcja", "Cyberpunk", "Dramat", "Ecchi", "Eksperymentalne", "Fantasy", "Harem", "Hentai", "Historyczne", "Horror", "Komedia", "Kryminalne", "Magia", "Mecha", "Męski harem", "Muzyczne", "Nadprzyrodzone", "Obłęd", "Okruchy życia", "Parodia" };
+        public int Akcja = 1;//1
+        public int Cyberpunk = 1;//2
+        public int Dramat = 1;//3
+        public int Ecchi = 1;//4
+        public int Eksperymentalne = 1;//5
+        public int Fantasy = 1;//6
+        public int Harem = 1;//7
+        public int Hentai = 1;//8
+        public int Historyczne = 1;//9
+        public int Horror = 1;//10
+        public int Komedia = 1;//11
+        public int Kryminalne = 1;//12
+        public int Magia = 1;
+        public int Mecha = 1;
+        public int Męski_harem = 1;
+        public int Muzyczne = 1;
+        public int Nadprzyrodzone = 1;
+        public int Obłęd = 1;
+        public int Okruchy_życia = 1;
+        public int Parodia = 1;
+        public int Przygodowe = 1;
+        public int Psychologiczne = 1;
+        public int Romans = 1;
+        public int Sci_Fi = 1;
+        public int Shoujo_ai = 1;
+        public int Shounen_ai = 1;
+        public int Space_opera = 1;
+        public int Sportowe = 1;
+        public int Steampunk = 1;
+        public int Szkolne = 1;
+        public int Sztuki_walki = 1;
+        public int Tajemnica = 1;
+        public int Thriller = 1;
+        public int Wojskowe = 1;
+        public int Yaoi = 1;
+        public int Yuri = 1;
 
         #endregion
 
@@ -90,62 +92,18 @@ namespace AnimePlayerLibrary
             this.Hide();
         }
 
-        private void buttonFind_Click(object sender, EventArgs e)
+        private void buttonSave_Click(object sender, EventArgs e)
         {
-            
-        }
-
-
-        public void findTitiles()
-        {
-            flags_findItem = true;
-            Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
-            string findText = textBoxFinditem.Text.ToLower().Replace("\n", "").Replace("\r", "").Replace("\t", "");
-            if (textBoxFinditem.Text == null)
+            if(use == true)
             {
-                //flowLayoutPanelFinditem.Hide();
-                //labelFindSatus.Hide();
-                //labelFindSatus.Text = "";
-                flags_findItem = false;
+                use = false;
                 return;
             }
-            int i = 0;
-            //flowLayoutPanelFinditem.Controls.Clear();
-            //labelFindSatus.Show();
-            //flowLayoutPanelAll.Hide();
-            try
+            if(use == false)
             {
-                //labelFindSatus.Text = "Szukanie";
-                Application.DoEvents();
-                foreach (Control c in _source.Controls)
-                {
-                    try
-                    {
-                        //labelFindSatus.Text += ".";
-                        Application.DoEvents();
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.ToString());
-                    }
-                }
-                textBoxFinditem.Text = findText;
-                //labelFindSatus.Text = "Znaleziono: " + i;
-                //flowLayoutPanelFinditem.Show();
+                use = true;
+                return;
             }
-            catch (Exception eex)
-            {
-                Console.WriteLine(eex.ToString());
-            }
-            stopWatch.Stop();
-            TimeSpan ts = stopWatch.Elapsed;
-            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
-            ts.Hours, ts.Minutes, ts.Seconds,
-            ts.Milliseconds / 10);
-            stopWatch.Reset();
-            Console.WriteLine("Loading time: " + elapsedTime);
-            flags_findItem = false;
         }
     }
 }

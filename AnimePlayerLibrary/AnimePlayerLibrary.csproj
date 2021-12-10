@@ -97,6 +97,12 @@
     <Compile Include="ItemsGroup.Designer.cs">
       <DependentUpon>ItemsGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="PanelRelatedSeries.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PanelRelatedSeries.Designer.cs">
+      <DependentUpon>PanelRelatedSeries.cs</DependentUpon>
+    </Compile>
     <Compile Include="PanelSearchFilters.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ItemsGroup.resx">
       <DependentUpon>ItemsGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanelRelatedSeries.resx">
+      <DependentUpon>PanelRelatedSeries.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PanelSearchFilters.resx">
       <DependentUpon>PanelSearchFilters.cs</DependentUpon>

@@ -929,10 +929,62 @@ namespace AnimePlayer
                             {
                                 GetListTypeEp(pageItem1, "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Video\\" + values.name + "_list_ep.txt");
                             }
+                        }
+                        else if(content[position] == "RelatedSeries")
+                        {
+                            position++;
+                            string typetitles = content[position];
+                            position++;
+                            string findname = content[position];
+                            try
+                            {
+                                foreach (Control c in oknoG.flowLayoutPanelAll.Controls)
+                                {
+                                    try
+                                    {
+                                        Application.DoEvents();
+                                        if (c.Tag != null)
+                                        {
+                                            WebContentControls.CtnPanel ctn = (WebContentControls.CtnPanel)c.Tag;
+                                            if (ctn.values.name.ToLower() == findname.ToLower())
+                                            {
+                                                Panel p = ctn.Duplication();
+                                                if(p != null)
+                                                {
+                                                    PanelRelatedSeries _ = new PanelRelatedSeries(pageItem1.flowLayoutPanelRelatedSeries, p,
+                                                        (TypeRelatedSeries)int.Parse(typetitles));
+                                                }
+                                                else
+                                                {
+                                                    p.Dispose();
+                                                }
+                                            }
+                                        }
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        Console.WriteLine(ex.ToString());
+                                    }
+                                }
+                            }
+                            catch (Exception ex)
+                            {
 
+                            }
                         }
                         position++;
+                    }
 
+                    if(pageItem1.flowLayoutPanelRelatedSeries.Controls.Count == 0)
+                    {
+                        Label label = new Label();
+                        label.Size = new Size(160, 25);
+                        label.TextAlign = ContentAlignment.MiddleCenter;
+                        label.Text = "Brak powiązanych serii.";
+                        label.BackColor = Color.FromArgb(35,35,35);
+                        label.ForeColor = Color.White;
+                        label.Font = new System.Drawing.Font("Comic Sans MS", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+                        pageItem1.flowLayoutPanelRelatedSeries.Controls.Add(label);
                     }
                 }
                 catch (Exception ex)
@@ -943,35 +995,6 @@ namespace AnimePlayer
                 }
                 oknoG.labelLoadingDetails.Text = "Load page: " + values.name + " [100%]";
                 Application.DoEvents();
-                // test
-                /*
-                try
-                {
-                    string name = values.name.ToLower().Replace("\n", "").Replace("\r", "").Replace("\t", "");
-                    foreach (Control c in oknoG.flowLayoutPanelAll.Controls)
-                    {
-                        try
-                        {
-                            if (c.Tag != null)
-                            {
-                                WebContentControls.CtnPanel ctn = (WebContentControls.CtnPanel)c.Tag;
-                                if (ctn.values.name.ToLower().Contains(name.ToLower()))
-                                {
-                                   pageItem1.flowLayoutPanelRelatedSeries.Controls.Add(ctn.Duplication());
-                                }
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine(ex.ToString());
-                        }
-                    }
-                }
-                catch (Exception eex)
-                {
-                    Console.WriteLine(eex.ToString());
-                }
-                */
             }
 
             Task GetListTypeEp(PageItem pageItem, string path)
