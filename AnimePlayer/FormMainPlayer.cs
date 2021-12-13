@@ -6,7 +6,11 @@ using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Linq;
+using System.Text;
 namespace AnimePlayer
 {
     public partial class OknoG : Form
@@ -482,9 +486,86 @@ namespace AnimePlayer
         }
 
 
+
+        public void findItemsF()
+        {
+            SetInfofilersLabel();
+            string findText = textBoxFinditem.Text.ToLower().Replace("\n", "").Replace("\r", "").Replace("\t", "");
+            if (textBoxFinditem.Text == null)
+            {
+                flowLayoutPanelFinditem.Hide();
+                labelFindSatus.Hide();
+                labelFindSatus.Text = "";
+                flags_findItem = false;
+                return;
+            }
+            int i = 0;
+            bool add = true;
+            flowLayoutPanelFinditem.Controls.Clear();
+            labelFindSatus.Show();
+            flowLayoutPanelAll.Hide();
+            try
+            {
+                labelFindSatus.Text = "Szukanie";
+                Application.DoEvents();
+                List<string> unList = new List<string>();
+                List<WebContent.Values> list = new List<WebContent.Values>();
+                foreach (CheckBox box in panelSearch.panelAllS.Controls.OfType<CheckBox>())
+                {
+                    if (box.CheckState == CheckState.Unchecked)
+                    {
+                        unList.Add(box.Text);
+                    }
+                }
+                labelFindSatus.Text += ".";
+                Application.DoEvents();
+                foreach (Control c in flowLayoutPanelAll.Controls)
+                {
+                    labelFindSatus.Text += ".";
+                    Application.DoEvents();
+                    add = true;
+                    WebContentControls.CtnPanel cp = (WebContentControls.CtnPanel)c.Tag;
+                    if (findText != null && findText != "")
+                    {
+                        if(!cp.values.name.ToLower().Contains(findText.ToLower()))
+                        {
+                            break;
+                        }
+                    }
+                    foreach (string x in unList)
+                    {
+                        if (cp.values.titleInformation.Species.Contains(x))
+                        {
+                            add = false;
+                        }
+                    }
+
+                    if(add)
+                    {
+                        flowLayoutPanelFinditem.Controls.Add(cp.Duplication());
+                        i++;
+                    }
+                }
+            }
+            catch (Exception eex)
+            {
+                Console.WriteLine(eex.ToString());
+            }
+            textBoxFinditem.Text = findText;
+            labelFindSatus.Text = "Znaleziono: " + i;
+            Application.DoEvents();
+            flowLayoutPanelFinditem.Show();
+            flags_findItem = false;
+        }
+
+
         public void findItems()
         {
+            SetInfofilersLabel();
             flags_findItem = true;
+            findItemsF();
+            flags_findItem = false;
+            return;
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
             string findText = textBoxFinditem.Text.ToLower().Replace("\n", "").Replace("\r", "").Replace("\t", "");
@@ -510,6 +591,11 @@ namespace AnimePlayer
                     {
                         labelFindSatus.Text += ".";
                         Application.DoEvents();
+                        //test_start
+
+;
+
+                        //test_end
                         if (c.Tag != null)
                         {
                             WebContentControls.CtnPanel ctn = (WebContentControls.CtnPanel)c.Tag;
@@ -524,24 +610,222 @@ namespace AnimePlayer
                             else
                             {
                                 bool noAdd = false;
-                                if(panelSearch.use_Species)
+                                if(panelSearch.use_Species && ctn.values.titleInformation.Species != null)
                                 {
-                                    foreach(string s in ctn.values.titleInformation.Species)
+                                    //string tab;
+                                    List<string> list = ctn.values.titleInformation.Species.ToList<string>(); //new List<string>();
+                                    /*
+                                    for(int j = 0; j<=ctn.values.titleInformation.Species.Length; j++)
                                     {
-                                        if(s.ToLower() == "akcja" && panelSearch.Akcja == 0)
+                                        tab = ctn.values.titleInformation.Species[j];
+                                        
+                                        for(int k = 0;j<= panelSearch.str_Species.Length; k++)
                                         {
-                                            noAdd = true;
+                                            var matches = tab.//va.Where(p => p.Name == nameToExtract);
+                                            
                                         }
-                                        else if(s.ToLower() == "akcja" && panelSearch.Akcja == 0)
+                                        
+                                        
+                                        if (tab.ToLower() == "akcja")
                                         {
-                                            noAdd = true;
+                                            list.Add(tab);
+                                            break;
+                                        }
+                                        else if (tab.ToLower() == "cyberpunk")
+                                        {
+                                            list.Add(tab);
+                                            break;
+                                        }
+                                        else if (tab.ToLower() == "dramat")
+                                        {
+                                            list.Add(tab);
+                                            break;
+                                        }
+                                        else if (tab.ToLower() == "ecchi")
+                                        {
+                                            list.Add(tab);
+                                            break;
+                                        }
+                                        else if (tab.ToLower() == "eksperymentalne")
+                                        {
+                                            list.Add(tab);
+                                            break;
+                                        }
+                                        else if (tab.ToLower() == "fantasy")
+                                        {
+                                            list.Add(tab);
+                                        }
+                                        else if (tab.ToLower() == "harem")
+                                        {
+                                            list.Add(tab);
+                                        }
+                                        else if (tab.ToLower() == "hentai")
+                                        {
+                                            list.Add(tab);
+                                        }
+                                        else if (tab.ToLower() == "historyczne" )
+                                        {
+                                            list.Add(tab);
+                                        }
+                                        else if (tab.ToLower() == "horror" )
+                                        {
+                                            list.Add(tab);
+                                        }
+                                        else if (tab.ToLower() == "komedia" )
+                                        {
+                                            list.Add(tab);
+                                        }
+                                        else if (tab.ToLower() == "kryminalne" )
+                                        {
+                                            list.Add(tab);
+                                        }
+                                        else if (tab.ToLower() == "magia" )
+                                        {
+                                            list.Add(tab);
+                                        }
+                                        else if (tab.ToLower() == "mecha" )
+                                        {
+                                            list.Add(tab);
+                                        }
+                                        else if (tab.ToLower() == "męski harem" )
+                                        {
+                                            list.Add(tab);
+                                        }
+                                        else if (tab.ToLower() == "muzyczne" )
+                                        {
+                                            list.Add(tab);
+                                        }
+                                        else if (tab.ToLower() == "nadprzyrodzone" )
+                                        {
+                                            list.Add(tab);
+                                        }
+                                        else if (tab.ToLower() == "obłęd" )
+                                        {
+                                            list.Add(tab);
+                                        }
+                                        else if (tab.ToLower() == "okruchy życia" )
+                                        {
+                                            list.Add(tab);
+                                        }
+                                        else if (tab.ToLower() == "parodia" )
+                                        {
+                                            list.Add(tab);
+                                        }
+                                        else if (tab.ToLower() == "przygodowe" )
+                                        {
+                                            list.Add(tab);
+                                            break;
+                                        }
+                                        else if (tab.ToLower() == "psychologiczne" )
+                                        {
+                                            list.Add(tab);
+                                            break;
+                                        }
+                                        else if (tab.ToLower() == "romans")
+                                        {
+                                            list.Add(tab);
+                                            break;
+                                        }
+                                        else if (tab.ToLower() == "sci-Fi" )
+                                        {
+                                            list.Add(tab);
+                                            break;
+                                        }
+                                        else if (tab.ToLower() == "shoujo-ai" )
+                                        {
+                                            list.Add(tab);
+                                            break;
+                                        }
+                                        else if (tab.ToLower() == "shounen-ai" )
+                                        {
+                                            list.Add(tab);
+                                            break;
+                                        }
+                                        else if (tab.ToLower() == "space opera")
+                                        {
+                                            list.Add(tab);
+                                            break;
+                                        }
+                                        else if (tab.ToLower() == "sportowe" )
+                                        {
+                                            list.Add(tab);
+                                            break;
+                                        }
+                                        else if (tab.ToLower() == "steampunk" )
+                                        {
+                                            list.Add(tab);
+                                            break;
+                                        }
+                                        else if (tab.ToLower() == "szkolne" )
+                                        {
+                                            list.Add(tab);
+                                            break;
+                                        }
+                                        else if (tab.ToLower() == "sztuki walki")
+                                        {
+                                            list.Add(tab);
+                                            break;
+                                        }
+                                        else if (tab.ToLower() == "tajemnica")
+                                        {
+                                            list.Add(tab);
+                                            break;
+                                        }
+                                        else if (tab.ToLower() == "thriller" )
+                                        {
+                                            list.Add(tab);
+                                            break;
+                                        }
+                                        else if (tab.ToLower() == "wojskowe")
+                                        {
+                                            list.Add(tab);
+                                            break;
+                                        }
+                                        else if (tab.ToLower() == "yaoi")
+                                        {
+                                            list.Add(tab);
+                                            break;
+                                        }
+                                        else if (tab.ToLower() == "yuri")
+                                        {
+                                            list.Add(tab);
+                                            break;
                                         }
                                     }
+                                    */
+                                    //Wykluczanie 
 
-                                    if(noAdd == false)
+                                    try
                                     {
-                                        flowLayoutPanelFinditem.Controls.Add(ctn.Duplication());
-                                        i++;
+                                        /*
+                                        foreach(string s in list)
+                                        {
+                                            foreach(CheckBox box in panelSearch.panelAllS.Controls.OfType<CheckBox>())
+                                            {
+                                                if(box.Checked == false)
+                                                {
+                                                    Console.WriteLine("string s in list:" + s);
+                                                    Console.WriteLine("box:"+box.Text.ToLower());
+                                                    if(s.ToLower() == box.Text.ToLower())
+                                                    {
+                                                        Console.WriteLine("if(s.ToLower() == box.Text.ToLower()) |> true");
+                                                        noAdd = true;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        */
+
+                                        
+                                        if (noAdd == false && panelSearch.use_Species && ctn.values.titleInformation.Species != null)
+                                        {
+                                            flowLayoutPanelFinditem.Controls.Add(ctn.Duplication());
+                                            i++;
+                                        }
+                                    }
+                                    catch (Exception exw)
+                                    {
+                                        Console.WriteLine(exw.ToString());
                                     }
                                 }
                             }
@@ -551,6 +835,7 @@ namespace AnimePlayer
                     {
                         Console.WriteLine(ex.ToString());
                     }
+
                 }
                 textBoxFinditem.Text = findText;
                 labelFindSatus.Text = "Znaleziono: " + i;
@@ -570,6 +855,45 @@ namespace AnimePlayer
             flags_findItem = false;
         }
 
+        public List<Control> findItemsRetrunListControl(string findText)
+        {
+            findText = findText.ToLower().Replace("\n", "").Replace("\r", "").Replace("\t", "");
+            List<Control> list = new List<Control>();
+            if (findText == null)
+            {
+                return null;
+            }
+            try
+            {
+                foreach (Control c in flowLayoutPanelAll.Controls)
+                {
+                    try
+                    {
+                        Application.DoEvents();
+                        if (c.Tag != null)
+                        {
+                            WebContentControls.CtnPanel ctn = (WebContentControls.CtnPanel)c.Tag;
+                            if (ctn.values.name.ToLower().Contains(findText.ToLower()))
+                            {
+                                list.Add(ctn.Duplication());
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.ToString());
+                    }
+                }
+
+                return list;
+            }
+            catch (Exception eex)
+            {
+                Console.WriteLine(eex.ToString());
+                return null;
+            }
+        }
+        
         public void findItems(string findText)
         {
             flags_findItem = true;
@@ -693,8 +1017,21 @@ namespace AnimePlayer
             Application.Restart();
         }
 
+        public void SetInfofilersLabel()
+        {
+            if (panelSearch.use_Species)
+            {
+                labelEnableFiltres.Show();
+            }
+            else
+            {
+                labelEnableFiltres.Hide();
+            }
+        }
+
         private void buttonfinditemF_Click(object sender, EventArgs e)
         {
+            SetInfofilersLabel();
             if(panelSearch.Visible == true)
             {
                 panelSearch.Hide();

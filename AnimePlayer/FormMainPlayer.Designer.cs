@@ -73,6 +73,7 @@ namespace AnimePlayer
             this.panelAllitem = new System.Windows.Forms.Panel();
             this.flowLayoutPanelFinditem = new System.Windows.Forms.FlowLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.labelEnableFiltres = new System.Windows.Forms.Label();
             this.roundedPanel2 = new AnimePlayerLibrary.RoundedPanel();
             this.labelFindSatus = new System.Windows.Forms.Label();
             this.buttonfinditemReset = new System.Windows.Forms.Button();
@@ -639,6 +640,7 @@ namespace AnimePlayer
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.labelEnableFiltres);
             this.panel6.Controls.Add(this.roundedPanel2);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
@@ -646,6 +648,21 @@ namespace AnimePlayer
             this.panel6.Padding = new System.Windows.Forms.Padding(10);
             this.panel6.Size = new System.Drawing.Size(948, 100);
             this.panel6.TabIndex = 0;
+            // 
+            // labelEnableFiltres
+            // 
+            this.labelEnableFiltres.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.labelEnableFiltres.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.labelEnableFiltres.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEnableFiltres.ForeColor = System.Drawing.SystemColors.Window;
+            this.labelEnableFiltres.Location = new System.Drawing.Point(10, 73);
+            this.labelEnableFiltres.MaximumSize = new System.Drawing.Size(100, 30);
+            this.labelEnableFiltres.Name = "labelEnableFiltres";
+            this.labelEnableFiltres.Size = new System.Drawing.Size(100, 17);
+            this.labelEnableFiltres.TabIndex = 6;
+            this.labelEnableFiltres.Text = "Filtry włączone";
+            this.labelEnableFiltres.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelEnableFiltres.Visible = false;
             // 
             // roundedPanel2
             // 
@@ -917,6 +934,7 @@ namespace AnimePlayer
         public System.Windows.Forms.Label labelLoadingA;
         public System.Windows.Forms.PictureBox pictureBoxLoading;
         private System.Windows.Forms.Button buttonfinditemF;
+        private System.Windows.Forms.Label labelEnableFiltres;
     }
 }
 

@@ -346,7 +346,7 @@ namespace AnimePlayer
                 {
 
                 }
-                SetInformation();
+                
                 // 
                 // pictureBoxItem
                 // 
@@ -426,6 +426,7 @@ namespace AnimePlayer
                     rc.TargetControl = panelItem;
                     rc.CornerRadius = 15;
                 }
+                SetInformation();
                 oknoG.labelLoadingDetails.Text = ">> Create CtnPanel > "+va.name+ "> Created";
             }
 
@@ -559,111 +560,132 @@ namespace AnimePlayer
                 }
             }
 
-            public async Task SetInformation()
+            public void SetInformation()
             {
-                await Task.Run(() =>
-               {
-                   string path = values.pathPage;
-                   if(path == null)
-                   {
-                       return;
-                   }
-                   string[] content = File.ReadAllText(path).Split(';');
-                   int limits = 0;
-                   for (int i = 0; i < content.Length; i++)
-                   {
-                       limits = i;
-                       content[i] = content[i].Replace("\n", "").Replace("\r", "").Replace("\t", "");
-                   }
-                   try
-                   {
-                       bool end = false;
-                       int position = 0;
-                       while (end != true)
-                       {
-                           if (position == limits)
-                           {
-                               end = true;
-                           }
+                string path = values.pathPage;
+                if (path == null)
+                {
+                    return;
+                }
+                string[] content = File.ReadAllText(path).Split(';');
+                int limits = 0;
+                for (int i = 0; i < content.Length; i++)
+                {
+                    limits = i;
+                    content[i] = content[i].Replace("\n", "").Replace("\r", "").Replace("\t", "");
+                }
+                try
+                {
+                    bool end = false;
+                    int position = 0;
+                    while (end != true)
+                    {
+                        if (position == limits)
+                        {
+                            end = true;
+                        }
 
-                           if (content[position] == "Content")
-                           {
-                               values.titleInformation.Title = values.name;
-                           }
-                           else if (content[position] == "description")
-                           {
-                               values.titleInformation.Description = content[position];
-                           }
-                           else if (content[position] == "OtherName")
-                           {
-                               values.titleInformation.OtherTitle = content[position].Split(',');
-                           }
-                           else if (content[position] == "OtherTags")
-                           {
-                               values.titleInformation.OtherTags = content[position].Split(',');
-                           }
-                           else if (content[position] == "Archetype")
-                           {
-                               values.titleInformation.Archetype = content[position];
-                           }
-                           else if (content[position] == "Species")
-                           {
-                               values.titleInformation.Species = content[position].Split(',');
-                           }
-                           else if (content[position] == "typesOfCharacters")
-                           {
-                               values.titleInformation.TypesOfCharacters= content[position].Split(',');
-                           }
-                           else if (content[position] == "TargetGroups")
-                           {
-                               values.titleInformation.TargetGroups = content[position];
-                           }
-                           else if (content[position] == "PlaceAndTime")
-                           {
-                               values.titleInformation.PlaceAndTime = content[position].Split(',');
-                           }
-                           else if (content[position] == "Type")
-                           {
-                               values.titleInformation.Type = content[position];
-                           }
-                           else if (content[position] == "Status")
-                           {
-                               values.titleInformation.Status = content[position];
-                           }
-                           else if (content[position] == "DateOfIssue")
-                           {
-                               values.titleInformation.DateOfIssue = content[position];
-                           }
-                           else if (content[position] == "EndOfIssue")
-                           {
-                               values.titleInformation.EndOfIssue = content[position];
-                           }
-                           else if (content[position] == "NumberOfEpisodes")
-                           {
-                               values.titleInformation.NumberOfEpisodes = content[position];
-                           }
-                           else if (content[position] == "Studio")
-                           {
-                               values.titleInformation.Studio = content[position].Split(',');
-                           }
-                           else if (content[position] == "EpisodeLength")
-                           {
-                               values.titleInformation.EpisodeLength = content[position];
-                           }
-                           else if (content[position] == "MPAA")
-                           {
-                               values.titleInformation.MPAA = content[position];
-                           }
-                           position++;
+                        if (content[position] == "Content")
+                        {
+                            position++;
+                            values.titleInformation.Title = values.name;
+                        }
+                        else if (content[position] == "description")
+                        {
+                            position++;
+                            values.titleInformation.Description = content[position];
+                        }
+                        else if (content[position] == "OtherName")
+                        {
+                            position++;
+                            values.titleInformation.OtherTitle = content[position].Split(',');
+                        }
+                        else if (content[position] == "OtherTags")
+                        {
+                            position++;
+                            values.titleInformation.OtherTags = content[position].Split(',');
+                        }
+                        else if (content[position] == "Archetype")
+                        {
+                            position++;
+                            values.titleInformation.Archetype = content[position];
+                        }
+                        else if (content[position] == "Species")
+                        {
+                            position++;
+                            values.titleInformation.Species = content[position].Split(',');
+                            if(values.titleInformation.Species != null)
+                            {
+                                for (int i = 0; i <= values.titleInformation.Species.Length; i++)
+                                {
+                                    values.titleInformation.Species[i] = values.titleInformation.Species[i].TrimStart(' ');
+                                }
+                            }
+                        }
+                        else if (content[position] == "typesOfCharacters")
+                        {
+                            position++;
+                            values.titleInformation.TypesOfCharacters = content[position].Split(',');
+                        }
+                        else if (content[position] == "TargetGroups")
+                        {
+                            position++;
+                            values.titleInformation.TargetGroups = content[position];
+                        }
+                        else if (content[position] == "PlaceAndTime")
+                        {
+                            position++;
+                            values.titleInformation.PlaceAndTime = content[position].Split(',');
+                        }
+                        else if (content[position] == "Type")
+                        {
+                            position++;
+                            values.titleInformation.Type = content[position];
+                        }
+                        else if (content[position] == "Status")
+                        {
+                            position++;
+                            values.titleInformation.Status = content[position];
+                        }
+                        else if (content[position] == "DateOfIssue")
+                        {
+                            position++;
+                            values.titleInformation.DateOfIssue = content[position];
+                        }
+                        else if (content[position] == "EndOfIssue")
+                        {
+                            position++;
+                            values.titleInformation.EndOfIssue = content[position];
+                        }
+                        else if (content[position] == "NumberOfEpisodes")
+                        {
+                            position++;
+                            values.titleInformation.NumberOfEpisodes = content[position];
+                        }
+                        else if (content[position] == "Studio")
+                        {
+                            position++;
+                            values.titleInformation.Studio = content[position].Split(',');
+                        }
+                        else if (content[position] == "EpisodeLength")
+                        {
+                            position++;
+                            values.titleInformation.EpisodeLength = content[position];
+                        }
+                        else if (content[position] == "MPAA")
+                        {
+                            position++;
+                            values.titleInformation.MPAA = content[position];
+                        }
+                        position++;
 
-                       }
-                   }
-                   catch (Exception ex)
-                   {
-                       Console.WriteLine("Start>\n" + path);
-                       Console.WriteLine(ex.ToString());
-                   }
-               });
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Start>\n" + path);
+                    Console.WriteLine(ex.ToString());
+                }
             }
 
             public Panel Duplication()

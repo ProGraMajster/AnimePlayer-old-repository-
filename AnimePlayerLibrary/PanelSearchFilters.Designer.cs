@@ -33,6 +33,7 @@ namespace AnimePlayerLibrary
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PanelSearchFilters));
             this.panelContent = new System.Windows.Forms.Panel();
             this.panelSpecies = new System.Windows.Forms.Panel();
+            this.panelAllS = new System.Windows.Forms.Panel();
             this.checkBox_Yuri = new System.Windows.Forms.CheckBox();
             this.checkBox_Yaoi = new System.Windows.Forms.CheckBox();
             this.checkBox_Military = new System.Windows.Forms.CheckBox();
@@ -69,17 +70,21 @@ namespace AnimePlayerLibrary
             this.checkBox_Fantasy = new System.Windows.Forms.CheckBox();
             this.checkBox_Cyberpunk = new System.Windows.Forms.CheckBox();
             this.checkBox_Action = new System.Windows.Forms.CheckBox();
+            this.button2_S_setAll = new System.Windows.Forms.Button();
+            this.button_S_unsetAll = new System.Windows.Forms.Button();
+            this.buttonS_use = new System.Windows.Forms.Button();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panelNavigation = new System.Windows.Forms.Panel();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.buttonReset = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonSpecies = new System.Windows.Forms.Button();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.buttonSave = new System.Windows.Forms.Button();
             this.panelContent.SuspendLayout();
             this.panelSpecies.SuspendLayout();
+            this.panelAllS.SuspendLayout();
             this.panelNavigation.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,42 +102,10 @@ namespace AnimePlayerLibrary
             // panelSpecies
             // 
             this.panelSpecies.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.panelSpecies.Controls.Add(this.checkBox_Yuri);
-            this.panelSpecies.Controls.Add(this.checkBox_Yaoi);
-            this.panelSpecies.Controls.Add(this.checkBox_Military);
-            this.panelSpecies.Controls.Add(this.checkBox_Thriller);
-            this.panelSpecies.Controls.Add(this.checkBox_Mystery);
-            this.panelSpecies.Controls.Add(this.checkBox_Martial_arts);
-            this.panelSpecies.Controls.Add(this.checkBox_School);
-            this.panelSpecies.Controls.Add(this.checkBox_Steampunk);
-            this.panelSpecies.Controls.Add(this.checkBox_Sports);
-            this.panelSpecies.Controls.Add(this.checkBox_Space_opera);
-            this.panelSpecies.Controls.Add(this.checkBox_Shounen_ai);
-            this.panelSpecies.Controls.Add(this.checkBox_Shoujo_ai);
-            this.panelSpecies.Controls.Add(this.checkBox_Psychological);
-            this.panelSpecies.Controls.Add(this.checkBox_Adventure);
-            this.panelSpecies.Controls.Add(this.checkBox_Male_harem);
-            this.panelSpecies.Controls.Add(this.checkBox_Romance);
-            this.panelSpecies.Controls.Add(this.checkBox_Sci_Fi);
-            this.panelSpecies.Controls.Add(this.checkBox_Parody);
-            this.panelSpecies.Controls.Add(this.checkBox_TheCrumbsOfLife);
-            this.panelSpecies.Controls.Add(this.checkBox_Madness);
-            this.panelSpecies.Controls.Add(this.checkBox_Supernatural);
-            this.panelSpecies.Controls.Add(this.checkBox_Musical);
-            this.panelSpecies.Controls.Add(this.checkBox_Mecha);
-            this.panelSpecies.Controls.Add(this.checkBox_Magic);
-            this.panelSpecies.Controls.Add(this.checkBox_Criminal);
-            this.panelSpecies.Controls.Add(this.checkBox_Comedy);
-            this.panelSpecies.Controls.Add(this.checkBox_Historical);
-            this.panelSpecies.Controls.Add(this.checkBox_Horror);
-            this.panelSpecies.Controls.Add(this.checkBox_Harem);
-            this.panelSpecies.Controls.Add(this.checkBox_Hentai);
-            this.panelSpecies.Controls.Add(this.checkBox_Ecchi);
-            this.panelSpecies.Controls.Add(this.checkBox_Drama);
-            this.panelSpecies.Controls.Add(this.checkBox_Experimental);
-            this.panelSpecies.Controls.Add(this.checkBox_Fantasy);
-            this.panelSpecies.Controls.Add(this.checkBox_Cyberpunk);
-            this.panelSpecies.Controls.Add(this.checkBox_Action);
+            this.panelSpecies.Controls.Add(this.panelAllS);
+            this.panelSpecies.Controls.Add(this.button2_S_setAll);
+            this.panelSpecies.Controls.Add(this.button_S_unsetAll);
+            this.panelSpecies.Controls.Add(this.buttonS_use);
             this.panelSpecies.Controls.Add(this.checkBox2);
             this.panelSpecies.Controls.Add(this.checkBox1);
             this.panelSpecies.Controls.Add(this.label1);
@@ -142,6 +115,49 @@ namespace AnimePlayerLibrary
             this.panelSpecies.Size = new System.Drawing.Size(770, 342);
             this.panelSpecies.TabIndex = 0;
             // 
+            // panelAllS
+            // 
+            this.panelAllS.Controls.Add(this.checkBox_Yuri);
+            this.panelAllS.Controls.Add(this.checkBox_Yaoi);
+            this.panelAllS.Controls.Add(this.checkBox_Military);
+            this.panelAllS.Controls.Add(this.checkBox_Thriller);
+            this.panelAllS.Controls.Add(this.checkBox_Mystery);
+            this.panelAllS.Controls.Add(this.checkBox_Martial_arts);
+            this.panelAllS.Controls.Add(this.checkBox_School);
+            this.panelAllS.Controls.Add(this.checkBox_Steampunk);
+            this.panelAllS.Controls.Add(this.checkBox_Sports);
+            this.panelAllS.Controls.Add(this.checkBox_Space_opera);
+            this.panelAllS.Controls.Add(this.checkBox_Shounen_ai);
+            this.panelAllS.Controls.Add(this.checkBox_Shoujo_ai);
+            this.panelAllS.Controls.Add(this.checkBox_Psychological);
+            this.panelAllS.Controls.Add(this.checkBox_Adventure);
+            this.panelAllS.Controls.Add(this.checkBox_Male_harem);
+            this.panelAllS.Controls.Add(this.checkBox_Romance);
+            this.panelAllS.Controls.Add(this.checkBox_Sci_Fi);
+            this.panelAllS.Controls.Add(this.checkBox_Parody);
+            this.panelAllS.Controls.Add(this.checkBox_TheCrumbsOfLife);
+            this.panelAllS.Controls.Add(this.checkBox_Madness);
+            this.panelAllS.Controls.Add(this.checkBox_Supernatural);
+            this.panelAllS.Controls.Add(this.checkBox_Musical);
+            this.panelAllS.Controls.Add(this.checkBox_Mecha);
+            this.panelAllS.Controls.Add(this.checkBox_Magic);
+            this.panelAllS.Controls.Add(this.checkBox_Criminal);
+            this.panelAllS.Controls.Add(this.checkBox_Comedy);
+            this.panelAllS.Controls.Add(this.checkBox_Historical);
+            this.panelAllS.Controls.Add(this.checkBox_Horror);
+            this.panelAllS.Controls.Add(this.checkBox_Harem);
+            this.panelAllS.Controls.Add(this.checkBox_Hentai);
+            this.panelAllS.Controls.Add(this.checkBox_Ecchi);
+            this.panelAllS.Controls.Add(this.checkBox_Drama);
+            this.panelAllS.Controls.Add(this.checkBox_Experimental);
+            this.panelAllS.Controls.Add(this.checkBox_Fantasy);
+            this.panelAllS.Controls.Add(this.checkBox_Cyberpunk);
+            this.panelAllS.Controls.Add(this.checkBox_Action);
+            this.panelAllS.Location = new System.Drawing.Point(167, 0);
+            this.panelAllS.Name = "panelAllS";
+            this.panelAllS.Size = new System.Drawing.Size(603, 342);
+            this.panelAllS.TabIndex = 49;
+            // 
             // checkBox_Yuri
             // 
             this.checkBox_Yuri.AutoSize = true;
@@ -149,7 +165,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Yuri.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Yuri.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Yuri.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Yuri.Location = new System.Drawing.Point(178, 260);
+            this.checkBox_Yuri.Location = new System.Drawing.Point(19, 263);
             this.checkBox_Yuri.Name = "checkBox_Yuri";
             this.checkBox_Yuri.Size = new System.Drawing.Size(48, 19);
             this.checkBox_Yuri.TabIndex = 45;
@@ -165,7 +181,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Yaoi.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Yaoi.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Yaoi.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Yaoi.Location = new System.Drawing.Point(650, 225);
+            this.checkBox_Yaoi.Location = new System.Drawing.Point(483, 225);
             this.checkBox_Yaoi.Name = "checkBox_Yaoi";
             this.checkBox_Yaoi.Size = new System.Drawing.Size(49, 19);
             this.checkBox_Yaoi.TabIndex = 44;
@@ -181,7 +197,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Military.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Military.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Military.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Military.Location = new System.Drawing.Point(540, 225);
+            this.checkBox_Military.Location = new System.Drawing.Point(366, 225);
             this.checkBox_Military.Name = "checkBox_Military";
             this.checkBox_Military.Size = new System.Drawing.Size(79, 19);
             this.checkBox_Military.TabIndex = 43;
@@ -197,7 +213,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Thriller.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Thriller.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Thriller.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Thriller.Location = new System.Drawing.Point(414, 225);
+            this.checkBox_Thriller.Location = new System.Drawing.Point(255, 225);
             this.checkBox_Thriller.Name = "checkBox_Thriller";
             this.checkBox_Thriller.Size = new System.Drawing.Size(65, 19);
             this.checkBox_Thriller.TabIndex = 42;
@@ -213,7 +229,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Mystery.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Mystery.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Mystery.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Mystery.Location = new System.Drawing.Point(292, 225);
+            this.checkBox_Mystery.Location = new System.Drawing.Point(130, 225);
             this.checkBox_Mystery.Name = "checkBox_Mystery";
             this.checkBox_Mystery.Size = new System.Drawing.Size(79, 19);
             this.checkBox_Mystery.TabIndex = 41;
@@ -228,7 +244,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Martial_arts.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Martial_arts.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Martial_arts.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Martial_arts.Location = new System.Drawing.Point(178, 225);
+            this.checkBox_Martial_arts.Location = new System.Drawing.Point(19, 225);
             this.checkBox_Martial_arts.Name = "checkBox_Martial_arts";
             this.checkBox_Martial_arts.Size = new System.Drawing.Size(90, 19);
             this.checkBox_Martial_arts.TabIndex = 40;
@@ -243,7 +259,7 @@ namespace AnimePlayerLibrary
             this.checkBox_School.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_School.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_School.ForeColor = System.Drawing.Color.White;
-            this.checkBox_School.Location = new System.Drawing.Point(650, 190);
+            this.checkBox_School.Location = new System.Drawing.Point(483, 190);
             this.checkBox_School.Name = "checkBox_School";
             this.checkBox_School.Size = new System.Drawing.Size(67, 19);
             this.checkBox_School.TabIndex = 39;
@@ -259,7 +275,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Steampunk.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Steampunk.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Steampunk.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Steampunk.Location = new System.Drawing.Point(540, 190);
+            this.checkBox_Steampunk.Location = new System.Drawing.Point(366, 190);
             this.checkBox_Steampunk.Name = "checkBox_Steampunk";
             this.checkBox_Steampunk.Size = new System.Drawing.Size(82, 19);
             this.checkBox_Steampunk.TabIndex = 38;
@@ -274,7 +290,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Sports.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Sports.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Sports.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Sports.Location = new System.Drawing.Point(414, 190);
+            this.checkBox_Sports.Location = new System.Drawing.Point(255, 190);
             this.checkBox_Sports.Name = "checkBox_Sports";
             this.checkBox_Sports.Size = new System.Drawing.Size(75, 19);
             this.checkBox_Sports.TabIndex = 37;
@@ -289,7 +305,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Space_opera.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Space_opera.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Space_opera.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Space_opera.Location = new System.Drawing.Point(292, 190);
+            this.checkBox_Space_opera.Location = new System.Drawing.Point(130, 190);
             this.checkBox_Space_opera.Name = "checkBox_Space_opera";
             this.checkBox_Space_opera.Size = new System.Drawing.Size(90, 19);
             this.checkBox_Space_opera.TabIndex = 36;
@@ -303,7 +319,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Shounen_ai.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Shounen_ai.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Shounen_ai.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Shounen_ai.Location = new System.Drawing.Point(178, 190);
+            this.checkBox_Shounen_ai.Location = new System.Drawing.Point(19, 190);
             this.checkBox_Shounen_ai.Name = "checkBox_Shounen_ai";
             this.checkBox_Shounen_ai.Size = new System.Drawing.Size(84, 19);
             this.checkBox_Shounen_ai.TabIndex = 35;
@@ -319,7 +335,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Shoujo_ai.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Shoujo_ai.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Shoujo_ai.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Shoujo_ai.Location = new System.Drawing.Point(650, 155);
+            this.checkBox_Shoujo_ai.Location = new System.Drawing.Point(483, 155);
             this.checkBox_Shoujo_ai.Name = "checkBox_Shoujo_ai";
             this.checkBox_Shoujo_ai.Size = new System.Drawing.Size(76, 19);
             this.checkBox_Shoujo_ai.TabIndex = 34;
@@ -334,7 +350,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Psychological.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Psychological.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Psychological.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Psychological.Location = new System.Drawing.Point(292, 155);
+            this.checkBox_Psychological.Location = new System.Drawing.Point(130, 155);
             this.checkBox_Psychological.Name = "checkBox_Psychological";
             this.checkBox_Psychological.Size = new System.Drawing.Size(104, 19);
             this.checkBox_Psychological.TabIndex = 33;
@@ -349,7 +365,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Adventure.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Adventure.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Adventure.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Adventure.Location = new System.Drawing.Point(178, 155);
+            this.checkBox_Adventure.Location = new System.Drawing.Point(19, 155);
             this.checkBox_Adventure.Name = "checkBox_Adventure";
             this.checkBox_Adventure.Size = new System.Drawing.Size(87, 19);
             this.checkBox_Adventure.TabIndex = 32;
@@ -364,7 +380,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Male_harem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Male_harem.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Male_harem.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Male_harem.Location = new System.Drawing.Point(650, 85);
+            this.checkBox_Male_harem.Location = new System.Drawing.Point(483, 85);
             this.checkBox_Male_harem.Name = "checkBox_Male_harem";
             this.checkBox_Male_harem.Size = new System.Drawing.Size(91, 19);
             this.checkBox_Male_harem.TabIndex = 31;
@@ -381,7 +397,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Romance.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Romance.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Romance.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Romance.Location = new System.Drawing.Point(414, 155);
+            this.checkBox_Romance.Location = new System.Drawing.Point(255, 155);
             this.checkBox_Romance.Name = "checkBox_Romance";
             this.checkBox_Romance.Size = new System.Drawing.Size(64, 19);
             this.checkBox_Romance.TabIndex = 30;
@@ -397,7 +413,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Sci_Fi.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Sci_Fi.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Sci_Fi.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Sci_Fi.Location = new System.Drawing.Point(540, 155);
+            this.checkBox_Sci_Fi.Location = new System.Drawing.Point(366, 155);
             this.checkBox_Sci_Fi.Name = "checkBox_Sci_Fi";
             this.checkBox_Sci_Fi.Size = new System.Drawing.Size(58, 19);
             this.checkBox_Sci_Fi.TabIndex = 29;
@@ -412,7 +428,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Parody.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Parody.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Parody.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Parody.Location = new System.Drawing.Point(650, 120);
+            this.checkBox_Parody.Location = new System.Drawing.Point(483, 120);
             this.checkBox_Parody.Name = "checkBox_Parody";
             this.checkBox_Parody.Size = new System.Drawing.Size(65, 19);
             this.checkBox_Parody.TabIndex = 28;
@@ -428,7 +444,7 @@ namespace AnimePlayerLibrary
             this.checkBox_TheCrumbsOfLife.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_TheCrumbsOfLife.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_TheCrumbsOfLife.ForeColor = System.Drawing.Color.White;
-            this.checkBox_TheCrumbsOfLife.Location = new System.Drawing.Point(540, 120);
+            this.checkBox_TheCrumbsOfLife.Location = new System.Drawing.Point(366, 119);
             this.checkBox_TheCrumbsOfLife.Name = "checkBox_TheCrumbsOfLife";
             this.checkBox_TheCrumbsOfLife.Size = new System.Drawing.Size(101, 19);
             this.checkBox_TheCrumbsOfLife.TabIndex = 27;
@@ -444,7 +460,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Madness.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Madness.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Madness.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Madness.Location = new System.Drawing.Point(414, 120);
+            this.checkBox_Madness.Location = new System.Drawing.Point(255, 119);
             this.checkBox_Madness.Name = "checkBox_Madness";
             this.checkBox_Madness.Size = new System.Drawing.Size(56, 19);
             this.checkBox_Madness.TabIndex = 26;
@@ -459,7 +475,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Supernatural.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Supernatural.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Supernatural.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Supernatural.Location = new System.Drawing.Point(292, 120);
+            this.checkBox_Supernatural.Location = new System.Drawing.Point(130, 120);
             this.checkBox_Supernatural.Name = "checkBox_Supernatural";
             this.checkBox_Supernatural.Size = new System.Drawing.Size(111, 19);
             this.checkBox_Supernatural.TabIndex = 25;
@@ -474,7 +490,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Musical.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Musical.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Musical.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Musical.Location = new System.Drawing.Point(178, 120);
+            this.checkBox_Musical.Location = new System.Drawing.Point(19, 120);
             this.checkBox_Musical.Name = "checkBox_Musical";
             this.checkBox_Musical.Size = new System.Drawing.Size(78, 19);
             this.checkBox_Musical.TabIndex = 24;
@@ -491,7 +507,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Mecha.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Mecha.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Mecha.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Mecha.Location = new System.Drawing.Point(540, 85);
+            this.checkBox_Mecha.Location = new System.Drawing.Point(366, 85);
             this.checkBox_Mecha.Name = "checkBox_Mecha";
             this.checkBox_Mecha.Size = new System.Drawing.Size(60, 19);
             this.checkBox_Mecha.TabIndex = 23;
@@ -508,7 +524,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Magic.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Magic.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Magic.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Magic.Location = new System.Drawing.Point(414, 85);
+            this.checkBox_Magic.Location = new System.Drawing.Point(255, 85);
             this.checkBox_Magic.Name = "checkBox_Magic";
             this.checkBox_Magic.Size = new System.Drawing.Size(58, 19);
             this.checkBox_Magic.TabIndex = 22;
@@ -523,7 +539,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Criminal.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Criminal.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Criminal.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Criminal.Location = new System.Drawing.Point(292, 85);
+            this.checkBox_Criminal.Location = new System.Drawing.Point(130, 85);
             this.checkBox_Criminal.Name = "checkBox_Criminal";
             this.checkBox_Criminal.Size = new System.Drawing.Size(83, 19);
             this.checkBox_Criminal.TabIndex = 21;
@@ -539,7 +555,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Comedy.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Comedy.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Comedy.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Comedy.Location = new System.Drawing.Point(178, 85);
+            this.checkBox_Comedy.Location = new System.Drawing.Point(19, 85);
             this.checkBox_Comedy.Name = "checkBox_Comedy";
             this.checkBox_Comedy.Size = new System.Drawing.Size(69, 19);
             this.checkBox_Comedy.TabIndex = 20;
@@ -555,7 +571,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Historical.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Historical.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Historical.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Historical.Location = new System.Drawing.Point(540, 50);
+            this.checkBox_Historical.Location = new System.Drawing.Point(366, 50);
             this.checkBox_Historical.Name = "checkBox_Historical";
             this.checkBox_Historical.Size = new System.Drawing.Size(88, 19);
             this.checkBox_Historical.TabIndex = 19;
@@ -570,7 +586,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Horror.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Horror.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Horror.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Horror.Location = new System.Drawing.Point(650, 50);
+            this.checkBox_Horror.Location = new System.Drawing.Point(483, 50);
             this.checkBox_Horror.Name = "checkBox_Horror";
             this.checkBox_Horror.Size = new System.Drawing.Size(61, 19);
             this.checkBox_Horror.TabIndex = 18;
@@ -585,7 +601,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Harem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Harem.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Harem.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Harem.Location = new System.Drawing.Point(292, 50);
+            this.checkBox_Harem.Location = new System.Drawing.Point(130, 50);
             this.checkBox_Harem.Name = "checkBox_Harem";
             this.checkBox_Harem.Size = new System.Drawing.Size(59, 19);
             this.checkBox_Harem.TabIndex = 17;
@@ -602,7 +618,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Hentai.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Hentai.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Hentai.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Hentai.Location = new System.Drawing.Point(414, 50);
+            this.checkBox_Hentai.Location = new System.Drawing.Point(255, 50);
             this.checkBox_Hentai.Name = "checkBox_Hentai";
             this.checkBox_Hentai.Size = new System.Drawing.Size(60, 19);
             this.checkBox_Hentai.TabIndex = 16;
@@ -617,7 +633,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Ecchi.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Ecchi.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Ecchi.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Ecchi.Location = new System.Drawing.Point(540, 15);
+            this.checkBox_Ecchi.Location = new System.Drawing.Point(366, 15);
             this.checkBox_Ecchi.Name = "checkBox_Ecchi";
             this.checkBox_Ecchi.Size = new System.Drawing.Size(55, 19);
             this.checkBox_Ecchi.TabIndex = 15;
@@ -634,7 +650,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Drama.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Drama.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Drama.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Drama.Location = new System.Drawing.Point(414, 15);
+            this.checkBox_Drama.Location = new System.Drawing.Point(255, 15);
             this.checkBox_Drama.Name = "checkBox_Drama";
             this.checkBox_Drama.Size = new System.Drawing.Size(63, 19);
             this.checkBox_Drama.TabIndex = 14;
@@ -650,7 +666,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Experimental.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Experimental.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Experimental.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Experimental.Location = new System.Drawing.Point(650, 15);
+            this.checkBox_Experimental.Location = new System.Drawing.Point(483, 15);
             this.checkBox_Experimental.Name = "checkBox_Experimental";
             this.checkBox_Experimental.Size = new System.Drawing.Size(112, 19);
             this.checkBox_Experimental.TabIndex = 13;
@@ -667,7 +683,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Fantasy.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Fantasy.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Fantasy.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Fantasy.Location = new System.Drawing.Point(178, 50);
+            this.checkBox_Fantasy.Location = new System.Drawing.Point(19, 50);
             this.checkBox_Fantasy.Name = "checkBox_Fantasy";
             this.checkBox_Fantasy.Size = new System.Drawing.Size(65, 19);
             this.checkBox_Fantasy.TabIndex = 12;
@@ -682,7 +698,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Cyberpunk.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Cyberpunk.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Cyberpunk.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Cyberpunk.Location = new System.Drawing.Point(292, 15);
+            this.checkBox_Cyberpunk.Location = new System.Drawing.Point(130, 15);
             this.checkBox_Cyberpunk.Name = "checkBox_Cyberpunk";
             this.checkBox_Cyberpunk.Size = new System.Drawing.Size(80, 19);
             this.checkBox_Cyberpunk.TabIndex = 11;
@@ -698,7 +714,7 @@ namespace AnimePlayerLibrary
             this.checkBox_Action.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Action.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox_Action.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Action.Location = new System.Drawing.Point(178, 15);
+            this.checkBox_Action.Location = new System.Drawing.Point(19, 15);
             this.checkBox_Action.Name = "checkBox_Action";
             this.checkBox_Action.Size = new System.Drawing.Size(56, 19);
             this.checkBox_Action.TabIndex = 10;
@@ -707,6 +723,52 @@ namespace AnimePlayerLibrary
         "rotach akcji. Występują liczne walki, strzelaniny, pościgi, które mają wywołać u" +
         " widza napięcie emocjonalne.");
             this.checkBox_Action.UseVisualStyleBackColor = true;
+            this.checkBox_Action.CheckedChanged += new System.EventHandler(this.checkBox_S_CheckedChanged);
+            // 
+            // button2_S_setAll
+            // 
+            this.button2_S_setAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.button2_S_setAll.FlatAppearance.BorderSize = 0;
+            this.button2_S_setAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2_S_setAll.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button2_S_setAll.ForeColor = System.Drawing.Color.White;
+            this.button2_S_setAll.Location = new System.Drawing.Point(0, 190);
+            this.button2_S_setAll.Name = "button2_S_setAll";
+            this.button2_S_setAll.Size = new System.Drawing.Size(161, 24);
+            this.button2_S_setAll.TabIndex = 48;
+            this.button2_S_setAll.Text = "Zaznacz wszystko";
+            this.button2_S_setAll.UseVisualStyleBackColor = false;
+            this.button2_S_setAll.Click += new System.EventHandler(this.button2_S_setAll_Click);
+            // 
+            // button_S_unsetAll
+            // 
+            this.button_S_unsetAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.button_S_unsetAll.FlatAppearance.BorderSize = 0;
+            this.button_S_unsetAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_S_unsetAll.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button_S_unsetAll.ForeColor = System.Drawing.Color.White;
+            this.button_S_unsetAll.Location = new System.Drawing.Point(0, 155);
+            this.button_S_unsetAll.Name = "button_S_unsetAll";
+            this.button_S_unsetAll.Size = new System.Drawing.Size(161, 24);
+            this.button_S_unsetAll.TabIndex = 47;
+            this.button_S_unsetAll.Text = "Odznacz wszystko";
+            this.button_S_unsetAll.UseVisualStyleBackColor = false;
+            this.button_S_unsetAll.Click += new System.EventHandler(this.button_S_unsetAll_Click);
+            // 
+            // buttonS_use
+            // 
+            this.buttonS_use.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.buttonS_use.FlatAppearance.BorderSize = 0;
+            this.buttonS_use.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonS_use.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonS_use.ForeColor = System.Drawing.Color.White;
+            this.buttonS_use.Location = new System.Drawing.Point(0, 115);
+            this.buttonS_use.Name = "buttonS_use";
+            this.buttonS_use.Size = new System.Drawing.Size(161, 24);
+            this.buttonS_use.TabIndex = 46;
+            this.buttonS_use.Text = "Włącz filtr gatunków";
+            this.buttonS_use.UseVisualStyleBackColor = false;
+            this.buttonS_use.Click += new System.EventHandler(this.buttonS_use_Click);
             // 
             // checkBox2
             // 
@@ -757,6 +819,22 @@ namespace AnimePlayerLibrary
             this.panelNavigation.Padding = new System.Windows.Forms.Padding(10, 2, 10, 2);
             this.panelNavigation.Size = new System.Drawing.Size(790, 28);
             this.panelNavigation.TabIndex = 2;
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.buttonSave.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonSave.FlatAppearance.BorderSize = 0;
+            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSave.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonSave.ForeColor = System.Drawing.Color.White;
+            this.buttonSave.Location = new System.Drawing.Point(587, 2);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(86, 24);
+            this.buttonSave.TabIndex = 3;
+            this.buttonSave.Text = "Włącz filtry";
+            this.buttonSave.UseVisualStyleBackColor = false;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // buttonReset
             // 
@@ -810,22 +888,6 @@ namespace AnimePlayerLibrary
             this.toolTip.ForeColor = System.Drawing.Color.White;
             this.toolTip.IsBalloon = true;
             // 
-            // buttonSave
-            // 
-            this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.buttonSave.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonSave.FlatAppearance.BorderSize = 0;
-            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSave.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonSave.ForeColor = System.Drawing.Color.White;
-            this.buttonSave.Location = new System.Drawing.Point(614, 2);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(59, 24);
-            this.buttonSave.TabIndex = 3;
-            this.buttonSave.Text = "Zastosuj";
-            this.buttonSave.UseVisualStyleBackColor = false;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
-            // 
             // PanelSearchFilters
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -839,6 +901,8 @@ namespace AnimePlayerLibrary
             this.panelContent.ResumeLayout(false);
             this.panelSpecies.ResumeLayout(false);
             this.panelSpecies.PerformLayout();
+            this.panelAllS.ResumeLayout(false);
+            this.panelAllS.PerformLayout();
             this.panelNavigation.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -849,49 +913,53 @@ namespace AnimePlayerLibrary
         private System.Windows.Forms.Panel panelContent;
         private System.Windows.Forms.Panel panelSpecies;
         private System.Windows.Forms.Panel panelNavigation;
-        private System.Windows.Forms.CheckBox checkBox_Criminal;
-        private System.Windows.Forms.CheckBox checkBox_Comedy;
-        private System.Windows.Forms.CheckBox checkBox_Historical;
-        private System.Windows.Forms.CheckBox checkBox_Horror;
-        private System.Windows.Forms.CheckBox checkBox_Harem;
-        private System.Windows.Forms.CheckBox checkBox_Hentai;
-        private System.Windows.Forms.CheckBox checkBox_Ecchi;
-        private System.Windows.Forms.CheckBox checkBox_Drama;
-        private System.Windows.Forms.CheckBox checkBox_Experimental;
-        private System.Windows.Forms.CheckBox checkBox_Fantasy;
-        private System.Windows.Forms.CheckBox checkBox_Cyberpunk;
-        private System.Windows.Forms.CheckBox checkBox_Action;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBox_Yuri;
-        private System.Windows.Forms.CheckBox checkBox_Yaoi;
-        private System.Windows.Forms.CheckBox checkBox_Military;
-        private System.Windows.Forms.CheckBox checkBox_Thriller;
-        private System.Windows.Forms.CheckBox checkBox_Mystery;
-        private System.Windows.Forms.CheckBox checkBox_Martial_arts;
-        private System.Windows.Forms.CheckBox checkBox_School;
-        private System.Windows.Forms.CheckBox checkBox_Steampunk;
-        private System.Windows.Forms.CheckBox checkBox_Sports;
-        private System.Windows.Forms.CheckBox checkBox_Space_opera;
-        private System.Windows.Forms.CheckBox checkBox_Shounen_ai;
-        private System.Windows.Forms.CheckBox checkBox_Shoujo_ai;
-        private System.Windows.Forms.CheckBox checkBox_Psychological;
-        private System.Windows.Forms.CheckBox checkBox_Adventure;
-        private System.Windows.Forms.CheckBox checkBox_Male_harem;
-        private System.Windows.Forms.CheckBox checkBox_Romance;
-        private System.Windows.Forms.CheckBox checkBox_Sci_Fi;
-        private System.Windows.Forms.CheckBox checkBox_Parody;
-        private System.Windows.Forms.CheckBox checkBox_TheCrumbsOfLife;
-        private System.Windows.Forms.CheckBox checkBox_Madness;
-        private System.Windows.Forms.CheckBox checkBox_Supernatural;
-        private System.Windows.Forms.CheckBox checkBox_Musical;
-        private System.Windows.Forms.CheckBox checkBox_Mecha;
-        private System.Windows.Forms.CheckBox checkBox_Magic;
         private System.Windows.Forms.Button buttonSpecies;
         private System.Windows.Forms.Button buttonReset;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.Button buttonSave;
+        public System.Windows.Forms.CheckBox checkBox_Criminal;
+        public System.Windows.Forms.CheckBox checkBox_Comedy;
+        public System.Windows.Forms.CheckBox checkBox_Historical;
+        public System.Windows.Forms.CheckBox checkBox_Horror;
+        public System.Windows.Forms.CheckBox checkBox_Harem;
+        public System.Windows.Forms.CheckBox checkBox_Hentai;
+        public System.Windows.Forms.CheckBox checkBox_Ecchi;
+        public System.Windows.Forms.CheckBox checkBox_Drama;
+        public System.Windows.Forms.CheckBox checkBox_Experimental;
+        public System.Windows.Forms.CheckBox checkBox_Fantasy;
+        public System.Windows.Forms.CheckBox checkBox_Cyberpunk;
+        public System.Windows.Forms.CheckBox checkBox_Action;
+        public System.Windows.Forms.CheckBox checkBox_Yuri;
+        public System.Windows.Forms.CheckBox checkBox_Yaoi;
+        public System.Windows.Forms.CheckBox checkBox_Military;
+        public System.Windows.Forms.CheckBox checkBox_Thriller;
+        public System.Windows.Forms.CheckBox checkBox_Mystery;
+        public System.Windows.Forms.CheckBox checkBox_Martial_arts;
+        public System.Windows.Forms.CheckBox checkBox_School;
+        public System.Windows.Forms.CheckBox checkBox_Steampunk;
+        public System.Windows.Forms.CheckBox checkBox_Sports;
+        public System.Windows.Forms.CheckBox checkBox_Space_opera;
+        public System.Windows.Forms.CheckBox checkBox_Shounen_ai;
+        public System.Windows.Forms.CheckBox checkBox_Shoujo_ai;
+        public System.Windows.Forms.CheckBox checkBox_Psychological;
+        public System.Windows.Forms.CheckBox checkBox_Adventure;
+        public System.Windows.Forms.CheckBox checkBox_Male_harem;
+        public System.Windows.Forms.CheckBox checkBox_Romance;
+        public System.Windows.Forms.CheckBox checkBox_Sci_Fi;
+        public System.Windows.Forms.CheckBox checkBox_Parody;
+        public System.Windows.Forms.CheckBox checkBox_TheCrumbsOfLife;
+        public System.Windows.Forms.CheckBox checkBox_Madness;
+        public System.Windows.Forms.CheckBox checkBox_Supernatural;
+        public System.Windows.Forms.CheckBox checkBox_Musical;
+        public System.Windows.Forms.CheckBox checkBox_Mecha;
+        public System.Windows.Forms.CheckBox checkBox_Magic;
+        private System.Windows.Forms.Button buttonS_use;
+        private System.Windows.Forms.Button button2_S_setAll;
+        private System.Windows.Forms.Button button_S_unsetAll;
+        public System.Windows.Forms.Panel panelAllS;
     }
 }

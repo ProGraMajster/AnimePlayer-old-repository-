@@ -120,6 +120,9 @@
   <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="checkBox_Mystery.ToolTip" xml:space="preserve">
     <value>Fabuła tytułu opiera się na skonstruowanej zagadce lub tajemnicy i dążeniu do jej wyjaśnienia.
 Czasem rozwiązuje ją jeden konkretny bohater.
