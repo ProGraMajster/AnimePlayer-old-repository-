@@ -24,7 +24,7 @@ namespace AnimePlayer
 
         public bool onOnline = true;
         PanelSearchFilters panelSearch;
-        public OknoG()
+        public OknoG()  
         {
             InitializeComponent();
             AP_Lib aP_Lib = new AP_Lib((Form)this);
@@ -108,6 +108,9 @@ namespace AnimePlayer
                 rc.CornerRadius = 15;
                 rc = new ControlsNewMethods.RoundingControl();
                 rc.TargetControl = buttonfinditemF;
+                rc.CornerRadius = 15;
+                rc = new ControlsNewMethods.RoundingControl();
+                rc.TargetControl = labelEnableFiltres;
                 rc.CornerRadius = 15;
             }
         }

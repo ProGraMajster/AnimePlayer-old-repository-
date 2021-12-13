@@ -222,6 +222,7 @@ namespace AnimePlayer
             // flowLayoutPanelPolecane
             // 
             this.flowLayoutPanelPolecane.AutoScroll = true;
+            this.flowLayoutPanelPolecane.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.flowLayoutPanelPolecane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelPolecane.Location = new System.Drawing.Point(0, 30);
             this.flowLayoutPanelPolecane.Name = "flowLayoutPanelPolecane";

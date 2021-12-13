@@ -190,9 +190,15 @@ namespace AnimePlayerLibrary
 
     public class NewFlowLayoutPanel : FlowLayoutPanel
     {
+        public NewFlowLayoutPanel()
+        {
+            this.DoubleBuffered = true;
+        }
+
         protected override void OnScroll(ScrollEventArgs se)
         {
             Application.DoEvents();
+            this.Invalidate();
             base.OnScroll(se);
         }
     }
