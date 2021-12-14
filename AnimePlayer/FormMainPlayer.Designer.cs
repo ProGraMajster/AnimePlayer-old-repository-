@@ -43,6 +43,7 @@ namespace AnimePlayer
             this.flowLayoutPanelPolecane = new AnimePlayerLibrary.NewFlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.panelSTNewsMain = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panelTop = new System.Windows.Forms.Panel();
             this.roundedPanel1 = new AnimePlayerLibrary.RoundedPanel();
@@ -86,6 +87,7 @@ namespace AnimePlayer
             this.labelError = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.timerAnimationError = new System.Windows.Forms.Timer(this.components);
+            this.backgroundWorkerGetSTNews = new System.ComponentModel.BackgroundWorker();
             this.panelStartPage.SuspendLayout();
             this.panelGroup.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -123,6 +125,7 @@ namespace AnimePlayer
             this.panelStartPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.panelStartPage.Controls.Add(this.panelGroup);
             this.panelStartPage.Controls.Add(this.panePolecane);
+            this.panelStartPage.Controls.Add(this.panelSTNewsMain);
             this.panelStartPage.Controls.Add(this.panel8);
             this.panelStartPage.Controls.Add(this.panelTop);
             this.panelStartPage.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -136,7 +139,7 @@ namespace AnimePlayer
             this.panelGroup.Controls.Add(this.flowLayoutPanel2);
             this.panelGroup.Controls.Add(this.panel4);
             this.panelGroup.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelGroup.Location = new System.Drawing.Point(0, 401);
+            this.panelGroup.Location = new System.Drawing.Point(0, 705);
             this.panelGroup.Name = "panelGroup";
             this.panelGroup.Size = new System.Drawing.Size(931, 296);
             this.panelGroup.TabIndex = 4;
@@ -213,7 +216,7 @@ namespace AnimePlayer
             this.panePolecane.Controls.Add(this.flowLayoutPanelPolecane);
             this.panePolecane.Controls.Add(this.panel1);
             this.panePolecane.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panePolecane.Location = new System.Drawing.Point(0, 105);
+            this.panePolecane.Location = new System.Drawing.Point(0, 409);
             this.panePolecane.Name = "panePolecane";
             this.panePolecane.Size = new System.Drawing.Size(931, 296);
             this.panePolecane.TabIndex = 3;
@@ -226,7 +229,7 @@ namespace AnimePlayer
             this.flowLayoutPanelPolecane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelPolecane.Location = new System.Drawing.Point(0, 30);
             this.flowLayoutPanelPolecane.Name = "flowLayoutPanelPolecane";
-            this.flowLayoutPanelPolecane.Padding = new System.Windows.Forms.Padding(12, 2, 12, 2);
+            this.flowLayoutPanelPolecane.Padding = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanelPolecane.Size = new System.Drawing.Size(931, 266);
             this.flowLayoutPanelPolecane.TabIndex = 5;
             this.flowLayoutPanelPolecane.WrapContents = false;
@@ -254,6 +257,14 @@ namespace AnimePlayer
             this.label2.TabIndex = 0;
             this.label2.Text = "Polecane";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panelSTNewsMain
+            // 
+            this.panelSTNewsMain.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelSTNewsMain.Location = new System.Drawing.Point(0, 105);
+            this.panelSTNewsMain.Name = "panelSTNewsMain";
+            this.panelSTNewsMain.Size = new System.Drawing.Size(931, 304);
+            this.panelSTNewsMain.TabIndex = 4;
             // 
             // panel8
             // 
@@ -827,6 +838,10 @@ namespace AnimePlayer
             this.timerAnimationError.Interval = 1;
             this.timerAnimationError.Tick += new System.EventHandler(this.timerAnimationError_Tick);
             // 
+            // backgroundWorkerGetSTNews
+            // 
+            this.backgroundWorkerGetSTNews.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerGetSTNews_DoWork);
+            // 
             // OknoG
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -936,6 +951,8 @@ namespace AnimePlayer
         public System.Windows.Forms.PictureBox pictureBoxLoading;
         private System.Windows.Forms.Button buttonfinditemF;
         private System.Windows.Forms.Label labelEnableFiltres;
+        private System.Windows.Forms.Panel panelSTNewsMain;
+        private System.ComponentModel.BackgroundWorker backgroundWorkerGetSTNews;
     }
 }
 

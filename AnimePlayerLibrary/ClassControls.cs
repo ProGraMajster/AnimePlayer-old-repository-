@@ -194,7 +194,6 @@ namespace AnimePlayerLibrary
         {
             this.DoubleBuffered = true;
         }
-
         protected override void OnScroll(ScrollEventArgs se)
         {
             Application.DoEvents();

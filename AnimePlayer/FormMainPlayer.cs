@@ -24,6 +24,8 @@ namespace AnimePlayer
 
         public bool onOnline = true;
         PanelSearchFilters panelSearch;
+        NewFlowLayoutPanel panelNews;
+
         public OknoG()  
         {
             InitializeComponent();
@@ -37,6 +39,12 @@ namespace AnimePlayer
                 panelSearch.Location = new Point(0, 110);
                 panelSearch.Hide();
                 labelLoadingDetails.Text = "Initialize";
+
+                panelNews = new NewFlowLayoutPanel();
+                panelNews.Dock = DockStyle.Fill;
+                panelSTNewsMain.Controls.Add(panelNews);
+                panelNews.Show();
+                panelNews.ControlAdded += PanelNews_ControlAdded;
                 Application.DoEvents();
                 if (!Directory.Exists("C:\\ContentLibrarys"))
                 {
@@ -73,11 +81,17 @@ namespace AnimePlayer
                 {
                     Directory.CreateDirectory("C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\DatabaseOftitles");
                 }
+                if (!Directory.Exists("C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Temp"))
+                {
+                    Directory.CreateDirectory("C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Temp");
+                }
             }
             catch (Exception)
             {
 
             }
+            labelLoadingDetails.Text = "Download Files";
+            backgroundWorkerGetSTNews.RunWorkerAsync();
             CreateBackupicon();
             if (AnimePlayer.Properties.Settings.Default.RoundingControl)
             {
@@ -114,6 +128,13 @@ namespace AnimePlayer
                 rc.CornerRadius = 15;
             }
         }
+
+        private void PanelNews_ControlAdded(object sender, ControlEventArgs e)
+        {
+            panelNews.Show();
+            panelSTNewsMain.Show();
+        }
+
         Task CreateBackupicon()
         {
             try
@@ -222,6 +243,10 @@ namespace AnimePlayer
                 {
                     local = true;
                 }
+                if (arg =="-offline")
+                {
+                    onOnline = false;
+                }
             }
 
 
@@ -243,6 +268,13 @@ namespace AnimePlayer
                 Interpreter interpreter = new Interpreter(this);
                 interpreter.Local();
             }
+
+            /*
+            if(panelNews.Controls.Count <= 0)
+            {
+                panelSTNewsMain.Hide();
+            }
+            */
             panelLoading.Hide();
         }
 
@@ -1046,6 +1078,28 @@ namespace AnimePlayer
                 panelSearch.BringToFront();
                 return;
             }
+        }
+
+        private void backgroundWorkerGetSTNews_DoWork(object sender, DoWorkEventArgs e)
+        {
+            if(onOnline)
+            {
+                bool state = DownloadFileNews.DownloadWithGdrive();
+                if(state == false)
+                {
+                    DownloadFileNews.DownloadWithOneDrive();
+                }
+                InterpreterFileNews.Start(panelNews, DownloadFileNews.GetPathListNews(), panel2);
+            }
+            else
+            {
+                InterpreterFileNews.Start(panelNews, DownloadFileNews.GetPathListNews(), panel2);
+            }
+            if(panelNews.Controls.Count > 0)
+            {
+                this.Invoke(new Action(() => panelNews.Show()));
+            }
+            return;
         }
     }
 }

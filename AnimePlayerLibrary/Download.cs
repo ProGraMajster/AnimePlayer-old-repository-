@@ -12,6 +12,7 @@ namespace AnimePlayerLibrary
     {
         public static class OneDrive
         {
+
             public static string onedriveUri(string link)
             {
                 if(string.IsNullOrEmpty(link))
@@ -130,6 +131,32 @@ namespace AnimePlayerLibrary
                 }
             }
 
+        }
+
+        public static class GoogleDrive
+        {
+            public static string dUri(string id)
+            {
+                id = "https://drive.google.com/uc?export=download&id=" + id;
+                return id;
+            }
+        }
+
+        public static bool File(string link, string path)
+        {
+            try
+            {
+                WebClient webClient = new WebClient();
+                webClient.DownloadFile(link, path);
+                webClient.Dispose();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                FileLog.Write(ex.ToString());
+                return false;
+            }
         }
     }
 }

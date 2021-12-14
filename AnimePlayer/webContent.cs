@@ -49,7 +49,7 @@ namespace AnimePlayer
             oknoG.labelLoadingDetails.Text = "Initialize";
             oknoG.panelLoading.Show();
             Application.DoEvents();
-            oknoG.labelLoadingDetails.Text = "DonloadMainFile";
+            oknoG.labelLoadingDetails.Text = "DownloadMainFile";
             Application.DoEvents();
             if (downloadMainFile(oknoG) == false)
             {
@@ -612,14 +612,21 @@ namespace AnimePlayer
                         }
                         else if (content[position] == "Species")
                         {
-                            position++;
-                            values.titleInformation.Species = content[position].Split(',');
-                            if(values.titleInformation.Species != null)
+                            try
                             {
-                                for (int i = 0; i <= values.titleInformation.Species.Length; i++)
+                                position++;
+                                values.titleInformation.Species = content[position].Split(',');
+                                if (values.titleInformation.Species != null)
                                 {
-                                    values.titleInformation.Species[i] = values.titleInformation.Species[i].TrimStart(' ');
+                                    for (int i = 0; i <= values.titleInformation.Species.Length; i++)
+                                    {
+                                        values.titleInformation.Species[i] = values.titleInformation.Species[i].TrimStart(' ');
+                                    }
                                 }
+                            }
+                            catch(Exception exSpe)
+                            {
+                                Console.WriteLine(exSpe.ToString());
                             }
                         }
                         else if (content[position] == "typesOfCharacters")
