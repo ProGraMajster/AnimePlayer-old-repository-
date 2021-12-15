@@ -14,14 +14,14 @@ namespace AnimePlayerLibrary
     public partial class NewsPageContent : UserControl
     {
         ListNews news;
-        public NewsPageContent(ListNews listnews)
+        public NewsPageContent(ListNews listnews, bool local=false)
         {
             InitializeComponent();
             try
             {
                 news = listnews;
-                Download.File(news.ContentLink, DefaultAppDire.Temp + news.ID + "_newspage.txt");
                 Application.DoEvents();
+                SetContentPage();
             }
             catch (Exception ex)
             {
@@ -33,7 +33,7 @@ namespace AnimePlayerLibrary
         {
             try
             {
-                string path = DefaultAppDire.Temp + news.ID + "_newspage.txt";
+                string path = DefaultAppDir.Temp + "\\" + news.ID + "_newspage.txt";
                 if (path == null)
                 {
                     return;
@@ -71,6 +71,10 @@ namespace AnimePlayerLibrary
                                 position++;
                                 pictureBox.Size = new Size(x, int.Parse(content[position]));
                                 pictureBox.Dock = DockStyle.Top;
+                                pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                                this.Controls.Add(pictureBox);
+
+                                this.Controls.SetChildIndex(pictureBox, 0);
                             }
                         }
                     }
@@ -90,6 +94,10 @@ namespace AnimePlayerLibrary
                                 position++;
                                 label.Size = new Size(x, int.Parse(content[position]));
                                 label.Dock = DockStyle.Top;
+                                label.ForeColor= Color.White;
+                                label.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+                                this.Controls.Add(label);
+                                this.Controls.SetChildIndex(label, 0);
                             }
                         }
                     }
@@ -97,6 +105,8 @@ namespace AnimePlayerLibrary
                     {
                         position++;
                         Button button = new Button();
+                        button.ForeColor = Color.White;
+                        button.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
                         button.Click += ButtonOpenLink_Click;
                         button.FlatStyle = FlatStyle.Flat;
                         button.FlatAppearance.BorderSize = 0;
@@ -114,6 +124,8 @@ namespace AnimePlayerLibrary
                                 position++;
                                 button.Size = new Size(x, int.Parse(content[position]));
                                 button.Dock = DockStyle.Top;
+                                this.Controls.Add(button);
+                                this.Controls.SetChildIndex(button, 0);
                             }
                         }
                     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AnimePlayerLibrary
 {
-    public static class DefaultAppDire
+    public static class DefaultAppDir
     {
         public static String Icon { get { return "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\Icon"; } }
         public static String IconBackup { get { return "C:\\ContentLibrarys\\OtherFiles\\WMP_OverlayApp\\IconBackup"; } }

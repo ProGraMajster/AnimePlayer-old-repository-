@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,13 +18,23 @@ namespace AnimePlayerLibrary
         public Panel panelMain;
         public ListNews ln;
         Timer timer;
-        public PanelNews(ListNews listNews, Panel panel)
+        private bool flag_local = false;
+
+        BackgroundWorker worker;
+        public PanelNews(ListNews listNews, Panel panel, bool local = false)
         {
             InitializeComponent();
             panelMain = panel;
             ln = listNews;
+            flag_local = local;
             try
             {
+                if (local==false)
+                {
+                    worker = new BackgroundWorker();
+                    worker.DoWork += Worker_DoWork;
+                    worker.RunWorkerAsync();
+                }
                 timer = new Timer();
                 timer.Interval = 1000;
                 timer.Tick += Timer_Tick;
@@ -46,6 +57,21 @@ namespace AnimePlayerLibrary
                 Console.WriteLine(ex.ToString());
             }
             
+        }
+
+        private void Worker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            try
+            {
+                WebClient webClient = new WebClient();
+                webClient.DownloadFile(linkContent, DefaultAppDir.Temp + "\\" + ln.ID + "_newspage.txt");
+                webClient.Dispose();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -73,7 +99,7 @@ namespace AnimePlayerLibrary
 
         private void item_Click(object sender, EventArgs e)
         {
-            NewsPageContent npc = new NewsPageContent(ln);
+            NewsPageContent npc = new NewsPageContent(ln, flag_local);
             panelMain.Controls.Add(npc);
             npc.Show();
             npc.BringToFront();

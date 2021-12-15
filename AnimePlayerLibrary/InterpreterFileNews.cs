@@ -10,14 +10,14 @@ namespace AnimePlayerLibrary
 {
     public static class InterpreterFileNews
     {
-        public static void Start(Control output, string path, Panel panel2)
+        public static void Start(Control output, string path, Panel panel2, bool local = false)
         {
             if(output == null)
             { return; }
 
             foreach(ListNews ln in SetFile(path))
             {
-                PanelNews panelNews = new PanelNews(ln, panel2);
+                PanelNews panelNews = new PanelNews(ln, panel2, local);
                 panelNews.Show();
                 output.Invoke((Action)(() => output.Controls.Add(panelNews)));
             }

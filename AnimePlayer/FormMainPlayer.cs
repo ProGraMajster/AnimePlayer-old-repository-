@@ -45,6 +45,7 @@ namespace AnimePlayer
                 panelSTNewsMain.Controls.Add(panelNews);
                 panelNews.Show();
                 panelNews.ControlAdded += PanelNews_ControlAdded;
+                panelSTNewsMain.Hide();
                 Application.DoEvents();
                 if (!Directory.Exists("C:\\ContentLibrarys"))
                 {
@@ -133,6 +134,7 @@ namespace AnimePlayer
         {
             panelNews.Show();
             panelSTNewsMain.Show();
+            panelStartPage.Controls.SetChildIndex(panelSTNewsMain, 2);
         }
 
         Task CreateBackupicon()
@@ -1100,6 +1102,18 @@ namespace AnimePlayer
                 this.Invoke(new Action(() => panelNews.Show()));
             }
             return;
+        }
+
+        private void OknoG_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                Directory.Delete(DefaultAppDir.Temp, true);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
     }
 }
